@@ -22,9 +22,17 @@ public class Charakter {
 	    private ArrayList<Equipment> backpackItems;
 	    private ArrayList<Equipment> specialItems;
 
-		public Charakter() {
-
-		}public String getName() {
+		
+	    public Charakter() {
+			// TODO Auto-generated constructor stub
+		}
+	    
+	    public static Charakter Charakter_Laden() {
+			return new Charakter();
+		}
+	    
+	    
+		public String getName() {
 			return name;
 		}	
 		
