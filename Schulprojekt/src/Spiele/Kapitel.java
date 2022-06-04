@@ -3,9 +3,15 @@ package Spiele;
 public class Kapitel {
 	
 	
+	
+public void Kapitel_Auswahl() {
+	
+}	
+	
+	
 public int Kapitel_1 () 
 {
-	String Text= "You must make haste for you sense it is not safe to linger by the smoking remains of the ruined monastery.\r\n" + 
+	String Text = "You must make haste for you sense it is not safe to linger by the smoking remains of the ruined monastery.\r\n" + 
 			"The black-winged beasts could return at any moment. You must set out for the Sommlending capital of\r\n" + 
 			"Holmgard and tell the King the terrible news of the massacre: that the whole élite of Kai warriors, save\r\n" + 
 			"yourself, have been slaughtered. Without the Kai Lords to lead her armies, Sommerlund will be at the mercy\r\n" + 
