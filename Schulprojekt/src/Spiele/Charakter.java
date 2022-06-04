@@ -1,4 +1,4 @@
-package Spiel;
+package Spiele;
 
 import java.util.*;
 
@@ -161,6 +161,6 @@ public class Charakter {
 			this.specialItems = specialItems;
 		}
 
-	}
-
 }
+
+

@@ -1,4 +1,4 @@
-package Spiel;
+package Spiele;
 
 public class Equipment {
 
