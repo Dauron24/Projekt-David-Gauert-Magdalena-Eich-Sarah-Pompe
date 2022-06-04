@@ -26,9 +26,7 @@ public class Charakter {
 
 		}public String getName() {
 			return name;
-		}
-
-		
+		}	
 		
 		/**
 		 * @return the capitel
