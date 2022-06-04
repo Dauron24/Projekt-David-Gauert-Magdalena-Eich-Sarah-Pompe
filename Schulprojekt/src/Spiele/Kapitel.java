@@ -4,7 +4,7 @@ public class Kapitel {
 	
 	
 	
-public void Kapitel_Auswahl() {
+public void Kapitel_Auswahl(int Kapitel) {
 	
 }	
 	
