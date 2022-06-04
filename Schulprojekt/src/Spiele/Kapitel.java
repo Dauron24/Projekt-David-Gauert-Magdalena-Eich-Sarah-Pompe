@@ -74,5 +74,6 @@ public int Kapitel_7 ()
 public int Kapitel_8 ()
 {
 	String Text = "Your Kai Sixth Sense warns there is a fierce battle raging in the south. Your common sense tells you that the south is also the quickest route to the capital.";
+	return 0;
 }
 }

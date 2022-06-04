@@ -6,7 +6,7 @@ public class Enemy {
 	private int COMBATSKILL;
 	private int ENDURANCE;
 
-	public enemy(String name, int combatskill, int endurance) {
+	public Enemy(String name, int combatskill, int endurance) {
 		// TODO Automatisch generierter Konstruktorstub
 		this.Name = name;
 		this.COMBATSKILL = combatskill;
