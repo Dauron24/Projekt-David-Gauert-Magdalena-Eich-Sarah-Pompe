@@ -2,7 +2,7 @@ package Spiele;
 
 import java.util.Scanner;
 
-public class main {
+public class spiele {
 
 	private static Scanner eingabe = new Scanner(System.in);
 	private static Charakter Spielfigur;
@@ -111,10 +111,5 @@ public class main {
 				+ "    Pedro Almeida, Jan Charvát, Christian Cognigni, Tony Lenzo, Dewi Morgan, Laurence O’Toole, Timothy Pederick ");
 		
 	}
-	
-	public static void clearScreen() {  
-	    System.out.print("\033[H\033[2J");  
-	    System.out.flush();  
-	}  
 
 }
