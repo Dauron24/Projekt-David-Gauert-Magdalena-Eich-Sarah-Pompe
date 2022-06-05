@@ -1,3 +1,7 @@
+//Ich schreibe hier eitwas hin um zu sehen wie die Arbeit in der Gruppe funktsoniert
+
+
+
 package Spiele;
 
 import java.util.Scanner;
@@ -91,24 +95,24 @@ public class spiele {
 				+ "    Jonathan Blake (Extramatter Charts and Tables)\r\n"
 				+ "    Michael Hahn (Map)\r\n"
 				+ "Proofreading\r\n"
-				+ "    Mark Laird (Sections 36–70 and 281–315)\r\n"
-				+ "    Christian Leonhard (Sections 106–140 and 211–245)\r\n"
-				+ "    Brad Phelps (Sections 176–210)\r\n"
-				+ "    Michael Richey (Sections 1–35 and 316–350)\r\n"
-				+ "    Tyson Torres (Sections 71–105, 141–175, and 246–280)\r\n"
+				+ "    Mark Laird (Sections 36â€“70 and 281â€“315)\r\n"
+				+ "    Christian Leonhard (Sections 106â€“140 and 211â€“245)\r\n"
+				+ "    Brad Phelps (Sections 176â€“210)\r\n"
+				+ "    Michael Richey (Sections 1â€“35 and 316â€“350)\r\n"
+				+ "    Tyson Torres (Sections 71â€“105, 141â€“175, and 246â€“280)\r\n"
 				+ "Editing\r\n"
 				+ "    Mike Feldman\r\n"
-				+ "    Ingo Klöcker\r\n"
+				+ "    Ingo KlÃ¶cker\r\n"
 				+ "    Mark Laird\r\n"
 				+ "    Simon Osborne\r\n"
 				+ "    Thomas Wolmer\r\n"
 				+ "    Timothy Pederick\r\n"
 				+ "PDF Layout\r\n"
-				+ "    Ingo Klöcker\r\n"
+				+ "    Ingo KlÃ¶cker\r\n"
 				+ "Coordination\r\n"
 				+ "    Jonathan Blake\r\n"
 				+ "Special Thanks\r\n"
-				+ "    Pedro Almeida, Jan Charvát, Christian Cognigni, Tony Lenzo, Dewi Morgan, Laurence O’Toole, Timothy Pederick ");
+				+ "    Pedro Almeida, Jan CharvÃ¡t, Christian Cognigni, Tony Lenzo, Dewi Morgan, Laurence Oâ€™Toole, Timothy Pederick ");
 		
 	}
 
