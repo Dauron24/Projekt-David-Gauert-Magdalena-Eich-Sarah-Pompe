@@ -1,7 +1,3 @@
-//Ich schreibe hier eitwas hin um zu sehen wie die Arbeit in der Gruppe funktsoniert
-
-
-
 package Spiele;
 
 import java.util.Scanner;
@@ -17,6 +13,12 @@ public class spiele {
 			
 			boolean speilen_zeit = true;
 			
+			//Solange bis eine Gultige Enstscheidung getoffen wurde. Oder Danksakung getroffen wurde oder das Program Beebdet wurede
+			//Zeige das Starte Menue an	
+			//Solange bis eine Gultige Enstscheidung getoffen wurde. Oder Danksakung getroffen wurde oder das Program Beebdet wurede
+			//Zeige das Starte Menue an	
+			//Solange bis eine Gultige Enstscheidung getoffen wurde. Oder Danksakung getroffen wurde oder das Program Beebdet wurede
+			//Zeige das Starte Menue an	
 			//Solange bis eine Gultige Enstscheidung getoffen wurde. Oder Danksakung getroffen wurde oder das Program Beebdet wurede
 			//Zeige das Starte Menue an	
 			auswahl = Spiele_Start();
