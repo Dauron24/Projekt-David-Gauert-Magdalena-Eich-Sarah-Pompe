@@ -6,7 +6,7 @@ public class spiele {
 	private static Scanner eingabe = new Scanner(System.in);
 	private static Charakter Spielfigur;
 	private static Kapitel Kapitel_Spiel = new Kapitel();
-	private static int auswahl;
+	
 	
 	public static void main(String[] args) {				
 			
@@ -16,7 +16,7 @@ public class spiele {
 				//Solange bis eine Gultige Enstscheidung getoffen wurde. Oder Danksakung getroffen wurde oder das Program Beebdet wurede
 				//Zeige das Starte Menue an	
 				
-				auswahl = Spiele_Start();
+				int auswahl = Spiele_Start();
 				//Entscheide 
 				switch (auswahl) {
 				
@@ -142,5 +142,31 @@ public class spiele {
 	public static void warte_auf_eingabe() {
 		System.out.println("Presse a Key and Enter to continue.");
 		eingabe.next();
+	}
+	
+	public static boolean bestädigen_Entscheidung() 
+	{
+		String auswahl ="";
+		do {			
+		
+		System.out.println("Sind sie sich sicher j/n");
+		try {
+			auswahl=eingabe.next();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		if (auswahl.equals("j")) {
+			return true;
+			
+		} 
+		else if(auswahl.equals("n")) {
+			return false;	
+		}
+		else {
+			System.out.println("Sie müssen j oder n eingeben. Klein Bustaben");
+		}
+		} while (true);
 	}
 }
