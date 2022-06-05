@@ -14,17 +14,15 @@ public class spiele {
 			boolean speilen_zeit = true;
 			
 			//Solange bis eine Gultige Enstscheidung getoffen wurde. Oder Danksakung getroffen wurde oder das Program Beebdet wurede
+			//Zeige das Starte Menue an	
+			auswahl = Spiele_Start();
 			do {				
-				//Zeige das Starte Menue an
-				
-				
-				auswahl = Spiele_Start();
-				
 				//Entscheide 
 				switch (auswahl) {
 				
 				//			Erstelle ein Neuen Charakter
 				case 1:
+					ClearConsole();
 					Spielfigur = new Charakter();
 					Spiel.Kapitel_Auswahl(1);
 					speilen_zeit = true;
@@ -32,6 +30,7 @@ public class spiele {
 					break;
 				//			Lade eine Alten Charakter
 				case 2:
+					ClearConsole();
 					Spielfigur = Charakter.Charakter_Laden();
 					Spiel.Kapitel_Auswahl(Spielfigur.getCapitel());
 					speilen_zeit = true;
@@ -39,9 +38,11 @@ public class spiele {
 					break;
 				//			Zeige die Dankasagung an
 				case 3:
-					Danksagung();
+					ClearConsole();
+					auswahl = Danksagung();
 					speilen_zeit = true;
 					System.out.println("");
+					
 					break;
 				//			Bende das Spiele  break befehele
 				case 4:
@@ -49,12 +50,14 @@ public class spiele {
 					break;
 				}
 				
+				
 			} while (speilen_zeit);
 	}
 	
 	
 	public static int Spiele_Start() {
 		
+		System.out.println("");
 		System.out.println("Welcome to the Flight from the Dark adventure.");
 		System.out.println("Neues Spiel : 1.");
 		System.out.println("Spiel Laden : 2.");
@@ -72,7 +75,7 @@ public class spiele {
 				
 	}
 	
-	public static void Danksagung() {
+	public static int Danksagung() {
 		System.out.println(""
 				+ "Credits\r\n"
 				+ "\r\n"
@@ -110,6 +113,27 @@ public class spiele {
 				+ "Special Thanks\r\n"
 				+ "    Pedro Almeida, Jan Charvát, Christian Cognigni, Tony Lenzo, Dewi Morgan, Laurence O’Toole, Timothy Pederick ");
 		
+				
+				return  Spiele_Start();		
 	}
 
+	public static void ClearConsole()
+	{
+        try{
+            String operatingSystem = System.getProperty("os.name"); //Check the current operating system
+              
+            if(operatingSystem.contains("Windows")){        
+                ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "cls");
+                Process startProcess = pb.inheritIO().start();
+                startProcess.waitFor();
+            } else {
+                ProcessBuilder pb = new ProcessBuilder("clear");
+                Process startProcess = pb.inheritIO().start();
+
+                startProcess.waitFor();
+            } 
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
 }
