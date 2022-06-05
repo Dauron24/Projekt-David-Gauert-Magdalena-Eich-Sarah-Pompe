@@ -12,11 +12,11 @@ public class spiele {
 			
 			boolean speilen_zeit = true;
 			
-			//Solange bis eine Gultige Enstscheidung getoffen wurde. Oder Danksakung getroffen wurde oder das Program Beebdet wurede
-			//Zeige das Starte Menue an	
-		
-			auswahl = Spiele_Start();
 			do {				
+				//Solange bis eine Gultige Enstscheidung getoffen wurde. Oder Danksakung getroffen wurde oder das Program Beebdet wurede
+				//Zeige das Starte Menue an	
+				
+				auswahl = Spiele_Start();
 				//Entscheide 
 				switch (auswahl) {
 				
@@ -27,22 +27,21 @@ public class spiele {
 					Kapitel_Spiel.Get_Spielfiguer(Spielfigur);
 					Kapitel_Spiel.Kapitel_Auswahl(1);
 					speilen_zeit = true;
-					System.out.println("");
+					ClearConsole();
 					break;
 				//			Lade eine Alten Charakter
 				case 2:
 					ClearConsole();
 					Spielfigur = Charakter.Charakter_Laden();
 					Kapitel_Spiel.Get_Spielfiguer(Spielfigur);
-					Kapitel_Spiel.Kapitel_Auswahl(Spielfigur.getCapitel());
-					
+					Kapitel_Spiel.Kapitel_Auswahl(Spielfigur.getCapitel());					
 					speilen_zeit = true;
-					System.out.println("");
+					ClearConsole();
 					break;
 				//			Zeige die Dankasagung an
 				case 3:
 					ClearConsole();
-					auswahl = Danksagung();
+					Danksagung();
 					speilen_zeit = true;
 					System.out.println("");
 					
@@ -57,7 +56,7 @@ public class spiele {
 			} while (speilen_zeit);
 	}
 	
-	
+
 	public static int Spiele_Start() {
 		
 		System.out.println("");
@@ -78,7 +77,7 @@ public class spiele {
 				
 	}
 	
-	public static int Danksagung() {
+	public static void Danksagung() {
 		System.out.println(""
 				+ "Credits\r\n"
 				+ "\r\n"
@@ -117,7 +116,6 @@ public class spiele {
 				+ "    Pedro Almeida, Jan Charvát, Christian Cognigni, Tony Lenzo, Dewi Morgan, Laurence O’Toole, Timothy Pederick ");
 		
 				
-				return  Spiele_Start();	
 				//auch was machen
 				
 	}
@@ -141,4 +139,8 @@ public class spiele {
             System.out.println(e);
         }
     }
+	public static void warte_auf_eingabe() {
+		System.out.println("Presse a Key and Enter to continue.");
+		eingabe.next();
+	}
 }

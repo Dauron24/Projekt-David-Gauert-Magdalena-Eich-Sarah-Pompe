@@ -11,7 +11,8 @@ public class Charakter {
 		 * @return the name
 		 */
 		
-
+		private Scanner eingabe = new Scanner(System.in);
+		private Random zufallzahl = new Random();
 		private int capitel;
 		private int COMBAT_SKILL;
 		private int ENDURANCE;
@@ -25,7 +26,62 @@ public class Charakter {
 		
 	    public Charakter() {
 			// TODO Auto-generated constructor stub
+	    	System.out.println("During your training as a Kai Lord you have developed fighting prowess—COMBAT "
+	    			+ "SKILL and physical stamina—ENDURANCE. Before you set off on your adventure you need to measure "
+	    			+ "how effective your training has been. To do this take a pencil and, with your eyes closed, point "
+	    			+ "with the blunt end of it onto the Random Number Table. If you pick 0 it counts as zero.\r\n"
+	    			+ "\r\n"
+	    			+ "The first number that you pick from the Random Number Table in this way represents "
+	    			+ "your COMBAT SKILL.  When you fight, your COMBAT SKILL will be pitted "
+	    			+ "against that of your enemy. A high score in this section is therefore very desirable.\r\n"
+	    			+ "\r\n");
+	    	this.COMBAT_SKILL = zufallzahl.nextInt(9) +10;
+	    	System.out.println("Deine COMBAT SKILL are :" + this.COMBAT_SKILL);
+	    	spiele.warte_auf_eingabe();
+	    	
+	    			System.out.println("The second number that you pick from the Random Number Table represents your powers of ENDURANCE. ");
+	    			
+	    	this.ENDURANCE = zufallzahl.nextInt(9) +20;
+	      	System.out.println("Deine ENDURANCE are :" + this.ENDURANCE);
+	    	spiele.warte_auf_eingabe();
+	    	
+	    			System.out.println("If you are wounded in combat you will lose ENDURANCE points. If at any time your ENDURANCE "
+	    			+ "points fall to zero or below, you are dead and the adventure is over. Lost ENDURANCE points can be "
+	    			+ "regained during the course of the adventure, but your number of ENDURANCE points can never go above the "
+	    			+ "number with which you start your adventure.");
+	    	
+	    	
+	    	
+	    	eingabe.next();
 		}
+	    
+	    public void Seleckt_kaiDisciplines () 
+	    {
+	    	spiele.ClearConsole();
+	    	System.out.println("Kai Disciplines\r\n"
+	    			+ "\r\n"
+	    			+ "Over the centuries, the Kai monks have mastered the skills of the warrior. These skills are known as the Kai "
+	    			+ "Disciplines, and they are taught to all Kai Lords. You have learnt only five of the skills listed below. The choice of which five skills these are, is for you to make. As all of the Disciplines may be of use to you at some point on your perilous quest, pick your five with care. The correct use of a Discipline at the right time can save your life.\r\n"
+	    			+ "\r\n"
+	    			+ "When you have chosen your five Disciplines, enter them in the Kai Disciplines section of your ");
+	    	int i=1;
+	    	do {
+	    		System.out.println("Wählen sie aus derl Liste eine Kai Disciplines."
+	    				+ "\r\n"
+	    				+ "\r\n"
+	    				+ "1 : Camouflage \r\n"
+	    				+ "2 : Hunting \r\n"
+	    				+ "3 : Sixth Sense \r\n"
+	    				+ "4 : Tracking \r\n"
+	    				+ "5 : Healing \r\n"
+	    				+ "6 : Weaponskill \r\n"
+	    				+ "7 : Mindshield \r\n"
+	    				+ "8 : Mindblast \r\n"
+	    				+ "9 : Animal Kinship \r\n");
+				
+			
+	    	} while (i<=4);
+	    }
 	    
 	    public static Charakter Charakter_Laden() {
 			return new Charakter();
