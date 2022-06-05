@@ -65,6 +65,7 @@ public class Charakter {
 	    			+ "\r\n"
 	    			+ "When you have chosen your five Disciplines, enter them in the Kai Disciplines section of your ");
 	    	int i=1;
+	    	
 	    	do {
 	    		System.out.println("Wählen sie aus derl Liste eine Kai Disciplines."
 	    				+ "\r\n"
@@ -77,8 +78,25 @@ public class Charakter {
 	    				+ "6 : Weaponskill \r\n"
 	    				+ "7 : Mindshield \r\n"
 	    				+ "8 : Mindblast \r\n"
-	    				+ "9 : Animal Kinship \r\n");
+	    				+ "8 : Animal Kinship \r\n"
+	    				+ "9 : Mind Over Matter \r\n");
+	    		
+	    		int auswahl=0;
+	    		try {
+	    			auswahl=eingabe.nextInt();
+	    			
+	    		} catch (Exception e) {
+	    			// TODO: handle exception
+	    		}
 				
+	    		switch (auswahl) {
+	    		case 1: 
+	    			break;
+	    
+
+				default:
+					break;
+				}
 			
 	    	} while (i<=4);
 	    }
