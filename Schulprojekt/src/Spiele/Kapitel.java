@@ -1,13 +1,17 @@
 package Spiele;
 
 public class Kapitel {
+	public Charakter Spielefiguer;
 	
 	
 	
 public void Kapitel_Auswahl(int Kapitel) {
 	
 }	
-	
+
+public void Get_Spielfiguer(Charakter Spielfiguer){
+	this.Spielefiguer= Spielfiguer;
+}
 	
 public int Kapitel_1 () 
 {

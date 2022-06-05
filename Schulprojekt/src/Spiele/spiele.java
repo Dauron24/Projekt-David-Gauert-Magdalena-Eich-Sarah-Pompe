@@ -1,12 +1,11 @@
 package Spiele;
-
 import java.util.Scanner;
 
 public class spiele {
 
 	private static Scanner eingabe = new Scanner(System.in);
 	private static Charakter Spielfigur;
-	private static Kapitel Spiel = new Kapitel();
+	private static Kapitel Kapitel_Spiel = new Kapitel();
 	private static int auswahl;
 	
 	public static void main(String[] args) {				
@@ -25,7 +24,8 @@ public class spiele {
 				case 1:
 					ClearConsole();
 					Spielfigur = new Charakter();
-					Spiel.Kapitel_Auswahl(1);
+					Kapitel_Spiel.Get_Spielfiguer(Spielfigur);
+					Kapitel_Spiel.Kapitel_Auswahl(1);
 					speilen_zeit = true;
 					System.out.println("");
 					break;
@@ -33,7 +33,9 @@ public class spiele {
 				case 2:
 					ClearConsole();
 					Spielfigur = Charakter.Charakter_Laden();
-					Spiel.Kapitel_Auswahl(Spielfigur.getCapitel());
+					Kapitel_Spiel.Get_Spielfiguer(Spielfigur);
+					Kapitel_Spiel.Kapitel_Auswahl(Spielfigur.getCapitel());
+					
 					speilen_zeit = true;
 					System.out.println("");
 					break;
