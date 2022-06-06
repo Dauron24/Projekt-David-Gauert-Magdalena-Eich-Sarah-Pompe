@@ -114,21 +114,18 @@ public class Charakter {
 	    		if (auswahl==waponePosion) {
 	    			spiele.ClearConsole();
 	    			wapeonOprionList.get(0).Info();
+	    			System.out.println("");
 	    			System.out.println("Sie haben noch "+(6-i)+"Kai Disciplines auswahlen frei.");
-	    			System.out.println("Wählen sie aus derl Liste eine Waffen aus.");
+	    			System.out.println("");
 	    			
 	    			for (int j = 0; j < wapeonOprionList.size(); j++) {
 		    			System.out.println(j+ ":" + wapeonOprionList.get(j).getName());		    		
 		    		}
 	    			
-	    			int Waffen_auswahl=0;
-	    			
-		    		try {
-		    			Waffen_auswahl=eingabe.nextInt();
-		    			
-		    		} catch (Exception e) {
-		    			// TODO: handle exception
-		    		}
+	    			spiele.warte_auf_eingabe();
+	    			int Waffen_auswahl=zufallzahl.nextInt(10);
+	    			System.out.println("You have " + wapeonOprionList.get(Waffen_auswahl).getName());
+		    		
 		    		
 		    		if(spiele.bestädigen_Entscheidung())
 		    			{
