@@ -17,11 +17,13 @@ public class Charakter {
 		private int COMBAT_SKILL;
 		private int ENDURANCE;
 		private ArrayList<KaiDisciplines> kaiDisciplines = new ArrayList<KaiDisciplines>();
-	    private ArrayList<Equipment> weapons = new ArrayList<Equipment>();
+		private KaiDisciplinesList kaiDisciplines2;
+		
+	    private EquipmentList weapons = new EquipmentList("Weapons", 2);
 	    private Equipment belt_Pouch;
 	    private Equipment Meals;
-	    private ArrayList<Equipment> backpackItems = new ArrayList<Equipment>();
-	    private ArrayList<Equipment> specialItems = new ArrayList<Equipment>();
+	    private EquipmentList backpackItems = new EquipmentList("Backpack Items", 8);
+	    private EquipmentList specialItems = new EquipmentList("SpecialItems", 12);
 
 		
 	    public Charakter() {
@@ -50,106 +52,34 @@ public class Charakter {
 	    			+ "regained during the course of the adventure, but your number of ENDURANCE points can never go above the "
 	    			+ "number with which you start your adventure.");
 	    	
-	    	Seleckt_kaiDisciplines();
+	    	
+	    	kaiDisciplines2 = new KaiDisciplinesList();
+	    	
+	    	
+	    	System.out.println("You are dressed in the green tunic and cloak of a Kai initiate. You have little with you "
+	    			+ "to arm yourself for survival.\r\n"
+	    			+ "\r\n"
+	    			+ "All you possess is an Axe (note under Weapons on your Action Chart) and a Backpack containing 1 Meal "
+	    			+ "(note under Meals on your Action Chart). Hanging from your waist is a leather pouch containing Gold Crowns. "
+	    			+ "To find out how many, pick a number from the Random Number Table. This number equals the number of Gold Crowns "
+	    			+ "you possess at the start of the adventure. (Note the number in the Belt Pouch section of the Action Chart.)\r\n"
+	    			+ "\r\n"
+	    			+ "You discover amongst the smoking ruins of the monastery, a Map of Sommerlund (note under Special Items on the "
+	    			+ "Action Chart) showing the capital city of Holmgard and the land of Durenor, far to the east. You place the "
+	    			+ "Map inside your tunic for safety.");
+	    	
+	    	
+	    	this.weapons.add(new Equipment("Axe", 1,"weapons"));
+	    	this.Meals = new Equipment("Meals", 1, name);
+	    	this.belt_Pouch = new Equipment("weapons", zufallzahl.nextInt(9), "belt_Pouch");
+	    	this.specialItems.add(new Equipment("Map of Sommerlund", 1, "specialItems"));
+	    	
+	    	
 	    	
 	    	eingabe.next();
 		}
 	    
-	    public void Seleckt_kaiDisciplines () 
-	    {
-	    	
-	    	int i=1;
-	    	ArrayList<KaiDisciplines>kaiDiscipinesOprionList = new ArrayList<KaiDisciplines>();
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Animal_Kinship());
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Camouflage());
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Healing());
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Hunting());
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Mind_Over_Matter());
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Mindblast());
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Mindshield());
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Sixth_Sense());
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Tracking());
-	    	kaiDiscipinesOprionList.add(KaiDisciplines.Crate_Weaponskill("Weaponskill"));
-	    	
-	    	
-	    	ArrayList<KaiDisciplines>wapeonOprionList = new ArrayList<KaiDisciplines>();
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Dagger"));
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Spear"));
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Mace"));
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Short Sword"));
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Warhammer"));
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Sword"));
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Axe"));
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Sword"));
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Quarterstaff"));
-	    	wapeonOprionList.add(KaiDisciplines.Crate_Weaponskill("Broadsword"));
-	    	
-	    		    	
-	    	
-	    	do {
-	    	spiele.ClearConsole();
-	    	System.out.println("Kai Disciplines\r\n"
-	    			+ "\r\n"
-	    			+ "Over the centuries, the Kai monks have mastered the skills of the warrior. These skills are known as the Kai "
-	    			+ "Disciplines, and they are taught to all Kai Lords. You have learnt only five of the skills listed below. The choice of which five skills these are, is for you to make. As all of the Disciplines may be of use to you at some point on your perilous quest, pick your five with care. The correct use of a Discipline at the right time can save your life.\r\n"
-	    			+ "\r\n"
-	    			+ "When you have chosen your five Disciplines, enter them in the Kai Disciplines section of your ");
-	    	System.out.println("Sie haben noch "+(6-i)+"Kai Disciplines auswahlen frei.");
-	    	System.out.println("Wählen sie aus derl Liste eine Kai Disciplines.");
-	    	int auswahl=0;
-	    	int waponePosion = 0;  	
-	    	
-	    		for (int j = 0; j < kaiDiscipinesOprionList.size(); j++) {
-	    			System.out.println(j+ ":" + kaiDiscipinesOprionList.get(j).getName());
-	    			if (kaiDiscipinesOprionList.get(j).getName().equals("Weaponskill"))
-	    				waponePosion = j;
-	    		}
-	    		try {
-	    			auswahl=eingabe.nextInt();
-	    			
-	    		} catch (Exception e) {
-	    			// TODO: handle exception
-	    		}	
-	    		
-	    		if (auswahl==waponePosion) {
-	    			spiele.ClearConsole();
-	    			wapeonOprionList.get(0).Info();
-	    			System.out.println("");
-	    			System.out.println("Sie haben noch "+(6-i)+"Kai Disciplines auswahlen frei.");
-	    			System.out.println("");
-	    			
-	    			for (int j = 0; j < wapeonOprionList.size(); j++) {
-		    			System.out.println(j+ ":" + wapeonOprionList.get(j).getName());		    		
-		    		}
-	    			
-	    			spiele.warte_auf_eingabe();
-	    			int Waffen_auswahl=zufallzahl.nextInt(10);
-	    			System.out.println("You have " + wapeonOprionList.get(Waffen_auswahl).getName());
-		    		
-		    		
-		    		if(spiele.bestädigen_Entscheidung())
-		    			{
-						kaiDisciplines.add(wapeonOprionList.get(Waffen_auswahl));
-						wapeonOprionList.remove(Waffen_auswahl);
-						i++;
-						}
-		    		else
-		    			continue;
-				}
-	    		else {
-				spiele.ClearConsole();	    		
-	    		kaiDiscipinesOprionList.get(auswahl).Info();						
-				if(spiele.bestädigen_Entscheidung()){
-				kaiDisciplines.add(kaiDiscipinesOprionList.get(auswahl));
-				kaiDiscipinesOprionList.remove(auswahl);
-				i++;
-				}
-				else
-					continue;
-				}
-	    		
-	    	} while (i<=5);
-	    }
+	   
 	    
 	    public static Charakter Charakter_Laden() {
 			return new Charakter();
@@ -257,14 +187,6 @@ public class Charakter {
 		public void setKaiDisciplines(ArrayList<KaiDisciplines> kaiDisciplines) {
 			this.kaiDisciplines = kaiDisciplines;
 		}
-
-		/**
-		 * @param weapons the weapons to set
-		 */
-		public void setWeapons(ArrayList<Equipment> weapons) {
-			this.weapons = weapons;
-		}
-
 		/**
 		 * @param belt_Pouch the belt_Pouch to set
 		 */
@@ -279,19 +201,7 @@ public class Charakter {
 			Meals = meals;
 		}
 
-		/**
-		 * @param backpackItems the backpackItems to set
-		 */
-		public void setBackpackItems(ArrayList<Equipment> backpackItems) {
-			this.backpackItems = backpackItems;
-		}
-
-		/**
-		 * @param specialItems the specialItems to set
-		 */
-		public void setSpecialItems(ArrayList<Equipment> specialItems) {
-			this.specialItems = specialItems;
-		}
+		
 
 }
 
