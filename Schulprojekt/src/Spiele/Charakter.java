@@ -28,6 +28,11 @@ public class Charakter {
 		
 	    public Charakter() {
 			// TODO Auto-generated constructor stub
+	    	
+	    	System.out.println("Who are you, What is your Name?");
+	    	
+	    	this.name=spiele.EingabeString();
+	    	
 	    	System.out.println("During your training as a Kai Lord you have developed fighting prowess—COMBAT "
 	    			+ "SKILL and physical stamina—ENDURANCE. Before you set off on your adventure you need to measure "
 	    			+ "how effective your training has been. To do this take a pencil and, with your eyes closed, point "
@@ -73,10 +78,8 @@ public class Charakter {
 	    	this.Meals = new Equipment("Meals", 1, name);
 	    	this.belt_Pouch = new Equipment("weapons", zufallzahl.nextInt(9), "belt_Pouch");
 	    	this.specialItems.add(new Equipment("Map of Sommerlund", 1, "specialItems"));
+	    		    	
 	    	
-	    	
-	    	
-	    	eingabe.next();
 		}
 	    
 	   

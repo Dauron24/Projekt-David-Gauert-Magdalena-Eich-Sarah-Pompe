@@ -5,7 +5,7 @@ public class spiele {
 
 	private static Scanner eingabe = new Scanner(System.in);
 	private static Charakter Spielfigur;
-	private static Kapitel Kapitel_Spiel = new Kapitel();
+	private static Kapitel Kapitel_Spiel;
 	
 	
 	public static void main(String[] args) {				
@@ -23,9 +23,10 @@ public class spiele {
 				//			Erstelle ein Neuen Charakter
 				case 1:
 					ClearConsole();
-					Spielfigur = new Charakter();
+					Kapitel_Spiel = new Kapitel();
+					Spielfigur = new Charakter();					
 					Kapitel_Spiel.Get_Spielfiguer(Spielfigur);
-					Kapitel_Spiel.Kapitel_Auswahl(1);
+					Kapitel_Spiel.KapitelAuswahl(1);
 					speilen_zeit = true;
 					ClearConsole();
 					break;
@@ -33,8 +34,9 @@ public class spiele {
 				case 2:
 					ClearConsole();
 					Spielfigur = Charakter.Charakter_Laden();
+					Kapitel_Spiel = new Kapitel();
 					Kapitel_Spiel.Get_Spielfiguer(Spielfigur);
-					Kapitel_Spiel.Kapitel_Auswahl(Spielfigur.getCapitel());					
+					Kapitel_Spiel.KapitelAuswahl(Spielfigur.getCapitel());					
 					speilen_zeit = true;
 					ClearConsole();
 					break;
@@ -65,15 +67,7 @@ public class spiele {
 		System.out.println("Spiel Laden : 2.");
 		System.out.println("Danksagung  : 3.");
 		System.out.println("Spiel Benden  : 4.");
-		
-		int auswahl=0;
-		try {
-			auswahl=eingabe.nextInt();
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return auswahl;
+		return EingabeInt();
 				
 	}
 	
@@ -142,6 +136,30 @@ public class spiele {
 	public static void warte_auf_eingabe() {
 		System.out.println("Presse a Key and Enter to continue.");
 		eingabe.next();
+	}
+	
+	public static int EingabeInt() 
+	{
+		if (eingabe.hasNextInt()) {
+			return eingabe.nextInt();			
+		}
+		else {
+			System.out.println("You musst inssert a Intiger");
+			return EingabeInt();
+		}	
+		
+	}
+	
+	public static String EingabeString() 
+	{
+		if (eingabe.hasNext()&&!eingabe.hasNextDouble()) {
+			return eingabe.next();			
+		}
+		else {
+			System.out.println("You musst inssert a String");
+			return EingabeString();
+		}	
+		
 	}
 	
 	public static boolean bestädigen_Entscheidung() 

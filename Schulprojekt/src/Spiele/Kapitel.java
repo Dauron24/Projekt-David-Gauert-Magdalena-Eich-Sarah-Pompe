@@ -1,20 +1,40 @@
 package Spiele;
 
+import java.util.ArrayList;
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 public class Kapitel {
-	public Charakter Spielefiguer;
+	private Charakter Spielefiguer;
+	private ArrayList<Supplier<Integer>> Kapittelliste = new ArrayList<Supplier<Integer>>();
 	
 	
-	
-public void Kapitel_Auswahl(int Kapitel) {
-	
-}	
+public Kapitel() {
+		
+		Kapittelliste.add(()->Kapitel_1());
+		Kapittelliste.add(()->Kapitel_2());
+		Kapittelliste.add(()->Kapitel_3());
+		Kapittelliste.add(()->Kapitel_4());
+		
+	}
+
+
 
 public void Get_Spielfiguer(Charakter Spielfiguer){
-	this.Spielefiguer= Spielfiguer;
+	
+		this.Spielefiguer= Spielfiguer;
 	
 }
+
+public void KapitelAuswahl(int start) 
+{
+	int Kapitel = start;
+	do {		
+		Kapittelliste.get(Kapitel).get();	
 	
-public int Kapitel_1 () 
+	} while (true);
+}
+public int Kapitel_1() 
 {
 	String Text = "You must make haste for you sense it is not safe to linger by the smoking remains of the ruined monastery.\r\n" + 
 			"The black-winged beasts could return at any moment. You must set out for the Sommlending capital of\r\n" + 
@@ -24,11 +44,12 @@ public int Kapitel_1 ()
 			"Fighting back tears, you bid farewell to your dead kinsmen. Silently, you promise that their deaths will be\r\n" + 
 			"avenged. You turn away from the ruins and carefully descend the steep track.\r\n" + 
 			"At the foot of the hill, the path splits into two directions, both leading into a large wood.";
+	System.out.println(Text);
 	return 1;	
 	
 }
 
-public int Kaspitel_2 ()
+public int Kapitel_2()
 {
 	String Text ="As you dash through the thickening trees, the shouts of the Giaks begin to fade behind you. You have nearly\r\n" + 
 			"outdistanced them completely, when you crash headlong into a tangle of low branches.";

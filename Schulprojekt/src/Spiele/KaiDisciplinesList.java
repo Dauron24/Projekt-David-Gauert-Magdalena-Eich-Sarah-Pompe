@@ -59,12 +59,8 @@ public class KaiDisciplinesList extends ArrayList<KaiDisciplines> {
     			if (kaiDiscipinesOprionList.get(j).getName().equals("Weaponskill"))
     				waponePosion = j;
     		}
-    		try {
-    			auswahl=eingabe.nextInt();
-    			
-    		} catch (Exception e) {
-    			// TODO: handle exception
-    		}	
+    		    		
+    		auswahl = spiele.EingabeInt();
     		
     		if (auswahl==waponePosion) {
     			spiele.ClearConsole();
