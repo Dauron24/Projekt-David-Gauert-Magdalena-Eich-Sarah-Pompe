@@ -67,7 +67,7 @@ public class spiele {
 		System.out.println("Spiel Laden : 2.");
 		System.out.println("Danksagung  : 3.");
 		System.out.println("Spiel Benden  : 4.");
-		return EingabeInt();
+		return EingabeInt(1,4);
 				
 	}
 	
@@ -140,25 +140,47 @@ public class spiele {
 	
 	public static int EingabeInt() 
 	{
-		if (eingabe.hasNextInt()) {
-			return eingabe.nextInt();			
-		}
-		else {
-			System.out.println("You musst inssert a Intiger");
-			return EingabeInt();
-		}	
+		do {	
+			int i=0;
+			String inpute = eingabe.next();
+			if (isInteger(inpute)) {
+				i = Integer.parseInt(inpute);
+				return i;
+			}	
+			
+			else
+				System.out.println("You have inpute a Intiger");
+			} while (true);
+	}
+	
+	public static int EingabeInt(int min, int max) 
+	{		
+		do {	
+		int i=0;
+		String inpute = eingabe.next();
+		if (isInteger(inpute)) {
+			i = Integer.parseInt(inpute);
+			if (i>=min&&i<=max)
+				return i;
+			else
+				System.out.println("You have use one of the Optione");				}		
 		
+		else
+			System.out.println("You have inpute a Intiger");
+		} while (true);
 	}
 	
 	public static String EingabeString() 
 	{
-		if (eingabe.hasNext()&&!eingabe.hasNextDouble()) {
-			return eingabe.next();			
-		}
-		else {
-			System.out.println("You musst inssert a String");
-			return EingabeString();
-		}	
+		do {	
+			String s="";
+			String inpute = eingabe.next();
+			if (isInteger(inpute)) {
+				System.out.println("You have do inpute a String");				
+			}			
+			else
+				return s;
+			} while (true);
 		
 	}
 	
@@ -187,4 +209,34 @@ public class spiele {
 		}
 		} while (true);
 	}
+	
+	private static boolean isInteger(String input)
+	{
+	    try
+	    {
+	       int i = Integer.parseInt(input);
+	    }
+	    catch (NumberFormatException e)
+	    {
+	        return false;
+	    }
+	    return true;
+	}
+
+	private static boolean isDouble(String input)
+	{
+	    try
+	    {
+	       double f = Double.parseDouble(input);
+	
+	    }
+	    catch (NumberFormatException e)
+	    {
+	        return false;
+	    }
+	    return true;
+	}
+	
+	
+	
 }
