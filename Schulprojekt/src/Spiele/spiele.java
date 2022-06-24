@@ -153,6 +153,26 @@ public class spiele {
 			} while (true);
 	}
 	
+	public static int EingabeInt(int ... num) 
+	{
+		do {	
+			int i=0;
+			String inpute = eingabe.next();
+			if (isInteger(inpute)) {
+				i = Integer.parseInt(inpute);	
+				
+				for (int j : num) {
+					if (j==i)
+						return i;						
+				}
+				System.out.println("You have use one of the Optione");
+			}		
+			
+			else
+				System.out.println("You have inpute a Intiger");
+			} while (true);
+	}
+	
 	public static int EingabeInt(int min, int max) 
 	{		
 		do {	

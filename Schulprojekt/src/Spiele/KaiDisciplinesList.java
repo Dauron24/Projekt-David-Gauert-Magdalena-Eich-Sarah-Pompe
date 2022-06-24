@@ -7,6 +7,10 @@ import java.util.Scanner;
 
 public class KaiDisciplinesList extends ArrayList<KaiDisciplines> {
 
+	public KaiDisciplinesList(int i) {
+		super();
+	}
+	
 	public KaiDisciplinesList() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -100,6 +104,16 @@ public class KaiDisciplinesList extends ArrayList<KaiDisciplines> {
 			}
     		
     	} while (i<=5);
+	}
+	
+	public boolean haveKaiDisciplines(String Name) {
+		
+		for (KaiDisciplines element : this) {
+			if (element.getName()==Name) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	

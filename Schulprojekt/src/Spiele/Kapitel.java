@@ -1,12 +1,14 @@
 package Spiele;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class Kapitel {
 	private Charakter Spielefiguer;
 	private ArrayList<Supplier<Integer>> Kapittelliste = new ArrayList<Supplier<Integer>>();
+	private Random zufalzahl = new Random();
 	
 	
 public Kapitel() {
@@ -378,70 +380,109 @@ public void KapitelAuswahl(int start)
 {
 	int Kapitel = start;
 	do {		
-		Kapittelliste.get(Kapitel-1).get();	
+		
+		Kapitel=Kapittelliste.get(Kapitel-1).get();	
 	
 	} while (true);
 }
 public int Kapitel_1 () 
 {
-String Text= "You must make haste for you sense it is not safe to linger by the smoking remains of the ruined monastery.\r\n" + 
-		"The black-winged beasts could return at any moment. You must set out for the Sommlending capital of\r\n" + 
-		"Holmgard and tell the King the terrible news of the massacre: that the whole élite of Kai warriors, save\r\n" + 
-		"yourself, have been slaughtered. Without the Kai Lords to lead her armies, Sommerlund will be at the mercy\r\n" + 
-		"of their ancient enemy, the Darklords.\r\n" + 
-		"Fighting back tears, you bid farewell to your dead kinsmen. Silently, you promise that their deaths will be\r\n" + 
-		"avenged. You turn away from the ruins and carefully descend the steep track.\r\n" + 
-		"At the foot of the hill, the path splits into two directions, both leading into a large wood.";
-System.out.println(Text);
-spiele.EingabeInt(1, 4);
-return 1;	
+
+
+System.out.println("You must make haste for you sense it is not safe to linger by the smoking remains of the "
+		+ "ruined monastery. The black-winged beasts could return at any moment. You must set out for the "
+		+ "Sommlending capital of Holmgard and tell the King the terrible news of the massacre: that the whole "
+		+ "élite of Kai warriors, save yourself, have been slaughtered. Without the Kai Lords to lead her armies, "
+		+ "Sommerlund will be at the mercy of their ancient enemy, the Darklords.\r\n"
+		+ "\r\n"
+		+ "Fighting back tears, you bid farewell to your dead kinsmen. Silently, you promise that their deaths "
+		+ "will be avenged. You turn away from the ruins and carefully descend the steep track.\r\n"
+		+ "\r\n"
+		+ "At the foot of the hill, the path splits into two directions, both leading into a large wood.");
+
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
+	System.out.println("If you wish to use your Kai Discipline of Sixth Sense, turn to 141.");
+}
+System.out.println("If you wish to take the right path into the wood, turn to 85.");
+System.out.println("If you wish to follow the left track, turn to 275.");
+
+return spiele.EingabeInt(141,85,275);
 
 }
 
 public int Kapitel_2()
 {
-String Text ="As you dash through the thickening trees, the shouts of the Giaks begin to fade behind you. You have nearly\r\n" + 
-		"outdistanced them completely, when you crash headlong into a tangle of low branches.";
-return 2;
+
+System.out.println("As you dash through the thickening trees, the shouts of the Giaks begin to fade behind you. You have nearly\r\n"
+		+ "outdistanced them completely, when you crash headlong into a tangle of low branches.");
+
+if (zufalzahl.nextInt(9)<=5) {
+	System.out.println(" you have picked a number 0–4");
+	spiele.bestädigen_Entscheidung();
+	return 343;
+} 
+else {
+	System.out.println(" you have picked a number 5–9");
+	spiele.bestädigen_Entscheidung();
+	return 276;
+}
 }
 
 public int Kapitel_3 ()
 {
-String Text ="Staying close to the officer, you follow him through an arched portal and up a short flight of stairs to a long\r\n" + 
+System.out.println("Staying close to the officer, you follow him through an arched portal and up a short flight of stairs to a long\r\n" + 
 		"hall. Soldiers run back and forth bearing orders on ornate scrolls to officers stationed around the city wall.\r\n" + 
 		"A haggard and scar-faced man dressed in the white and purple robes of the King’s court approaches you and\r\n" + 
-		"bids you follow him to the citadel.";
-return 3;
+		"bids you follow him to the citadel.");
+
+System.out.println("If you wish to follow this man, turn to 196.");
+System.out.println("If you wish to decline his offer and return to the crowded streets, turn to 144.");
+
+return spiele.EingabeInt(196,144);
 }
 
 public int Kapitel_4 ()
 {
-String Text = "It is a small one-man canoe in very poor condition. The wood has split and warped, and the craft appears to\r\n" + 
+System.out.println("It is a small one-man canoe in very poor condition. The wood has split and warped, and the craft appears to\r\n" + 
 		"be leaking in several places. You quickly patch up the worst of the holes with some clay and bail out the\r\n" + 
 		"water. This seems to stop the leaking for the moment. Stowing your equipment at the bow, you set off\r\n" + 
 		"downstream, using a piece of driftwood as a paddle.\r\n" + 
-		"After a short while, you hear the sound of horses galloping towards you along the left bank.";
-return 4;
+		"After a short while, you hear the sound of horses galloping towards you along the left bank.");
+
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
+	System.out.println("If you wish to use the Kai Discipline of Sixth Sense, turn to 218.");
+}
+System.out.println("If you wish to hide in the bottom of the canoe, turn to 75.");
+System.out.println("If you wish to try to attract their attention, turn to 175.");
+
+return spiele.EingabeInt(218,75,175);
 }
 
 public int Kapitel_5 ()
 {
-String Text = "After about an hour of walking, the track slowly bears round to the east. You reach a shallow ford where a\r\n" + 
+System.out.println("After about an hour of walking, the track slowly bears round to the east. You reach a shallow ford where a\r\n" + 
 		"fast-flowing brook runs on a steep rocky course towards the south. Just beyond the ford is a junction where\r\n" + 
 		"the track meets a wider path running north to south. Realizing that the north path will take you away from the\r\n" + 
-		"capital, you turn right at the junction and head south.";
-return 5;
+		"capital, you turn right at the junction and head south.");
+spiele.bestädigen_Entscheidung();
+return 111;
 }
 
 public int Kapitel_6 ()
 {
-String Text = "In the distance you can hear the sound of horses galloping nearer. You crouch behind a tree and wait as the riders come closer. They are the cavalry of the King’s Guard wearing the white uniforms of His Majesty’s army.";
-return 6;
+
+System.out.println("In the distance you can hear the sound of horses galloping nearer. You crouch behind a tree and wait as the "
+		+ "riders come closer. They are the cavalry of the King’s Guard wearing the white uniforms of His Majesty’s army.");
+
+System.out.println("If you wish to call them, turn to 183.");
+System.out.println("If you wish to let them pass and then continue on your way through the forest, turn to 200.");
+
+return spiele.EingabeInt(183,200);
 }
 
 public int Kapitel_7 ()
 {
-String Text = "For what seems an eternity, the rush of the crowd carries you along like a leaf on a fast-flowing stream. You desperately fight to stay on your feet, but you feel weak and dizzy from your ordeal, and your legs are as heavy as lead. Suddenly, you catch a glimpse of a long, narrow stone stairway that leads up to the roof of an inn.\r\n" + 
+System.out.println("For what seems an eternity, the rush of the crowd carries you along like a leaf on a fast-flowing stream. You desperately fight to stay on your feet, but you feel weak and dizzy from your ordeal, and your legs are as heavy as lead. Suddenly, you catch a glimpse of a long, narrow stone stairway that leads up to the roof of an inn.\r\n" + 
 		"\r\n" + 
 		"Gathering the last reserves of your strength, you dive for the stairs and climb slowly up to the top. From here you can see the magnificent view of the rooftops and spires of Holmgard, with the high stone walls of the citadel gleaming in the sun.\r\n" + 
 		"\r\n" + 
@@ -452,30 +493,47 @@ String Text = "For what seems an eternity, the rush of the crowd carries you alo
 		"After careful thought, you decide to use the ‘Roofways’, as they are your only chance of reaching the King. You have hopped, skipped, and jumped across several streets and you are only one street away from the citadel when you come to the end of a row of rooftops.\r\n" + 
 		"\r\n" + 
 		"The jump to the next row is much further than anything you have tried before, and your stomach begins to feel as if it were full of butterflies. Determined to reach the citadel, you turn and take a long run-up to the jump. With blood pounding in your ears, you sprint to the edge of the roof and leap into space, your eyes fixed on the opposite rooftop.\r\n" + 
-		"";
-return 7;
+		"");
+if (zufalzahl.nextInt(9)<=2) {
+	System.out.println(" you have picked a number 0–2");
+	spiele.bestädigen_Entscheidung();
+	return 108;
+} 
+else {
+	System.out.println(" you have picked a number 3–9");
+	spiele.bestädigen_Entscheidung();
+	return 25;
+}
 }
 
 public int Kapitel_8 ()
 {
-String Text = "Your Kai Sixth Sense warns there is a fierce battle raging in the south. Your common sense tells you that the south is also the quickest route to the capital.";
-return 8;
+System.out.println("Your Kai Sixth Sense warns there is a fierce battle raging in the south. Your common sense tells you that the "
+		+ "south is also the quickest route to the capital.");
+return 70;
 }
 
 public int Kapitel_9 ()
 {
 String Text = "You cannot move: you are being held rigid by some powerful force. Your eyes are drawn towards the mouth of the skeleton. From deep in the earth you hear a low humming, like the sound of millions of angry bees. A dull red glow appears in the empty eye sockets of the dead King and the humming increases until your ears are filled with the deafening roar. You are in the presence of an ancient evil, far older and stronger than the Darklords themselves.";
-return 9;
+System.out.println();
+
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
+	System.out.println("You are in possess of a Vordak Gem, turn to 236.");
+}
+else {
+	System.out.println("You are not in possess of a Vordak Gem, turn to 292.");
+}
+return spiele.EingabeInt(236,292);
 }
 
 public int Kapitel_10 ()
 {
 String Text = "You are sweating and your legs ache. In the middle distance you can see a group of cottages.\r\n"
-		+ "\r\n"
-		+ "If you wish to enter a cottage and rest for a while, turn to 115.\r\n"
-		+ "\r\n"
-		+ "If you wish to press on, turn to 83.";
-return 10;
+		+ "\r\n";
+System.out.println("If you wish to enter a cottage and rest for a while, turn to 115.\r\n");
+System.out.println("If you wish to press on, turn to 83.");
+return spiele.EingabeInt(115,83);
 }
 
 public int Kapitel_11 ()
@@ -483,6 +541,7 @@ public int Kapitel_11 ()
 String Text = "You quickly dodge into the doorway of a stable and hide your surgeon’s cloak in the straw, for it would be better to be seen as a Kai Lord than as a charlatan.\r\n"
 		+ "\r\n"
 		+ "Without wasting a second, you set off towards the Great Hall on the other side of the courtyard.";
+System.out.println();
 return 11;
 }
 
@@ -491,6 +550,7 @@ public int Kapitel_12 ()
 String Text = "The bodyguard looks at you with great suspicion and then slams the door shut. You can hear the sound of voices inside the caravan. Suddenly the door swings open and the face of a wealthy merchant appears.\r\n"
 		+ "\r\n"
 		+ "He demands 10 Gold Crowns as payment for the ride.";
+System.out.println();
 return 12;
 }
 
@@ -503,6 +563,7 @@ String Text = "The path soon ends at a large clearing. In the centre of the clea
 		+ "If you wish to climb the tree and search the treehouse, turn to 307.\r\n"
 		+ "\r\n"
 		+ "If you would rather press on, turn to 213.";
+System.out.println();
 return 13;
 }
 
@@ -513,6 +574,7 @@ String Text = "You reach the top of a small wooded hill on which several large b
 		+ "If you wish to draw your weapon and prepare to fight, turn to 43.\r\n"
 		+ "\r\n"
 		+ "If you would rather take evasive action by running as fast as you can over the hill, turn to 106.";
+System.out.println();
 return 14;
 }
 
@@ -529,6 +591,7 @@ String Text = "You pass through a long, dark tunnel of overhanging branches that
 		+ "If you decide to go west, turn to 201.\r\n"
 		+ "\r\n"
 		+ "If you decide to go south, turn to 35.";
+System.out.println();
 return 15;
 }
 
@@ -539,6 +602,7 @@ String Text = "You manage to free a horse from the straps securing it to the car
 		+ "Preparing your weapon, you spur your skittish horse towards the oncoming beasts. They are less than fifty yards away and they are lowering their lances at you as they get nearer and nearer.\r\n"
 		+ "\r\n"
 		+ "You are charging head-on towards each other. Turn to 192.";
+System.out.println();
 return 16;
 }
 
@@ -559,6 +623,7 @@ String Text = "You raise your weapon to strike at the beast as its razor-fanged 
 		+ "If you pick 1–2, turn to 274.\r\n"
 		+ "\r\n"
 		+ "If you pick 3–9, turn to 316.";
+System.out.println();
 return 17;
 }
 
@@ -573,6 +638,7 @@ String Text = "You are awoken by the sound of troops in the distance. Across the
 		+ "If you wish to ride deeper in the forest, turn to 239.\r\n"
 		+ "\r\n"
 		+ "If you wish to fight the creature, turn to 29.";
+System.out.println();
 return 18;
 }
 
@@ -585,6 +651,7 @@ String Text = "Just ahead through the tall trees you can see clumps of dark-red 
 		+ "You can avoid the Sleeptooth by returning to the track. Turn to 272.\r\n"
 		+ "\r\n"
 		+ "Or you can push on through the briars, deeper into the forest, by turning to 119.";
+System.out.println();
 return 19;
 }
 
@@ -597,6 +664,7 @@ String Text = "It seems that whoever lived here left in a great hurry—and they m
 		+ "If you wish to take these items, remember to mark them on your Action Chart. You continue your mission.\r\n"
 		+ "\r\n"
 		+ "Turn to 273.";
+System.out.println();
 return 20;
 }
 

@@ -28,28 +28,25 @@ public class EquipmentList extends ArrayList<Equipment> {
 		
 		Scanner eingabe = new Scanner(System.in);
 		int auswahl;
-		Equipment[] speicher = new Equipment[this.size()];
-		
-		  for (int i = 0; i < this.size(); i++)
-			  speicher[i] = this.get(i);
-		  
-		  System.out.println("Welches Gegenstand soll ausgetaust wertden");
-		  for (int i = 0; i < speicher.length; i++) {			  
-			System.out.println(i+"  "+speicher[i].getName());
+		 
+		System.out.println("Welches Gegenstand soll ausgetaust wertden");
+		  for (int i = 0; i < this.size() ; i++) {			  
+			System.out.println(i+"  "+ this.get(i).getName());
 		}
+		System.out.println();
+		System.out.println("Whit this " + e.getName());
 		auswahl = eingabe.nextInt();
-		this.set(auswahl, e);
+		if (spiele.bestädigen_Entscheidung()) {
+			this.set(auswahl, e);
+		}			
+		
 		eingabe.close();
 	}
 	
 	public boolean haveItems(String Name) {
 		
-		Equipment[] speicher = new Equipment[this.size()];		
-		  for (int i = 0; i < this.size(); i++)
-			  speicher[i] = this.get(i);
-		
-		for (Equipment equipment : speicher) {
-			if (equipment.getName()==Name) {
+		for (Equipment element : this) {
+			if (element.getName()==Name) {
 				return true;
 			}
 		}

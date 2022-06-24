@@ -12,12 +12,14 @@ public class Charakter {
 		 */
 		
 		private Scanner eingabe = new Scanner(System.in);
+		
+
+
 		private Random zufallzahl = new Random();
 		private int capitel;
 		private int COMBAT_SKILL;
 		private int ENDURANCE;
-		private ArrayList<KaiDisciplines> kaiDisciplines = new ArrayList<KaiDisciplines>();
-		private KaiDisciplinesList kaiDisciplines2;
+		private KaiDisciplinesList kaiDisciplines;
 		
 	    private EquipmentList weapons = new EquipmentList("Weapons", 2);
 	    private Equipment belt_Pouch;
@@ -58,7 +60,7 @@ public class Charakter {
 	    			+ "number with which you start your adventure.");
 	    	
 	    	
-	    	kaiDisciplines2 = new KaiDisciplinesList();
+	    	kaiDisciplines = new KaiDisciplinesList();
 	    	
 	    	
 	    	System.out.println("You are dressed in the green tunic and cloak of a Kai initiate. You have little with you "
@@ -91,118 +93,134 @@ public class Charakter {
 	    
 		public String getName() {
 			return name;
-		}	
-		
-		/**
-		 * @return the capitel
-		 */
-		public int getCapitel() {
-			return capitel;
 		}
 
-		/**
-		 * @return the cOMBAT_SKILL
-		 */
-		public int getCOMBAT_SKILL() {
-			return COMBAT_SKILL;
-		}
 
-		/**
-		 * @return the eNDURANCE
-		 */
-		public int getENDURANCE() {
-			return ENDURANCE;
-		}
 
-		/**
-		 * @return the kaiDisciplines
-		 */
-		public ArrayList<KaiDisciplines> getKaiDisciplines() {
-			return kaiDisciplines;
-		}
-
-		/**
-		 * @return the weapons
-		 */
-		public ArrayList<Equipment> getWeapons() {
-			return weapons;
-		}
-
-		/**
-		 * @return the belt_Pouch
-		 */
-		public Equipment getBelt_Pouch() {
-			return belt_Pouch;
-		}
-
-		/**
-		 * @return the meals
-		 */
-		public Equipment getMeals() {
-			return Meals;
-		}
-
-		/**
-		 * @return the backpackItems
-		 */
-		public ArrayList<Equipment> getBackpackItems() {
-			return backpackItems;
-		}
-
-		/**
-		 * @return the specialItems
-		 */
-		public ArrayList<Equipment> getSpecialItems() {
-			return specialItems;
-		}
-
-		/**
-		 * @param name the name to set
-		 */
 		public void setName(String name) {
 			this.name = name;
 		}
 
-		/**
-		 * @param capitel the capitel to set
-		 */
+
+
+		public Scanner getEingabe() {
+			return eingabe;
+		}
+
+
+
+		public void setEingabe(Scanner eingabe) {
+			this.eingabe = eingabe;
+		}
+
+
+
+		public int getCapitel() {
+			return capitel;
+		}
+
+
+
 		public void setCapitel(int capitel) {
 			this.capitel = capitel;
 		}
 
-		/**
-		 * @param cOMBAT_SKILL the cOMBAT_SKILL to set
-		 */
+
+
+		public int getCOMBAT_SKILL() {
+			return COMBAT_SKILL;
+		}
+
+
+
 		public void setCOMBAT_SKILL(int cOMBAT_SKILL) {
 			COMBAT_SKILL = cOMBAT_SKILL;
 		}
 
-		/**
-		 * @param eNDURANCE the eNDURANCE to set
-		 */
+
+
+		public int getENDURANCE() {
+			return ENDURANCE;
+		}
+
+
+
 		public void setENDURANCE(int eNDURANCE) {
 			ENDURANCE = eNDURANCE;
 		}
 
-		/**
-		 * @param kaiDisciplines the kaiDisciplines to set
-		 */
-		public void setKaiDisciplines(ArrayList<KaiDisciplines> kaiDisciplines) {
+
+
+		public KaiDisciplinesList getKaiDisciplines() {
+			return kaiDisciplines;
+		}
+
+
+
+		public void setKaiDisciplines(KaiDisciplinesList kaiDisciplines) {
 			this.kaiDisciplines = kaiDisciplines;
 		}
-		/**
-		 * @param belt_Pouch the belt_Pouch to set
-		 */
+
+
+
+		public EquipmentList getWeapons() {
+			return weapons;
+		}
+
+
+
+		public void setWeapons(EquipmentList weapons) {
+			this.weapons = weapons;
+		}
+
+
+
+		public Equipment getBelt_Pouch() {
+			return belt_Pouch;
+		}
+
+
+
 		public void setBelt_Pouch(Equipment belt_Pouch) {
 			this.belt_Pouch = belt_Pouch;
 		}
 
-		/**
-		 * @param meals the meals to set
-		 */
+
+
+		public Equipment getMeals() {
+			return Meals;
+		}
+
+
+
 		public void setMeals(Equipment meals) {
 			Meals = meals;
 		}
+
+
+
+		public EquipmentList getBackpackItems() {
+			return backpackItems;
+		}
+
+
+
+		public void setBackpackItems(EquipmentList backpackItems) {
+			this.backpackItems = backpackItems;
+		}
+
+
+
+		public EquipmentList getSpecialItems() {
+			return specialItems;
+		}
+
+
+
+		public void setSpecialItems(EquipmentList specialItems) {
+			this.specialItems = specialItems;
+		}
+
 
 		
 
