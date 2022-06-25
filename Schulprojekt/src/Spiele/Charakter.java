@@ -19,6 +19,7 @@ public class Charakter {
 		private int capitel;
 		private int COMBAT_SKILL;
 		private int ENDURANCE;
+		private int ENDURANCEMax;
 		private KaiDisciplinesList kaiDisciplines;
 		
 	    private EquipmentList weapons = new EquipmentList("Weapons", 2);
@@ -27,7 +28,38 @@ public class Charakter {
 	    private EquipmentList backpackItems = new EquipmentList("Backpack Items", 8);
 	    private EquipmentList specialItems = new EquipmentList("SpecialItems", 12);
 
-		
+	    public Charakter(KaiDisciplines Displ1,
+	    		KaiDisciplines Displ2,
+	    		KaiDisciplines Wapon1,
+	    		KaiDisciplines Wapone2,
+	    		Equipment ...wappon) 
+	    {
+	    	this.COMBAT_SKILL = zufallzahl.nextInt(9) +10;
+	    	this.ENDURANCE = zufallzahl.nextInt(9) +20;
+	    	this.kaiDisciplines = new KaiDisciplinesList(Displ1,Displ2,Wapon1,Wapone2);
+	    	this.weapons.add(wappon[0]);
+	    	this.weapons.add(wappon[1]);
+	    	
+	    }
+	    
+	    public Charakter(boolean Mindshield, boolean Mindblast) 
+	    {
+	    
+	    	this.COMBAT_SKILL = zufallzahl.nextInt(9) +10;
+	    	this.ENDURANCE = zufallzahl.nextInt(9) +20;
+	    	if (Mindblast&&Mindshield) {
+				kaiDisciplines = new KaiDisciplinesList(new KaiDisciplines("Mindshield"),new KaiDisciplines("Mindblast"));
+			}
+			else if (Mindshield) {
+				kaiDisciplines = new KaiDisciplinesList(new KaiDisciplines("Mindshield"));
+			}
+			else if (Mindblast) {
+				kaiDisciplines = new KaiDisciplinesList(new KaiDisciplines("Mindblast"));
+			}
+			else {
+				kaiDisciplines = new KaiDisciplinesList(new KaiDisciplines("Default"));
+			}	    	    	
+	    }
 	    public Charakter() {
 			// TODO Auto-generated constructor stub
 	    	
@@ -51,6 +83,7 @@ public class Charakter {
 	    			System.out.println("The second number that you pick from the Random Number Table represents your powers of ENDURANCE. ");
 	    			
 	    	this.ENDURANCE = zufallzahl.nextInt(9) +20;
+	    	this.ENDURANCEMax = this.ENDURANCE;
 	      	System.out.println("Deine ENDURANCE are :" + this.ENDURANCE);
 	    	spiele.warte_auf_eingabe();
 	    	
@@ -90,6 +123,17 @@ public class Charakter {
 			return new Charakter();
 		}
 	    
+	    public int CombatFaktor() {
+	    	for (KaiDisciplines Disciplines: kaiDisciplines) {
+				for (Equipment equipment : weapons) {
+					if (Disciplines.getName()==equipment.getName()) {
+						return 2;
+					}
+				}
+			}
+	    	return 0;
+	    }
+	    
 	    
 		public String getName() {
 			return name;
@@ -100,20 +144,7 @@ public class Charakter {
 		public void setName(String name) {
 			this.name = name;
 		}
-
-
-
-		public Scanner getEingabe() {
-			return eingabe;
-		}
-
-
-
-		public void setEingabe(Scanner eingabe) {
-			this.eingabe = eingabe;
-		}
-
-
+				
 
 		public int getCapitel() {
 			return capitel;
@@ -124,6 +155,7 @@ public class Charakter {
 		public void setCapitel(int capitel) {
 			this.capitel = capitel;
 		}
+		
 
 
 
@@ -147,6 +179,19 @@ public class Charakter {
 
 		public void setENDURANCE(int eNDURANCE) {
 			ENDURANCE = eNDURANCE;
+		}
+		
+		public void decresENDURANCE(int eNDURANCE) {
+			ENDURANCE -= eNDURANCE;
+		}
+		public void incresENDURANCE(int eNDURANCE) {
+			
+			int protoEnduran = this.ENDURANCE+eNDURANCE;
+			
+			if (protoEnduran > this.ENDURANCEMax) {
+				this.ENDURANCE=this.ENDURANCEMax;
+			}
+			ENDURANCE = protoEnduran;
 		}
 
 

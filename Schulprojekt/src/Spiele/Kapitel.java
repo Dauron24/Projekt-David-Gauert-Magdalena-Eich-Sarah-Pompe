@@ -418,12 +418,12 @@ System.out.println("As you dash through the thickening trees, the shouts of the 
 
 if (zufalzahl.nextInt(9)<=5) {
 	System.out.println(" you have picked a number 0–4");
-	spiele.bestädigen_Entscheidung();
+	spiele.warte_auf_eingabe();
 	return 343;
 } 
 else {
 	System.out.println(" you have picked a number 5–9");
-	spiele.bestädigen_Entscheidung();
+	spiele.warte_auf_eingabe();
 	return 276;
 }
 }
@@ -464,7 +464,7 @@ System.out.println("After about an hour of walking, the track slowly bears round
 		"fast-flowing brook runs on a steep rocky course towards the south. Just beyond the ford is a junction where\r\n" + 
 		"the track meets a wider path running north to south. Realizing that the north path will take you away from the\r\n" + 
 		"capital, you turn right at the junction and head south.");
-spiele.bestädigen_Entscheidung();
+spiele.warte_auf_eingabe();
 return 111;
 }
 
@@ -496,12 +496,12 @@ System.out.println("For what seems an eternity, the rush of the crowd carries yo
 		"");
 if (zufalzahl.nextInt(9)<=2) {
 	System.out.println(" you have picked a number 0–2");
-	spiele.bestädigen_Entscheidung();
+	spiele.warte_auf_eingabe();
 	return 108;
 } 
 else {
 	System.out.println(" you have picked a number 3–9");
-	spiele.bestädigen_Entscheidung();
+	spiele.warte_auf_eingabe();
 	return 25;
 }
 }
@@ -544,7 +544,7 @@ System.out.println("You quickly dodge into the doorway of a stable and hide your
 		+ "would be better to be seen as a Kai Lord than as a charlatan.\r\n"
 		+ "\r\n"
 		+ "Without wasting a second, you set off towards the Great Hall on the other side of the courtyard.");
-spiele.bestädigen_Entscheidung();
+spiele.warte_auf_eingabe();
 return 139;
 }
 
@@ -617,7 +617,7 @@ System.out.println("You manage to free a horse from the straps securing it to th
 		+ "Preparing your weapon, you spur your skittish horse towards the oncoming beasts. They are less than fifty yards away and they are lowering their lances at you as they get nearer and nearer.\r\n"
 		+ "\r\n"
 		+ "You are charging head-on towards each other. Turn to 192.");
-spiele.bestädigen_Entscheidung();
+spiele.warte_auf_eingabe();
 return 192;
 }
 
@@ -636,16 +636,16 @@ System.out.println("You raise your weapon to strike at the beast as its razor-fa
 int speicher =zufalzahl.nextInt(9);
 if (speicher<=0) {
 	System.out.println(" You have picked a number 0");
-	spiele.bestädigen_Entscheidung();
+	spiele.warte_auf_eingabe();
 	return 53;
 } 
 else if (speicher<=2) {
 	System.out.println(" You have picked a number 1-2");
-	spiele.bestädigen_Entscheidung();
+	spiele.warte_auf_eingabe();
 	return 274;
 	
 } else {System.out.println(" You have picked a number 3–9");
-	spiele.bestädigen_Entscheidung();
+	spiele.warte_auf_eingabe();
 	return 316;	
 }
 }
@@ -696,95 +696,142 @@ return 273;
 
 public int Kapitel_21 ()
 {
-String Text = "You have ridden about two miles into the tangle of trees when the ground becomes very marshy.\r\n"
+System.out.println("You have ridden about two miles into the tangle of trees when the ground becomes very marshy.\r\n"
 		+ "\r\n"
-		+ "Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If it is below 5, your horse has suddenly plunged into thick mud up to its belly. If the number is 5 or above, you manage to steer clear of the morass and may now turn to 189.\r\n"
-		+ "\r\n"
-		+ "If you are stuck, pick another number from the Random Number Table. If this time the number is 7 or less, the mud engulfs you up to your armpits. Your horse gives one last despairing scream as its muzzle disappears into the bubbling mud. If you scored above 7, you drag yourself onto firm ground and turn to 189.\r\n"
-		+ "\r\n"
-		+ "If not, then this is your last chance! If you pick any number except a 9, the foul-smelling bog sucks you under and claims another victim. Your life and your mission end here. But if you have picked a 9, turn to 312.";
-return 21;
+		+ "Pick a number from the Random Number Table.\r\n");
+int speicher =zufalzahl.nextInt(9);
+if (speicher<=5) {
+	System.out.println("Your Nummer is below 5, your horse has suddenly plunged into thick mud up to its belly. If the number is 5 or "
+		+ "above, you manage to steer clear of the morass and may now turn to 189.\r\n");
+	spiele.warte_auf_eingabe();
+	return 189;	
+} 
+else{
+	System.out.println("If you are stuck, pick another number from the Random Number Table. If this time the number is 7 or "
+		+ "less, the mud engulfs you up to your armpits. Your horse gives one last despairing scream as its "
+		+ "muzzle disappears into the bubbling mud. If you scored above 7, you drag yourself onto firm "
+		+ "ground and turn to 189.\r\n");
+	speicher =zufalzahl.nextInt(9);
+	if (speicher>7) {
+		System.out.println(" You have picked a number above 7");
+		spiele.warte_auf_eingabe();
+		return 189;
+		}
+	else {
+		System.out.println("If not, then this is your last chance! If you pick any number except a 9, the foul-smelling bog sucks "
+		+ "you under and claims another victim. Your life and your mission end here. But if you have picked a 9, "
+		+ "turn to 312.");
+			speicher =zufalzahl.nextInt(9);
+			if (speicher==7) {
+				System.out.println(" You have picked a number 9");
+				spiele.warte_auf_eingabe();
+				return 312;
+				}
+			else {
+				System.out.println(" You have picked a number below 9");
+				spiele.warte_auf_eingabe();
+				return 0;
+			}
+		}
+	}
 }
 
 public int Kapitel_22 ()
 {
-String Text = "Knocking aside the leader, you sprint off along the highway. Then behind you the ominous click of a crossbow being cocked sends a shiver down your spine.\r\n"
+System.out.println("Knocking aside the leader, you sprint off along the highway. Then behind you the "
+		+ "ominous click of a crossbow being cocked sends a shiver down your spine.\r\n"
 		+ "\r\n"
-		+ "Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If you have picked a number 0–4, turn to 181.\r\n"
-		+ "\r\n"
-		+ "If you have picked a number 5–9, turn to 145.";
-return 22;
+		+ "Pick a number from the Random Number Table.\r\n");
+if (zufalzahl.nextInt(9)<=4) {
+	System.out.println("If you have picked a number 0–4, turn to 181.\r\n");
+	spiele.warte_auf_eingabe();
+	return 181;
+} 
+else {
+	System.out.println("If you have picked a number 5–9, turn to 145.");
+	spiele.warte_auf_eingabe();
+	return 145;
+}
 }
 
 public int Kapitel_23 ()
 {
-String Text = "The corridor soon widens into a large hall. At the far end, a stone staircase leads up to a huge door. Two black candles on either side of the stone steps dimly illuminate the chamber. You notice that no wax has melted, and as you get nearer you can feel that they give off no heat. Ancient engravings cover the stone surfaces of the walls.\r\n"
-		+ "[Illustration II]\r\n"
+System.out.println("The corridor soon widens into a large hall. At the far end, a stone staircase leads up to "
+		+ "a huge door. Two black candles on either side of the stone steps dimly illuminate the chamber. "
+		+ "You notice that no wax has melted, and as you get nearer you can feel that they give off no heat. "
+		+ "Ancient engravings cover the stone surfaces of the walls.\r\n"
 		+ "\r\n"
-		+ "Anxious to leave this evil tomb, you examine the door for a latch. An ornate pin appears to lock the door, but there is also a keyhole in the lockplate.\r\n"
-		+ "\r\n"
-		+ "If you have a Golden Key and wish to use it, turn to 326.\r\n"
-		+ "\r\n"
-		+ "If you have the Kai Discipline of Mind Over Matter, turn to 151.\r\n"
-		+ "\r\n"
-		+ "If you wish to remove the pin, turn to 337.";
-return 23;
+		+ "Anxious to leave this evil tomb, you examine the door for a latch. An ornate pin appears to lock the "
+		+ "door, but there is also a keyhole in the lockplate.\r\n"
+		);
+if (Spielefiguer.getSpecialItems().haveItems("Golden Key")) {
+	System.out.println("If you have a Golden Key and wish to use it, turn to 326.\r\n");
+}
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Mind Over Matter")) {
+	System.out.println("If you have the Kai Discipline of Mind Over Matter, turn to 151.\r\n");
+}
+System.out.println("If you wish to remove the pin, turn to 337.");
+
+return spiele.EingabeInt(326,151,337);
 }
 
 public int Kapitel_24 ()
 {
-String Text = "The merchant shouts to the driver of the caravan to jump. ‘We’re under attack!’ he cries, disappearing through a circular window.\r\n"
-		+ "\r\n"
-		+ "If you decide to jump after him, turn to 234.\r\n"
-		+ "\r\n"
-		+ "If you decide to run through the caravan and grab the reins of the horse team, turn to 184.";
-return 24;
+
+System.out.println("The merchant shouts to the driver of the caravan to jump. ‘We’re under attack!’ he cries, "
+		+ "disappearing through a circular window.\r\n");
+
+System.out.println("If you decide to jump after him, turn to 234.\r\n");
+System.out.println("If you decide to run through the caravan and grab the reins of the horse team, turn to 184.");
+return spiele.EingabeInt(234,184);
 }
 
 public int Kapitel_25 ()
 {
-String Text = "You land with such a crash on the opposite roof, that the wind is knocked out of you and you lie flat on your back with your head in a spin.\r\n"
+
+System.out.println( "You land with such a crash on the opposite roof, that the wind is knocked out of you and "
+		+ "you lie flat on your back with your head in a spin.\r\n"
 		+ "\r\n"
-		+ "It takes a minute or so for you to realize that you’ve made it and are perfectly safe. When you are sure you are all right, you jump up and let out a shout for joy at your skill and daring.\r\n"
+		+ "It takes a minute or so for you to realize that you’ve made it and are perfectly safe. When "
+		+ "you are sure you are all right, you jump up and let out a shout for joy at your skill and daring.\r\n"
 		+ "\r\n"
-		+ "Quickly you find a way across the roof and climb down a long drainpipe to the street below. You see the large iron doors of the citadel open, and a wagon drawn by two large horses tries to leave. The horses are frightened by the noisy crowd and they both rear up, causing the wagon to smash a front wheel against the door. In the confusion, you see a chance to enter and quickly slip inside just as the guards slam the doors shut.\r\n"
-		+ "\r\n"
-		+ "Turn to 139.";
-return 25;
+		+ "Quickly you find a way across the roof and climb down a long drainpipe to the street below. "
+		+ "You see the large iron doors of the citadel open, and a wagon drawn by two large horses tries to leave. "
+		+ "The horses are frightened by the noisy crowd and they both rear up, causing the wagon to smash a front "
+		+ "wheel against the door. In the confusion, you see a chance to enter and quickly slip inside just as the "
+		+ "guards slam the doors shut.\r\n");
+spiele.warte_auf_eingabe();
+return 139;
 }
 
 public int Kapitel_26 ()
 {
-String Text = "Cautiously, you move along the corridor until you come to a sharp eastward turn. A strange greenish light can be seen in the distance.\r\n"
-		+ "\r\n"
-		+ "If you wish to continue, turn to 249.\r\n"
-		+ "\r\n"
-		+ "If you wish to go back and try the southern route, turn to 100.";
-return 26;
+System.out.println("Cautiously, you move along the corridor until you come to a sharp eastward turn. A strange greenish "
+		+ "light can be seen in the distance.\r\n");
+
+System.out.println("If you wish to continue, turn to 249.\r\n");
+System.out.println("If you wish to go back and try the southern route, turn to 100.");
+return spiele.EingabeInt(249,100);
 }
 
 public int Kapitel_27 ()
 {
-String Text = "You walk along this path for over an hour, carefully watching the sky above you in case the Kraan attack again. Up ahead, a large tree has fallen across the path. As you approach, you can hear voices coming from the other side of the massive trunk.\r\n"
-		+ "\r\n"
-		+ "If you choose to attack, turn to 250.\r\n"
-		+ "\r\n"
-		+ "If you choose to listen to what the voices say, turn to 52.";
-return 27;
+System.out.println("You walk along this path for over an hour, carefully watching the sky above you in case the Kraan "
+		+ "attack again. Up ahead, a large tree has fallen across the path. As you approach, you can hear voices "
+		+ "coming from the other side of the massive trunk.\r\n");
+
+System.out.println("If you choose to attack, turn to 250.\r\n");
+System.out.println("If you choose to listen to what the voices say, turn to 52.");
+return spiele.EingabeInt(250,52);
 }
 
 public int Kapitel_28 ()
 {
-String Text = "After a few hundred yards, the path joins another one running north to south.\r\n"
-		+ "\r\n"
-		+ "If you wish to go northwards, turn to 130.\r\n"
-		+ "\r\n"
-		+ "If you wish to head south, turn to 147.";
-return 28;
+System.out.println("After a few hundred yards, the path joins another one running north to south.\r\n");
+
+System.out.println("If you wish to go northwards, turn to 130.\r\n");
+System.out.println("If you wish to head south, turn to 147.");
+return spiele.EingabeInt(130,147);
 }
 
 public int Kapitel_29 ()

@@ -7,8 +7,12 @@ import java.util.Scanner;
 
 public class KaiDisciplinesList extends ArrayList<KaiDisciplines> {
 
-	public KaiDisciplinesList(int i) {
+		
+	public KaiDisciplinesList(KaiDisciplines ... Kai1){
 		super();
+		for (KaiDisciplines kaiDisciplines : Kai1) {
+			this.add(kaiDisciplines);
+		}
 	}
 	
 	public KaiDisciplinesList() {
