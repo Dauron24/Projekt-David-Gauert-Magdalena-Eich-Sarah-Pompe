@@ -67,7 +67,7 @@ public class spiele {
 		System.out.println("Spiel Laden : 2.");
 		System.out.println("Danksagung  : 3.");
 		System.out.println("Spiel Benden  : 4.");
-		return EingabeInt(1,4);
+		return EingabeIntMinMAx(1,4);
 				
 	}
 	
@@ -173,7 +173,7 @@ public class spiele {
 			} while (true);
 	}
 	
-	public static int EingabeInt(int min, int max) 
+	public static int EingabeIntMinMAx(int min, int max) 
 	{		
 		do {	
 		int i=0;

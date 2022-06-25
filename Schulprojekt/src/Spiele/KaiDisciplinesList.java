@@ -64,7 +64,7 @@ public class KaiDisciplinesList extends ArrayList<KaiDisciplines> {
     				waponePosion = j;
     		}
     		    		
-    		auswahl = spiele.EingabeInt(0,kaiDiscipinesOprionList.size()-1);
+    		auswahl = spiele.EingabeIntMinMAx(0,kaiDiscipinesOprionList.size()-1);
     		
     		if (auswahl==waponePosion) {
     			spiele.ClearConsole();
