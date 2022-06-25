@@ -35,6 +35,9 @@ public class Equipment {
 	public void setAnzahl(int anzahl) {
 		this.anzahl = anzahl;
 	}
+	public void incrementAnzahl(int anzahl) {
+		this.anzahl += anzahl;
+	}
 	public String getHowToCarry() {
 		return howToCarry;
 	}

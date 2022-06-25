@@ -10,11 +10,6 @@ public class Charakter {
 		/**
 		 * @return the name
 		 */
-		
-		private Scanner eingabe = new Scanner(System.in);
-		
-
-
 		private Random zufallzahl = new Random();
 		private int capitel;
 		private int COMBAT_SKILL;

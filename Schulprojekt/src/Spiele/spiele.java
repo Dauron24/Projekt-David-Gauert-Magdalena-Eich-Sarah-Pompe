@@ -243,19 +243,7 @@ public class spiele {
 	    return true;
 	}
 
-	private static boolean isDouble(String input)
-	{
-	    try
-	    {
-	       double f = Double.parseDouble(input);
 	
-	    }
-	    catch (NumberFormatException e)
-	    {
-	        return false;
-	    }
-	    return true;
-	}
 	
 	
 	

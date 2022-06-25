@@ -1,13 +1,12 @@
 package Spiele;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 import java.util.Scanner;
 
 public class KaiDisciplinesList extends ArrayList<KaiDisciplines> {
 
-		
+
 	public KaiDisciplinesList(KaiDisciplines ... Kai1){
 		super();
 		for (KaiDisciplines kaiDisciplines : Kai1) {
@@ -108,6 +107,7 @@ public class KaiDisciplinesList extends ArrayList<KaiDisciplines> {
 			}
     		
     	} while (i<=5);
+    	eingabe.close();
 	}
 	
 	public boolean haveKaiDisciplines(String Name) {

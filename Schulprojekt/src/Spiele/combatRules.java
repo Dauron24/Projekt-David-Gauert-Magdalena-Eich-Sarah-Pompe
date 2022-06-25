@@ -724,7 +724,6 @@ public class combatRules {
 	
 	public static int MindshieldMindblast(Charakter Spiler, Enemy Gegner)
 	{
-		int result=0;
 						
 		if (Spiler.getKaiDisciplines().haveKaiDisciplines("Mindblast")
 				&&Spiler.getKaiDisciplines().haveKaiDisciplines("Mindshield")) 

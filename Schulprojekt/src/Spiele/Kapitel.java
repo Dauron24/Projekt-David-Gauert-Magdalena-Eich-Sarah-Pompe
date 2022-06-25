@@ -2,7 +2,6 @@ package Spiele;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class Kapitel {
@@ -827,7 +826,8 @@ return spiele.EingabeInt(250,52);
 
 public int Kapitel_28 ()
 {
-System.out.println("After a few hundred yards, the path joins another one running north to south.\r\n");
+System.out.println("After a few hundred yards, the path joins another one running north to "
+		+ "south.\r\n");
 
 System.out.println("If you wish to go northwards, turn to 130.\r\n");
 System.out.println("If you wish to head south, turn to 147.");
@@ -836,131 +836,191 @@ return spiele.EingabeInt(130,147);
 
 public int Kapitel_29 ()
 {
-String Text = "You stride out to the water’s edge and prepare yourself for combat. The Kraan and its rider spot you and begin to speed across the lake barely inches above the surface.\r\n"
+
+System.out.println("You stride out to the water’s edge and prepare yourself for combat. The Kraan and "
+		+ "its rider spot you and begin to speed across the lake barely inches above the "
+		+ "surface.\r\n"
 		+ "\r\n"
-		+ "The rider lets out a scream that freezes your blood. He is a Vordak, a fierce lieutenant of the Darklords.\r\n"
+		+ "The rider lets out a scream that freezes your blood. He is a Vordak, a fierce "
+		+ "lieutenant of the Darklords.\r\n"
 		+ "\r\n"
-		+ "He is upon you and you must fight him. Deduct 2 points from your COMBAT SKILL unless you have the Kai Discipline of Mindshield, for the creature is attacking you with its Mindforce as well as with a huge black mace.\r\n"
+		+ "He is upon you and you must fight him. Deduct 2 points from your COMBAT SKILL "
+		+ "unless you have the Kai Discipline of Mindshield, for the creature is "
+		+ "attacking you with its Mindforce as well as with a huge black mace.\r\n"
 		+ "\r\n"
 		+ "Vordak: COMBAT SKILL 17   ENDURANCE 25\r\n"
 		+ "\r\n"
-		+ "If you win the fight, turn to 270.";
-return 29;
+		+ "If you win the fight, turn to 270.");
+	if (combatRules.Combat(Spielefiguer, new Enemy("Vordak",17,25,false,true))==combatResult.Win){
+		return 270;
+	}
+	return 351;
 }
 
 public int Kapitel_30 ()
 {
-String Text = "The people look tired and hungry. They have come many miles from their burning city. Suddenly, you hear the beat of huge wings coming from the north.\r\n"
+System.out.println("The people look tired and hungry. They have come many miles from their "
+		+ "burning city. Suddenly, you hear the beat of huge wings coming from the north.\r\n"
 		+ "\r\n"
 		+ "‘Kraan, Kraan! Hide yourselves!’ the cry goes up all along the road.\r\n"
 		+ "\r\n"
-		+ "Just in front of you, a wagon carrying small children breaks down, its right wheel jammed in a furrow. The children scream in panic.\r\n"
-		+ "\r\n"
-		+ "If you wish to help the children, turn to 194.\r\n"
-		+ "\r\n"
-		+ "If you’d rather run for the cover of the trees, turn to 261.";
-return 30;
+		+ "Just in front of you, a wagon carrying small children breaks down, its right wheel "
+		+ "jammed in a furrow. The children scream in panic.\r\n"
+		+ "\r\n");
+System.out.println("If you wish to help the children, turn to 194.\r\n");
+System.out.println("If you’d rather run for the cover of the trees, turn to 261.");
+return spiele.EingabeInt(194,261);
 }
 
 public int Kapitel_31 ()
 {
-String Text = "You try to comfort the injured man as best you can, but his wounds are serious and he is soon unconscious again. Covering him with his cape, you turn and press deeper into the forest.\r\n"
+System.out.println("You try to comfort the injured man as best you can, but his wounds are "
+		+ "serious and he is soon unconscious again. Covering him with his cape, you turn and "
+		+ "press deeper into the forest.\r\n"
 		+ "\r\n"
-		+ "Turn to 264.";
-return 31;
+		+ "Turn to 264.");
+spiele.warte_auf_eingabe();
+return 264;
 }
 
 public int Kapitel_32 ()
 {
-String Text = "You have ridden about three miles when, in the distance, you spot the unmistakable silhouette of five large Doomwolves. Riding on their backs are Giaks. They seem to be going on ahead to where the path leads down into an open meadow. Suddenly, one of the Giaks leaves the others and begins to ride back along the path towards you.\r\n"
-		+ "\r\n"
-		+ "If you wish to hide in the undergrowth and let him pass, turn to 176.\r\n"
-		+ "\r\n"
-		+ "If you wish to fight him, turn to 340.";
-return 32;
+System.out.println("You have ridden about three miles when, in the distance, you spot the "
+		+ "unmistakable silhouette of five large Doomwolves. Riding on their backs are Giaks. "
+		+ "They seem to be going on ahead to where the path leads down into an open meadow. "
+		+ "Suddenly, one of the Giaks leaves the others and begins to ride back along the "
+		+ "path towards you.\r\n");
+
+System.out.println("If you wish to hide in the undergrowth and let him pass, turn to 176.\r\n");
+System.out.println("If you wish to fight him, turn to 340.");
+return spiele.EingabeInt(176,340);
 }
 
 public int Kapitel_33 ()
 {
-String Text = "The floor of the cave is quite dry and dusty. As you explore deeper in the half-light, you detect the stale odour of rotting flesh. Littering a crevice are the bones, fur, and teeth of several small animals. You notice a small cloth bag among these remains which you open to discover 3 Gold Crowns. Pocketing these coins, you leave what appears to be the lair of a mountain cat and carefully descend the hill.\r\n"
+System.out.println("The floor of the cave is quite dry and dusty. As you explore deeper in the "
+		+ "half-light, you detect the stale odour of rotting flesh. Littering a crevice are "
+		+ "the bones, fur, and teeth of several small animals. You notice a small cloth bag "
+		+ "among these remains which you open to discover 3 Gold Crowns. Pocketing these coins, "
+		+ "you leave what appears to be the lair of a mountain cat and carefully descend the "
+		+ "hill.\r\n"
 		+ "\r\n"
-		+ "Turn to 248.";
-return 33;
+		+ "Turn to 248.");
+Spielefiguer.getBelt_Pouch().incrementAnzahl(3);
+spiele.warte_auf_eingabe();
+return 248;
 }
 
 public int Kapitel_34 ()
 {
-String Text = "Without warning, a terrible apparition in red robes swoops down from the sky on the back of a Kraan. Its cry freezes your blood. The beast is a Vordak, a fierce lieutenant of the Darklords.\r\n"
+System.out.println("Without warning, a terrible apparition in red robes swoops down from the "
+		+ "sky on the back of a Kraan. Its cry freezes your blood. The beast is a Vordak, "
+		+ "a fierce lieutenant of the Darklords.\r\n"
 		+ "\r\n"
 		+ "He is above you and you must fight him.\r\n"
-		+ "[Illustration III]\r\n"
 		+ "\r\n"
-		+ "Deduct 2 points from your COMBAT SKILL unless you have the Kai Discipline of Mindshield, for the creature is attacking you with the power of its Mindforce as well as with a huge black mace.\r\n"
+		+ "Deduct 2 points from your COMBAT SKILL unless you have the Kai Discipline of "
+		+ "Mindshield, for the creature is attacking you with the power of its Mindforce as "
+		+ "well as with a huge black mace.\r\n"
 		+ "\r\n"
 		+ "Vordak: COMBAT SKILL 17   ENDURANCE 25\r\n"
 		+ "\r\n"
-		+ "If you win, turn to 328.";
-return 34;
+		+ "If you win, turn to 328.");
+if (combatRules.Combat(Spielefiguer, new Enemy("Vordak",17,25,false,true))==combatResult.Win){
+	return 328;
+}
+return 351;
 }
 
 public int Kapitel_35 ()
 {
-String Text = "The forest is becoming denser, and the path more tangled with thorny briars. Almost completely hidden by the undergrowth, you notice another path branching off towards the east. Your current route seems to be coming to a prickly end, so you decide to follow the new path eastwards.\r\n"
+System.out.println("The forest is becoming denser, and the path more tangled with thorny briars. "
+		+ "Almost completely hidden by the undergrowth, you notice another path branching off "
+		+ "towards the east. Your current route seems to be coming to a prickly end, so you "
+		+ "decide to follow the new path eastwards.\r\n"
 		+ "\r\n"
-		+ "Turn to 207.";
-return 35;
+		+ "Turn to 207.");
+spiele.warte_auf_eingabe();
+return 207;
 }
 
 public int Kapitel_36 ()
 {
-String Text = "The old watchtower ladder is rotten and several rungs break as you climb. Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If the number is 4 or lower, you have fallen. Lose 2 ENDURANCE points and turn to 140.\r\n"
-		+ "\r\n"
-		+ "If the number is 5 or higher, you do not fall. Turn to 323.";
-return 36;
+System.out.println("The old watchtower ladder is rotten and several rungs break as you climb. "
+		+ "Pick a number from the Random Number Table.\r\n");
+
+if (zufalzahl.nextInt(9)<=4) {
+	System.out.println("If the number is 4 or lower, you have fallen. Lose 2 ENDURANCE points "
+			+ "and turn to 140.\r\n");
+	Spielefiguer.decresENDURANCE(4);
+	spiele.warte_auf_eingabe();
+	return 140;
+} 
+else {
+	System.out.println("If the number is 5 or higher, you do not fall. Turn to 323.");
+	spiele.warte_auf_eingabe();
+	return 323;
+}
 }
 
 public int Kapitel_37 ()
 {
-String Text = "You are feeling tired and hungry and you must stop to eat. After your Meal, you retrace your steps back to the citadel and begin to walk around the high, indomitable stone wall.\r\n"
+System.out.println("You are feeling tired and hungry and you must stop to eat. After your Meal, "
+		+ "you retrace your steps back to the citadel and begin to walk around the high, "
+		+ "indomitable stone wall.\r\n"
 		+ "\r\n"
-		+ "You discover another entrance on the eastern side, guarded as before by two armoured soldiers.\r\n"
-		+ "\r\n"
-		+ "If you wish to use the Kai Discipline of Camouflage, turn to 282.\r\n"
-		+ "\r\n"
-		+ "If you wish to approach them and tell your story, turn to 289.";
-return 37;
+		+ "You discover another entrance on the eastern side, guarded as before by two "
+		+ "armoured soldiers.\r\n");
+
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Camouflage")) {
+	System.out.println("If you wish to use the Kai Discipline of Camouflage, turn to 282.\r\n");
+}
+System.out.println("If you wish to approach them and tell your story, turn to 289.");
+
+return spiele.EingabeInt(282,289);
 }
 
 public int Kapitel_38 ()
 {
-String Text = "For half an hour or more you press on through the forest, through the rich vegetation and ferns. You happen upon a small clear stream where you stop for a few minutes to wash your face and drink of the cold, fresh water.\r\n"
+System.out.println("For half an hour or more you press on through the forest, through the rich "
+		+ "vegetation and ferns. You happen upon a small clear stream where you stop for a "
+		+ "few minutes to wash your face and drink of the cold, fresh water.\r\n"
 		+ "\r\n"
-		+ "Feeling revitalized, you cross the stream and press on. You soon notice the smell of wood smoke which seems to be drifting towards you from the north.\r\n"
-		+ "\r\n"
-		+ "If you wish to investigate the smell of wood smoke, turn to 128.\r\n"
-		+ "\r\n"
-		+ "If you would rather avoid the source of this smoke, turn to 347.";
-return 38;
+		+ "Feeling revitalized, you cross the stream and press on. You soon notice the smell "
+		+ "of wood smoke which seems to be drifting towards you from the north.\r\n");
+
+System.out.println("If you wish to investigate the smell of wood smoke, turn to 128.\r\n");
+System.out.println("If you would rather avoid the source of this smoke, turn to 347.");
+return spiele.EingabeInt(128,347);
 }
 
 public int Kapitel_39 ()
 {
-String Text = "After a few seconds, two small furry faces nervously appear over the top of the trunk. They say they are Kakarmi and tell you that the Kraan are everywhere. To the west lie the remains of their village but little is left of it now. They are trying to find the rest of their tribe who took to the forest when the ‘Black-wings’ attacked. They point behind them—east along the path—and tell you that the trail appears to be a dead end, but that if you continue through the undergrowth for a few yards more, you will find a watchtower where the path splits into three directions. Take the east path. This leads to the King’s highway between the capital city—Holmgard—and the northern port of Toran.\r\n"
+System.out.println("After a few seconds, two small furry faces nervously appear over the top of the "
+		+ "trunk. They say they are Kakarmi and tell you that the Kraan are everywhere. To the "
+		+ "west lie the remains of their village but little is left of it now. They are trying "
+		+ "to find the rest of their tribe who took to the forest when the ‘Black-wings’ "
+		+ "attacked. They point behind them—east along the path—and tell you that the trail "
+		+ "appears to be a dead end, but that if you continue through the undergrowth for a "
+		+ "few yards more, you will find a watchtower where the path splits into three "
+		+ "directions. Take the east path. This leads to the King’s highway between the capital "
+		+ "city—Holmgard—and the northern port of Toran.\r\n"
 		+ "\r\n"
 		+ "You thank the Kakarmi, and bid them farewell.\r\n"
 		+ "\r\n"
-		+ "Turn to 228.";
-return 39;
+		+ "Turn to 228.");
+spiele.warte_auf_eingabe();
+return 228;
 }
 
 public int Kapitel_40 ()
 {
-String Text = "Keeping a careful watch on the huts for any sign of the enemy, you make your way around the clearing under the cover of the trees and bracken. Rejoining the track, you hurry away from Fogwood.\r\n"
+System.out.println("Keeping a careful watch on the huts for any sign of the enemy, you make your "
+		+ "way around the clearing under the cover of the trees and bracken. Rejoining the "
+		+ "track, you hurry away from Fogwood.\r\n"
 		+ "\r\n"
-		+ "Turn to 105.";
-return 40;
+		+ "Turn to 105.");
+return 105;
 }
 
 public int Kapitel_41 ()
