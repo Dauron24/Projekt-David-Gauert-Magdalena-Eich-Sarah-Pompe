@@ -111,5 +111,11 @@ public class SpieleTeste {
 			
 		combatRules.Combat(Debuge_true_true, DebugeGener_true_true);		
 	}
+	@Test
+	public void CombackeTest3() {
+		Charakter Debuge_true_true = new Charakter( true,true);		
+		Enemy DebugeGener_true_true = new Enemy("Minster 1", 20, 30);			
+		combatRules.Combat(Debuge_true_true, DebugeGener_true_true,4);		
+	}
 
 }

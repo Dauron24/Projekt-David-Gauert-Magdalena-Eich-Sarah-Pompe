@@ -1,5 +1,5 @@
 package Spiele;
 
 public enum combatResult {
-	Win, Lost, Evade
+	Win, Lost, Evade, ongoing
 }
