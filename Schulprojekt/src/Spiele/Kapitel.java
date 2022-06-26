@@ -1354,119 +1354,171 @@ return 268;
 
 public int Kapitel_62 ()
 {
-String Text = "The ‘soldiers’ lie dead at your feet. They were bandits who were stealing from the refugees of Toran, and from the abandoned houses and farms in the area.\r\n"
+System.out.println("The ‘soldiers’ lie dead at your feet. They were bandits who were stealing "
+		+ "from the refugees of Toran, and from the abandoned houses and farms in the "
+		+ "area.\r\n"
 		+ "\r\n"
-		+ "Searching their bodies you find 28 Gold Crowns and two Backpacks containing enough food for 3 Meals. They had been armed with a crossbow and three Swords. The crossbow has been damaged in the fight, but the Swords are untouched and you may keep one if you wish.\r\n"
+		+ "Searching their bodies you find 28 Gold Crowns and two Backpacks containing "
+		+ "enough food for 3 Meals. They had been armed with a crossbow and three Swords. "
+		+ "The crossbow has been damaged in the fight, but the Swords are untouched and you may keep one if you wish.\r\n"
 		+ "\r\n"
-		+ "You adjust your equipment, give a cautious glance towards the west, and continue your run towards the outer defences of the capital.\r\n"
+		+ "You adjust your equipment, give a cautious glance towards the west, "
+		+ "and continue your run towards the outer defences of the capital.\r\n"
 		+ "\r\n"
-		+ "Turn to 288.";
-return 62;
+		+ "Turn to 288.");
+spiele.warte_auf_eingabe();
+return 288;
 }
 
 public int Kapitel_63 ()
 {
-String Text = "The wild old man is screaming at you. He blames you for the war and curses the Kai Lords as agents of the Darklords. He will not listen to reason and you must fight him.\r\n"
-		+ "[Illustration VI]\r\n"
+System.out.println("The wild old man is screaming at you. He blames you for the war "
+		+ "and curses the Kai Lords as agents of the Darklords. He will not listen "
+		+ "to reason and you must fight him.\r\n"
 		+ "\r\n"
 		+ "Madman: COMBAT SKILL 11   ENDURANCE 10\r\n"
 		+ "\r\n"
-		+ "If you win, turn to 269.";
-return 63;
+		+ "If you win, turn to 269.");
+if (combatRules.Combat(Spielefiguer, new Enemy("Madman",11,10),0)==combatResult.Win){
+	return 269;
+	}
+return 351;
 }
 
 public int Kapitel_64 ()
 {
-String Text = "You are awoken by the cries of a Kraan circling above the caravan. It is early morning and the sky is clear and bright. You can see a pack of Doomwolves less than a quarter of a mile away along the highway ahead. They are preparing to attack. You must act quickly.\r\n"
-		+ "\r\n"
-		+ "If you decide to gather your equipment and run for the cover of the trees, turn to 188.\r\n"
-		+ "\r\n"
-		+ "If you decide to cut free one of the horses and try to break through the attacking Doomwolves to the clear road beyond, then turn to 16.";
-return 64;
+System.out.println("You are awoken by the cries of a Kraan circling above the caravan. "
+		+ "It is early morning and the sky is clear and bright. You can see a pack "
+		+ "of Doomwolves less than a quarter of a mile away along the highway ahead. "
+		+ "They are preparing to attack. You must act quickly.\r\n"
+		+ "\r\n");
+System.out.println("If you decide to gather your equipment and run for the cover of the "
+		+ "trees, turn to 188.\r\n");
+System.out.println("If you decide to cut free one of the horses and try to break through "
+		+ "the attacking Doomwolves to the clear road beyond, then turn to 16.");
+return spiele.EingabeInt(188,16);
 }
 
 public int Kapitel_65 ()
 {
-String Text = "Your senses scream at you that this place is very evil. Leave as quickly as you can.\r\n"
+System.out.println("Your senses scream at you that this place is very evil. "
+		+ "Leave as quickly as you can.\r\n"
 		+ "\r\n"
-		+ "Turn to 104.";
-return 65;
+		+ "Turn to 104.");
+spiele.warte_auf_eingabe();
+return 104;
 }
 
 public int Kapitel_66 ()
 {
-String Text = "Startled, you turn around to see a burly sergeant and two soldiers running towards you, their swords drawn as if to strike.\r\n"
+System.out.println("Startled, you turn around to see a burly sergeant and two soldiers "
+		+ "running towards you, their swords drawn as if to strike.\r\n"
 		+ "\r\n"
-		+ "You prepare to defend yourself for it looks as if they are about to attack first and ask questions later; but suddenly the sergeant calls his men to a halt. He has recognized your cloak. They put away their weapons and apologize many times for their mistake. The sergeant orders one of the men to fetch the captain of the Guard as he leads you to the doors of the Great Hall.\r\n"
+		+ "You prepare to defend yourself for it looks as if they are about to "
+		+ "attack first and ask questions later; but suddenly the sergeant calls his "
+		+ "men to a halt. He has recognized your cloak. They put away their weapons "
+		+ "and apologize many times for their mistake. The sergeant orders one of "
+		+ "the men to fetch the captain of the Guard as he leads you to the doors "
+		+ "of the Great Hall.\r\n"
 		+ "\r\n"
-		+ "You are greeted by a tall and handsome warrior who listens intently to your story. When you have finished the account of your perilous journey to the capital, you notice a tear in the brave man’s eye as he bids you to follow him. You walk through the splendid halls and corridors of the inner Palace. The richness and grandeur are a wonder to behold. You eventually arrive at a large carved door, guarded by two soldiers wearing silver armour.\r\n"
+		+ "You are greeted by a tall and handsome warrior who listens intently "
+		+ "to your story. When you have finished the account of your perilous "
+		+ "journey to the capital, you notice a tear in the brave man’s eye as "
+		+ "he bids you to follow him. You walk through the splendid halls and "
+		+ "corridors of the inner Palace. The richness and grandeur "
+		+ "are a wonder to behold. You eventually arrive at a large "
+		+ "carved door, guarded by two soldiers wearing silver armour.\r\n"
 		+ "\r\n"
 		+ "You are about to meet the King.\r\n"
 		+ "\r\n"
-		+ "Turn to 350.";
-return 66;
+		+ "Turn to 350.");
+spiele.warte_auf_eingabe();
+return 350;
 }
 
 public int Kapitel_67 ()
 {
-String Text = "Your Kai Discipline of Tracking reveals to you fresh paw prints leading off along the south path.\r\n"
+System.out.println("Your Kai Discipline of Tracking reveals to you fresh paw prints "
+		+ "leading off along the south path.\r\n"
 		+ "\r\n"
-		+ "They are the prints of a black bear, an animal renowned for its ferocity. You decide the east path would be a much safer route.\r\n"
+		+ "They are the prints of a black bear, an animal renowned for its ferocity. "
+		+ "You decide the east path would be a much safer route.\r\n"
 		+ "\r\n"
-		+ "Turn to 252.";
-return 67;
+		+ "Turn to 252.");
+spiele.warte_auf_eingabe();
+return 252;
 }
 
 public int Kapitel_68 ()
 {
-String Text = "After a short walk, you reach a junction where a path crosses your present route heading from west to east.\r\n"
-		+ "\r\n"
-		+ "If you wish to turn west, go to 130.\r\n"
-		+ "\r\n"
-		+ "If you wish to head east, turn to 15.";
-return 68;
+System.out.println("After a short walk, you reach a junction where a path crosses your "
+		+ "present route heading from west to east.\r\n"
+		+ "\r\n");
+System.out.println("If you wish to turn west, go to 130.\r\n");
+System.out.println("If you wish to head east, turn to 15.");
+return spiele.EingabeInt(130,15);
 }
 
 public int Kapitel_69 ()
 {
-String Text = "You are very near a friendly village.\r\n"
+System.out.println("You are very near a friendly village.\r\n"
 		+ "\r\n"
-		+ "Avoid the gallowbrush and turn to 272.";
-return 69;
+		+ "Avoid the gallowbrush and turn to 272.");
+spiele.warte_auf_eingabe();
+return 272;
 }
 
 public int Kapitel_70 ()
 {
-String Text = "You have reached a small bridge. A track follows the stream towards the east. A much narrower path disappears into thick forest towards the south.\r\n"
-		+ "\r\n"
-		+ "If you wish to use the Kai Discipline of Sixth Sense, turn to 8.\r\n"
-		+ "\r\n"
-		+ "If you wish to go east, turn to 28.\r\n"
-		+ "\r\n"
-		+ "If you wish to go south, turn to 157.";
-return 70;
+System.out.println("You have reached a small bridge. A track follows the stream "
+		+ "towards the east. A much narrower path disappears into thick forest "
+		+ "towards the south.\r\n"
+		+ "\r\n");
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
+	System.out.println("If you wish to use the Kai Discipline of Sixth Sense, turn to 8.\r\n");
+}
+System.out.println("If you wish to go east, turn to 28.\r\n");
+System.out.println("If you wish to go south, turn to 157.");
+
+return spiele.EingabeInt(28,157);
 }
 
 public int Kapitel_71 ()
 {
-String Text = "You are winded but not hurt. You have fallen fifteen feet or so through the roof of an underground tomb. The walls are sheer and you cannot climb them. An arched tunnel leads out of the tomb towards the east, in front of which lies the sarcophagus of some ancient noble.\r\n"
+String Text = "You are winded but not hurt. You have fallen fifteen feet "
+		+ "or so through the roof of an underground tomb. The walls are sheer "
+		+ "and you cannot climb them. An arched tunnel leads out of the tomb "
+		+ "towards the east, in front of which lies the sarcophagus of some "
+		+ "ancient noble.\r\n"
 		+ "\r\n"
 		+ "If you wish to use the Kai Discipline of Sixth Sense, turn to 65.\r\n"
 		+ "\r\n"
-		+ "If you wish to open the sarcophagus to see if it contains any treasure, turn to 242.\r\n"
+		+ "If you wish to open the sarcophagus to see if it contains any treasure, "
+		+ "turn to 242.\r\n"
 		+ "\r\n"
 		+ "If you wish to leave via the tunnel, turn to 104.";
-return 71;
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
+	System.out.println("If you wish to use the Kai Discipline of Sixth Sense, turn to 65.\r\n");
+}
+System.out.println("If you wish to open the sarcophagus to see if it contains "
+		+ "any treasure, "
+		+ "turn to 242.\r\n");
+System.out.println("If you wish to leave via the tunnel, turn to 104.");
+return spiele.EingabeInt(65,242,104);
 }
 
 public int Kapitel_72 ()
 {
-String Text = "You turn to face a sneering Giak and the razor-fanged jaws of its mount. You must fight them as one enemy.\r\n"
+System.out.println("You turn to face a sneering Giak and the razor-fanged jaws of "
+		+ "its mount. You must fight them as one enemy.\r\n"
 		+ "\r\n"
 		+ "Giak + Doomwolf: COMBAT SKILL 15   ENDURANCE 24\r\n"
 		+ "\r\n"
-		+ "If you win, turn to 265.";
-return 72;
+		+ "If you win, turn to 265.");
+if (combatRules.Combat(Spielefiguer, new Enemy("Giak + Doomwolf",15,24),0)==combatResult.Win){
+	return 265;
+	}
+return 351;
 }
 
 public int Kapitel_73 ()
