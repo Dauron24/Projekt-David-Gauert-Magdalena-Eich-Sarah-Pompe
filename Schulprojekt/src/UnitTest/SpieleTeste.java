@@ -101,7 +101,7 @@ public class SpieleTeste {
 		Charakter Debuge_true_true = new Charakter( true,true);		
 		Enemy DebugeGener_true_true = new Enemy("Minster 1", 20, 30, true,true);
 			
-		combatRules.Combat(Debuge_true_true, DebugeGener_true_true);		
+		combatRules.Combat(Debuge_true_true, DebugeGener_true_true,6);		
 	}
 	
 	@Test
@@ -109,13 +109,13 @@ public class SpieleTeste {
 		Charakter Debuge_true_true = new Charakter( true,true);		
 		Enemy DebugeGener_true_true = new Enemy("Minster 1", 20, 30);
 			
-		combatRules.Combat(Debuge_true_true, DebugeGener_true_true);		
+		combatRules.Combat(Debuge_true_true, DebugeGener_true_true,-10);		
 	}
 	@Test
 	public void CombackeTest3() {
 		Charakter Debuge_true_true = new Charakter( true,true);		
 		Enemy DebugeGener_true_true = new Enemy("Minster 1", 20, 30);			
-		combatRules.Combat(Debuge_true_true, DebugeGener_true_true,4);		
+		combatRules.Combat(Debuge_true_true, DebugeGener_true_true,5,4);		
 	}
 
 }

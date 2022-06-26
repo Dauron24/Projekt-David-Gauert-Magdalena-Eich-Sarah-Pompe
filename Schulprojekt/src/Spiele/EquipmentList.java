@@ -35,7 +35,7 @@ public class EquipmentList extends ArrayList<Equipment> {
 		}
 		System.out.println();
 		System.out.println("Whit this " + e.getName());
-		auswahl = eingabe.nextInt();
+		auswahl = spiele.EingabeIntMinMAx(0, this.size());
 		if (spiele.bestädigen_Entscheidung()) {
 			this.set(auswahl, e);
 		}			

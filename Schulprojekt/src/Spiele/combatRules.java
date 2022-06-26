@@ -9,14 +9,14 @@ public class combatRules {
 	private static Random zufallzahl = new Random();
 	
 	
-	public static combatResult Combat(Charakter Spiler, Enemy Gegner)
+	public static combatResult Combat(Charakter Spiler, Enemy Gegner, int faktore)
 	{
 
 	    int CombatRatio = 0;
 	    //Add your COMBAT SKILL to any extra points given to you by your Kai Disciplines.
 	    CombatRatio += Spiler.getCOMBAT_SKILL();
 	    CombatRatio += Spiler.CombatFaktor();
-	    
+	    CombatRatio += faktore;
 	    //Subtract the COMBAT SKILL of your enemy from this total. This number = Combat Ratio.
 	    CombatRatio -= Gegner.getCOMBATSKILL();
 	    //Playser Mindshiel and Mindblast vs Gener Mindshiel and Mindblast 
@@ -61,13 +61,14 @@ public class combatRules {
 		
 	}
 	
-	public static combatResult Combat(Charakter Spiler, Enemy Gegner,int afterRun)
+	public static combatResult Combat(Charakter Spiler, Enemy Gegner,int faktore,int afterRun)
 	{
 
 	    int CombatRatio = 0;
 	    //Add your COMBAT SKILL to any extra points given to you by your Kai Disciplines.
 	    CombatRatio += Spiler.getCOMBAT_SKILL();
 	    CombatRatio += Spiler.CombatFaktor();
+	    CombatRatio += faktore;
 	    
 	    //Subtract the COMBAT SKILL of your enemy from this total. This number = Combat Ratio.
 	    CombatRatio -= Gegner.getCOMBATSKILL();
