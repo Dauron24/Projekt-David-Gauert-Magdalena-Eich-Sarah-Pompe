@@ -1059,9 +1059,11 @@ return spiele.EingabeInt(174,116);
 
 public int Kapitel_43 ()
 {
-System.out.println("From behind the rock a huge black bear comes into view. It advances slowly towards you, its mouth open and its face lined in anger and pain.\r\n"
+System.out.println("From behind the rock a huge black bear comes into view. It advances slowly towards "
+		+ "you, its mouth open and its face lined in anger and pain.\r\n"
 		+ "\r\n"
-		+ "You notice that it is badly wounded and is bleeding from its neck and back. You must fight it.\r\n"
+		+ "You notice that it is badly wounded and is bleeding from its neck and back. "
+		+ "You must fight it.\r\n"
 		+ "\r\n"
 		+ "Black Bear: COMBAT SKILL 16   ENDURANCE 10\r\n"
 		+ "\r\n"
@@ -1485,18 +1487,12 @@ return spiele.EingabeInt(28,157);
 
 public int Kapitel_71 ()
 {
-String Text = "You are winded but not hurt. You have fallen fifteen feet "
+System.out.println("You are winded but not hurt. You have fallen fifteen feet "
 		+ "or so through the roof of an underground tomb. The walls are sheer "
 		+ "and you cannot climb them. An arched tunnel leads out of the tomb "
 		+ "towards the east, in front of which lies the sarcophagus of some "
-		+ "ancient noble.\r\n"
-		+ "\r\n"
-		+ "If you wish to use the Kai Discipline of Sixth Sense, turn to 65.\r\n"
-		+ "\r\n"
-		+ "If you wish to open the sarcophagus to see if it contains any treasure, "
-		+ "turn to 242.\r\n"
-		+ "\r\n"
-		+ "If you wish to leave via the tunnel, turn to 104.";
+		+ "ancient noble.\r\n");
+
 if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
 	System.out.println("If you wish to use the Kai Discipline of Sixth Sense, turn to 65.\r\n");
 }
@@ -1504,7 +1500,7 @@ System.out.println("If you wish to open the sarcophagus to see if it contains "
 		+ "any treasure, "
 		+ "turn to 242.\r\n");
 System.out.println("If you wish to leave via the tunnel, turn to 104.");
-return spiele.EingabeInt(65,242,104);
+return spiele.EingabeInt(242,104);
 }
 
 public int Kapitel_72 ()
@@ -1523,205 +1519,268 @@ return 351;
 
 public int Kapitel_73 ()
 {
-String Text = "Pulling your green cloak about you, you blend into the foliage and rocks. Peering carefully up at the track, you are shocked to see that they are not the King’s men at all.\r\n"
+System.out.println("Pulling your green cloak about you, you blend into the foliage and rocks. Peering "
+		+ "carefully up at the track, you are shocked to see that they are not the King’s men at all.\r\n"
 		+ "\r\n"
-		+ "They are Drakkarim, some of the Darklords’ cruellest troops. They must have disguised themselves as soldiers of the King in order to get this far into the forest. Thanking your Kai training for saving your life, you silently slip away from the stream and push on into the forest.\r\n"
+		+ "They are Drakkarim, some of the Darklords’ cruellest troops. They must have disguised "
+		+ "themselves as soldiers of the King in order to get this far into the forest. Thanking "
+		+ "your Kai training for saving your life, you silently slip away from the stream and push "
+		+ "on into the forest.\r\n"
 		+ "\r\n"
-		+ "Turn to 243.";
-return 73;
+		+ "Turn to 243.");
+spiele.warte_auf_eingabe();
+return 243;
 }
 
 public int Kapitel_74 ()
 {
-String Text = "The Kraan and its riders land on the track barely ten feet from where you are hidden.\r\n"
+System.out.println("The Kraan and its riders land on the track barely ten feet from where you are "
+		+ "hidden.\r\n"
 		+ "\r\n"
-		+ "The Giaks leap from the scaly backs of the Kraan and move towards you, their spears raised to strike. You have been seen.\r\n"
-		+ "\r\n"
-		+ "If you decide to fight them, turn to 138.\r\n"
-		+ "\r\n"
-		+ "If you decide to run deeper into the forest without delay, turn to 281.";
-return 74;
+		+ "The Giaks leap from the scaly backs of the Kraan and move towards you, their spears "
+		+ "raised to strike. You have been seen.\r\n");
+System.out.println("If you decide to fight them, turn to 138.\r\n");
+System.out.println("If you decide to run deeper into the forest without delay, turn to 281.");
+return spiele.EingabeInt(138,281);
 }
 
 public int Kapitel_75 ()
 {
-String Text = "Peering out carefully, you can see three green-clad men on horses racing along the bank. You recognize them as Border Rangers, the regiment of the King’s Army that police the western borders. One of them is wounded and is slumped over the neck of his horse.\r\n"
+System.out.println("Peering out carefully, you can see three green-clad men on horses racing along "
+		+ "the bank. You recognize them as Border Rangers, the regiment of the King’s Army that "
+		+ "police the western borders. One of them is wounded and is slumped over the neck of "
+		+ "his horse.\r\n"
 		+ "\r\n"
-		+ "Close behind follow a pack of twenty Doomwolves. Their Giak riders are firing arrows at the rangers which fall all around them. One ranger drops from his horse and rolls down the river bank, a black arrow deeply embedded in his right leg.\r\n"
-		+ "\r\n"
-		+ "If you wish to help the ranger, turn to 260.\r\n"
-		+ "\r\n"
-		+ "If you wish to stay hidden and drift downstream, turn to 163.";
-return 75;
+		+ "Close behind follow a pack of twenty Doomwolves. Their Giak riders are firing arrows "
+		+ "at the rangers which fall all around them. One ranger drops from his horse and rolls "
+		+ "down the river bank, a black arrow deeply embedded in his right leg.\r\n");
+System.out.println("If you wish to help the ranger, turn to 260.\r\n");
+System.out.println("If you wish to stay hidden and drift downstream, turn to 163.");
+return spiele.EingabeInt(260,163);
 }
 
 public int Kapitel_76 ()
 {
-String Text = "The Gem feels very hot and burns your hand. Lose 2 ENDURANCE points. You quickly grab it with the edge of your cloak and slip this Vordak Gem into your Backpack. A Gem that size must be worth hundreds of Crowns! You smile at your good fortune, mount your horse, and ride off along the south track.\r\n"
+System.out.println("The Gem feels very hot and burns your hand. Lose 2 ENDURANCE points. You quickly grab "
+		+ "it with the edge of your cloak and slip this Vordak Gem into your Backpack. A Gem that size "
+		+ "must be worth hundreds of Crowns! You smile at your good fortune, mount your horse, and ride "
+		+ "off along the south track.\r\n"
 		+ "\r\n"
-		+ "Turn to 118.";
-return 76;
+		+ "Turn to 118.");
+spiele.warte_auf_eingabe();
+return 118;
 }
 
 public int Kapitel_77 ()
 {
-String Text = "The Mountain Giaks are unaccustomed to pursuing their prey through forests and you soon outdistance them, until finally the sound of their grunts and curses disappears completely.\r\n"
+System.out.println("The Mountain Giaks are unaccustomed to pursuing their prey through forests and you soon "
+		+ "outdistance them, until finally the sound of their grunts and curses disappears completely.\r\n"
 		+ "\r\n"
-		+ "When you are satisfied that they have given up the chase, you stop for a few minutes to catch your breath and check your equipment. With the memory of your ruined monastery still blazing in your mind, you gather up your meagre belongings and push on.\r\n"
+		+ "When you are satisfied that they have given up the chase, you stop for a few minutes to catch "
+		+ "your breath and check your equipment. With the memory of your ruined monastery still blazing in "
+		+ "your mind, you gather up your meagre belongings and push on.\r\n"
 		+ "\r\n"
-		+ "Turn to 19.";
-return 77;
+		+ "Turn to 19.");
+spiele.warte_auf_eingabe();
+return 19;
 }
 
 public int Kapitel_78 ()
 {
-String Text = "As the caravan careers past, you leap for the tailboard and manage to hold fast. Pulling yourself upright, you find that you are standing on the bottom rung of a ladder leading to the rear door of the wagon. Suddenly the top half of the door flies open and you are confronted by the angry face of a bodyguard.\r\n"
-		+ "\r\n"
-		+ "If you decide to inform him that you are a Kai Lord with an urgent message for the King, turn to 132.\r\n"
-		+ "\r\n"
-		+ "If you decide to offer him Gold Crowns for safe passage to the capital, turn to 12.\r\n"
-		+ "\r\n"
-		+ "If you decide to attack the guard with your weapon, turn to 220.";
-return 78;
+System.out.println("As the caravan careers past, you leap for the tailboard and manage to hold fast. "
+		+ "Pulling yourself upright, you find that you are standing on the bottom rung of a ladder "
+		+ "leading to the rear door of the wagon. Suddenly the top half of the door flies open and "
+		+ "you are confronted by the angry face of a bodyguard.\r\n");
+
+System.out.println("If you decide to inform him that you are a Kai Lord with an urgent message for "
+		+ "the King, turn to 132.\r\n");
+System.out.println("If you decide to offer him Gold Crowns for safe passage to the capital, turn to 12.\r\n");
+System.out.println("If you decide to attack the guard with your weapon, turn to 220.");
+return spiele.EingabeInt(132,12,220);
 }
 
 public int Kapitel_79 ()
 {
-String Text = "You come to a small footbridge across a fast-flowing stream. On the other side of the bridge the path turns south. You cross the bridge and follow the path.\r\n"
+System.out.println("You come to a small footbridge across a fast-flowing stream. On the other side of the "
+		+ "bridge the path turns south. You cross the bridge and follow the path.\r\n"
 		+ "\r\n"
-		+ "Turn to 204.";
-return 79;
+		+ "Turn to 204.");
+spiele.warte_auf_eingabe();
+return 204;
 }
 
 public int Kapitel_80 ()
 {
-String Text = "You stumble backwards through the front door, clutching your burnt chest with both hands. Smoke is billowing from the shop and you must run—before the Sage or his robber son catch you.\r\n"
+System.out.println("You stumble backwards through the front door, clutching your burnt chest with "
+		+ "both hands. Smoke is billowing from the shop and you must run—before the Sage or his "
+		+ "robber son catch you.\r\n"
 		+ "\r\n"
 		+ "You make it back to the main street and lose yourself in the rush of the crowds.\r\n"
 		+ "\r\n"
-		+ "Turn to 7.";
-return 80;
+		+ "Turn to 7.");
+spiele.warte_auf_eingabe();
+return 7;
 }
 
 public int Kapitel_81 ()
 {
-String Text = "After nearly an hour, the Kraan and their cruel riders vanish towards the west. As the shocked refugees start to emerge from the woods, you can hear the sound of horses in the distance galloping nearer. You stay hidden and wait as the riders come closer. They are the cavalry of the King’s Guard wearing the white uniforms of His Majesty’s army.\r\n"
-		+ "\r\n"
-		+ "If you wish to call to them, turn to 183.\r\n"
-		+ "\r\n"
-		+ "If you would rather continue along the forest edge towards the south, turn to 200.";
-return 81;
+System.out.println("After nearly an hour, the Kraan and their cruel riders vanish towards the west. "
+		+ "As the shocked refugees start to emerge from the woods, you can hear the sound of "
+		+ "horses in the distance galloping nearer. You stay hidden and wait as the riders come "
+		+ "closer. They are the cavalry of the King’s Guard wearing the white uniforms of "
+		+ "His Majesty’s army.\r\n");
+System.out.println("If you wish to call to them, turn to 183.\r\n");
+System.out.println("If you would rather continue along the forest edge towards the south, turn to 200.");
+return spiele.EingabeInt(183,200);
 }
 
 public int Kapitel_82 ()
 {
-String Text = "The giant Gourgaz lies dead at your feet. His evil followers hiss at you and then fall back from the bridge. The Prince’s soldiers form a protective wall around you and their dying leader with their shields. Black arrows whistle past your head.\r\n"
+System.out.println("The giant Gourgaz lies dead at your feet. His evil followers hiss at you and then "
+		+ "fall back from the bridge. The Prince’s soldiers form a protective wall around you and "
+		+ "their dying leader with their shields. Black arrows whistle past your head.\r\n"
 		+ "\r\n"
-		+ "The dying Prince looks up into your eyes and says, ‘Kai Lord, you must take a message to my father. The enemy is too strong, we cannot hold him. The King must seek that which is in Durenor or all is lost. Take my horse and ride for the capital. May the luck of the gods ride with you.’\r\n"
+		+ "The dying Prince looks up into your eyes and says, ‘Kai Lord, you must take a message "
+		+ "to my father. The enemy is too strong, we cannot hold him. The King must seek that which "
+		+ "is in Durenor or all is lost. Take my horse and ride for the capital. May the luck of the "
+		+ "gods ride with you.’\r\n"
 		+ "\r\n"
-		+ "You bid a sad farewell to the Prince, mount his white steed, and head south along the forest path. The battle still rages behind you as the Prince’s men fight off another assault on the bridge.\r\n"
+		+ "You bid a sad farewell to the Prince, mount his white steed, and head south along "
+		+ "the forest path. The battle still rages behind you as the Prince’s men fight off "
+		+ "another assault on the bridge.\r\n"
 		+ "\r\n"
-		+ "Turn to 235.";
-return 82;
+		+ "Turn to 235.");
+spiele.warte_auf_eingabe();
+return 235;
 }
 
 public int Kapitel_83 ()
 {
-String Text = "You have run about a mile when three soldiers appear from beneath a small footbridge. They demand that you halt and drop your weapons and equipment.\r\n"
+System.out.println("You have run about a mile when three soldiers appear from beneath a small footbridge. "
+		+ "They demand that you halt and drop your weapons and equipment.\r\n"
 		+ "\r\n"
-		+ "They are bloodstained and unshaven. Their leader is wearing the tunic of a soldier of the Toran garrison.\r\n"
-		+ "\r\n"
-		+ "If you possess the Kai Discipline of Sixth Sense, turn to 45.\r\n"
-		+ "\r\n"
-		+ "If you wish to do as they say, turn to 205.\r\n"
-		+ "\r\n"
-		+ "If you wish to prepare to fight them, turn to 180.\r\n"
-		+ "\r\n"
-		+ "If you demand to know what they want, turn to 232.";
-return 83;
+		+ "They are bloodstained and unshaven. Their leader is wearing the tunic of a soldier "
+		+ "of the Toran garrison.\r\n");
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
+	System.out.println("If you possess the Kai Discipline of Sixth Sense, turn to 45.\r\n");
+}
+System.out.println("If you wish to do as they say, turn to 205.\r\n");
+System.out.println("If you wish to prepare to fight them, turn to 180.\r\n");
+System.out.println("If you demand to know what they want, turn to 232.");
+return spiele.EingabeInt(45,205,180,232);
 }
 
 public int Kapitel_84 ()
 {
-String Text = "Just as you feel the air beating on your back, you slip free of your horse and roll over—landing with a splash in a muddy ditch by the side of the highway.\r\n"
+System.out.println("Just as you feel the air beating on your back, you slip free of your horse and roll "
+		+ "over—landing with a splash in a muddy ditch by the side of the highway.\r\n"
 		+ "\r\n"
-		+ "You are uninjured, and you quickly scramble to your feet and make a dash for the cover of the trees—but with thirty yards left to run, you see the Kraan circling above for another dive.\r\n"
+		+ "You are uninjured, and you quickly scramble to your feet and make a dash for the "
+		+ "cover of the trees—but with thirty yards left to run, you see the Kraan circling above "
+		+ "for another dive.\r\n"
 		+ "\r\n"
-		+ "Turn to 188.";
-return 84;
+		+ "Turn to 188.");
+spiele.warte_auf_eingabe();
+return 188;
 }
 
 public int Kapitel_85 ()
 {
-String Text = "The path is wide and leads straight into thick undergrowth. The trees are tall here and unusually quiet. You walk for over a mile when suddenly you hear the beating of large wings directly above you. Looking up, you are shocked to see the sinister black outline of a Kraan diving to attack you.\r\n"
-		+ "\r\n"
-		+ "If you draw your weapon and prepare to fight, turn to 229.\r\n"
-		+ "\r\n"
-		+ "If you evade the attack by running south, deeper into the forest, turn to 99.";
-return 85;
+System.out.println("The path is wide and leads straight into thick undergrowth. The trees are tall "
+		+ "here and unusually quiet. You walk for over a mile when suddenly you hear the beating of "
+		+ "large wings directly above you. Looking up, you are shocked to see the sinister black outline "
+		+ "of a Kraan diving to attack you.\r\n");
+System.out.println("If you draw your weapon and prepare to fight, turn to 229.\r\n");
+System.out.println("If you evade the attack by running south, deeper into the forest, turn to 99.");
+return spiele.EingabeInt(229,99);
 }
 
 public int Kapitel_86 ()
 {
-String Text = "You soon reach another crossroads.\r\n"
-		+ "\r\n"
-		+ "If you wish to journey east, turn to 6.\r\n"
-		+ "\r\n"
-		+ "If you wish to head north, turn to 35.\r\n"
-		+ "\r\n"
-		+ "If you prefer to go south, turn to 167.\r\n"
-		+ "\r\n"
-		+ "Or if you wish to turn west, turn to 42.";
-return 86;
+System.out.println("You soon reach another crossroads.\r\n"
+		+ "\r\n");
+System.out.println("If you wish to journey east, turn to 6.\r\n");
+System.out.println("If you wish to head north, turn to 35.\r\n");
+System.out.println("If you prefer to go south, turn to 167.\r\n");
+System.out.println("Or if you wish to turn west, turn to 42.");
+return spiele.EingabeInt(6,35,167,42);
 }
 
 public int Kapitel_87 ()
 {
-String Text = "Focusing your powers on the lock, you try to visualize the inner mechanism. Gradually its image appears in your mind’s eye. It is old and corroded but it still functions. You are in danger of losing your concentration when a subtle click confirms that your effort has not been in vain.\r\n"
+System.out.println("Focusing your powers on the lock, you try to visualize the inner mechanism. "
+		+ "Gradually its image appears in your mind’s eye. It is old and corroded but it still "
+		+ "functions. You are in danger of losing your concentration when a subtle click confirms "
+		+ "that your effort has not been in vain.\r\n"
 		+ "\r\n"
-		+ "The pin is an easier task. Slowly it rises out of the lock and falls to the floor. The granite door swings towards you on hidden hinges and the grey half-light of the Graveyard floods into the tomb. The exit is overgrown with graveweed and you suffer many small cuts to your face and hands as you fight your way through to the surface. You are startled by a sudden noise. You turn to see the disembodied head of a corpse laughing at you.\r\n"
+		+ "The pin is an easier task. Slowly it rises out of the lock and falls to the floor. "
+		+ "The granite door swings towards you on hidden hinges and the grey half-light of the "
+		+ "Graveyard floods into the tomb. The exit is overgrown with graveweed and you suffer "
+		+ "many small cuts to your face and hands as you fight your way through to the surface. "
+		+ "You are startled by a sudden noise. You turn to see the disembodied head of a corpse "
+		+ "laughing at you.\r\n"
 		+ "\r\n"
 		+ "In blind panic, you race through the eerie necropolis towards the southern gate.\r\n"
 		+ "\r\n"
-		+ "Turn to 61.";
-return 87;
+		+ "Turn to 61.");
+spiele.warte_auf_eingabe();
+return 61;
 }
 
 public int Kapitel_88 ()
 {
-String Text = "You cautiously peer around the rock to see a soldier lying on his back. By his side is a Spear and shield. On the shield is the painting of a white pegasus—the Prince of Sommerlund’s emblem. He is one of the Prince’s soldiers, and he is only just conscious. His uniform is badly torn, and you can see that he has a deep wound in his left arm. As you move nearer, his eyes flicker open. ‘Heal me, my lord,’ he begs. ‘I can barely feel my arm.’\r\n"
-		+ "\r\n"
-		+ "If you possess and wish to use the Kai Discipline of Healing on this man, turn to 216.\r\n"
-		+ "\r\n"
-		+ "If you do not possess the skill, or if you do not want to use it, then turn to 31.";
-return 88;
+System.out.println("You cautiously peer around the rock to see a soldier lying on his back. By his side "
+		+ "is a Spear and shield. On the shield is the painting of a white pegasus—the Prince of "
+		+ "Sommerlund’s emblem. He is one of the Prince’s soldiers, and he is only just conscious. "
+		+ "His uniform is badly torn, and you can see that he has a deep wound in his left arm. "
+		+ "As you move nearer, his eyes flicker open. ‘Heal me, my lord,’ he begs. ‘I can barely "
+		+ "feel my arm.’\r\n");
+System.out.println("If you possess and wish to use the Kai Discipline of Healing on this man, turn to 216.\r\n");
+System.out.println("If you do not possess the skill, or if you do not want to use it, then turn to 31.");
+return spiele.EingabeInt(216,31);
 }
 
 public int Kapitel_89 ()
 {
-String Text = "In a cloud of dust and loose rocks you career down the steep hillside. The Kraan is still circling above as if waiting to direct the Giaks after you.\r\n"
+System.out.println("In a cloud of dust and loose rocks you career down the steep hillside. The Kraan is still "
+		+ "circling above as if waiting to direct the Giaks after you.\r\n"
 		+ "\r\n"
-		+ "Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If you have picked 0–1, turn to 53.\r\n"
-		+ "\r\n"
-		+ "If it is 2–4, turn to 274.\r\n"
-		+ "\r\n"
-		+ "If it is 5–9, turn to 316.";
-return 89;
+		+ "Pick a number from the Random Number Table.\r\n");
+int speicher =zufalzahl.nextInt(10);
+if (speicher<=1) {
+	System.out.println("If you have picked 0–1, turn to 53.\r\n");
+	spiele.warte_auf_eingabe();
+	return 53;
+}
+else if (speicher<=4) {
+	System.out.println("If it is 2–4, turn to 274.\r\n");
+	spiele.warte_auf_eingabe();
+	return 274;
+}
+else {
+	System.out.println("If it is 5–9, turn to 316.");
+	spiele.warte_auf_eingabe();
+	return 316;
+}
 }
 
 public int Kapitel_90 ()
 {
-String Text = "Night falls and you are soon engulfed in total darkness. To press on would be useless, for you would be sure to lose your way. Tethering your horse to a tree, you pull your green Kai cloak about you and fall into a restless sleep.\r\n"
+System.out.println("Night falls and you are soon engulfed in total darkness. To press on would be useless, "
+		+ "for you would be sure to lose your way. Tethering your horse to a tree, you pull your green "
+		+ "Kai cloak about you and fall into a restless sleep.\r\n"
 		+ "\r\n"
-		+ "Turn to 18.";
-return 90;
+		+ "Turn to 18.");
+spiele.warte_auf_eingabe();
+return 18;
 }
 
 public int Kapitel_91 ()
 {
-String Text = "The small shop is dark and musty. Books and bottles of every size and colour fill the many shelves. As you close the door, a small black dog begins to yap at you. A bald man appears from behind a large screen and bids you welcome. He politely enquires as to the nature of your visit and offers you a choice of his wares from the glass counter.\r\n"
+String Text = "The small shop is dark and musty. Books and bottles of every size and colour fill "
+		+ "the many shelves. As you close the door, a small black dog begins to yap at you. A bald "
+		+ "man appears from behind a large screen and bids you welcome. He politely enquires as to "
+		+ "the nature of your visit and offers you a choice of his wares from the glass counter.\r\n"
 		+ "\r\n"
 		+ "If you have the Kai Discipline of Sixth Sense, turn to 198.\r\n"
 		+ "\r\n"
@@ -1733,7 +1792,13 @@ return 91;
 
 public int Kapitel_92 ()
 {
-String Text = "You dive for cover not a moment too soon, for a hail of black arrows scream out of the woods and bombard the area where you were standing seconds before. Pulling your cloak around you to blend into the dense bracken, you dash through the forest and away from the hidden ambushers as fast as possible. This entire area is infested by Giaks and you must escape as quickly as you can. You run without rest for over an hour until you happen to fall upon a straight forest path heading towards the east. You follow the path, taking care to keep watch for signs of the enemy.\r\n"
+String Text = "You dive for cover not a moment too soon, for a hail of black arrows scream out "
+		+ "of the woods and bombard the area where you were standing seconds before. Pulling your "
+		+ "cloak around you to blend into the dense bracken, you dash through the forest and away "
+		+ "from the hidden ambushers as fast as possible. This entire area is infested by Giaks and "
+		+ "you must escape as quickly as you can. You run without rest for over an hour until you "
+		+ "happen to fall upon a straight forest path heading towards the east. You follow the path, "
+		+ "taking care to keep watch for signs of the enemy.\r\n"
 		+ "\r\n"
 		+ "Turn to 13.";
 return 92;
@@ -1741,7 +1806,11 @@ return 92;
 
 public int Kapitel_93 ()
 {
-String Text = "You turn and run for the stairs just as a large block falls with a crash behind you. The room you were in has been completely sealed off. As you escape into the daylight, you glimpse behind you the crooked figure of an old druid as he raises his staff. A second later, a bolt of lightning explodes at your feet. You do not stop but run headlong down the hill, cursing the delay but thankful for your Sixth Sense.\r\n"
+String Text = "You turn and run for the stairs just as a large block falls with a crash behind you. "
+		+ "The room you were in has been completely sealed off. As you escape into the daylight, "
+		+ "you glimpse behind you the crooked figure of an old druid as he raises his staff. "
+		+ "A second later, a bolt of lightning explodes at your feet. You do not stop but run "
+		+ "headlong down the hill, cursing the delay but thankful for your Sixth Sense.\r\n"
 		+ "\r\n"
 		+ "Turn to 106.";
 return 93;
@@ -1751,7 +1820,10 @@ public int Kapitel_94 ()
 {
 String Text = "The Sage, seeing that you have killed his son, turns and runs from the shop by a back door.\r\n"
 		+ "\r\n"
-		+ "You find 12 Gold Crowns in the robber’s purse and another 4 Gold Crowns in a wooden box under the counter. Carefully examining the potions and the wand you soon realize that they are all cheap counterfeits. In fact the entire shop is full of imitations. You shake your head and return to the main street.\r\n"
+		+ "You find 12 Gold Crowns in the robber’s purse and another 4 Gold Crowns in a wooden box "
+		+ "under the counter. Carefully examining the potions and the wand you soon realize that "
+		+ "they are all cheap counterfeits. In fact the entire shop is full of imitations. "
+		+ "You shake your head and return to the main street.\r\n"
 		+ "\r\n"
 		+ "Turn to 7.";
 return 94;
@@ -1769,7 +1841,11 @@ return 95;
 
 public int Kapitel_96 ()
 {
-String Text = "Holding your breath, you tighten your grip on your weapon and prepare to strike. The tension is unbearable—the Giaks are so close that the foul stench of their unwashed bodies fills your nostrils. You hear them curse in their strange alien tongue and then leave the ledge and start to scramble towards the peak. When you are sure they have gone, you finally exhale and wipe the sweat from your eyes.\r\n"
+String Text = "Holding your breath, you tighten your grip on your weapon and prepare to strike. "
+		+ "The tension is unbearable—the Giaks are so close that the foul stench of their unwashed "
+		+ "bodies fills your nostrils. You hear them curse in their strange alien tongue and then "
+		+ "leave the ledge and start to scramble towards the peak. When you are sure they have gone, "
+		+ "you finally exhale and wipe the sweat from your eyes.\r\n"
 		+ "\r\n"
 		+ "If you wish to explore the cave further, turn to 33.\r\n"
 		+ "\r\n"
@@ -1779,8 +1855,11 @@ return 96;
 
 public int Kapitel_97 ()
 {
-String Text = "Ahead of you, you can see a fierce battle raging across a stone bridge. The clash of steel and the cries of men and beasts echo through the forest. In the midst of the fighting, you see Prince Pelathar, the King’s son. He is in combat with a large grey Gourgaz who is wielding a black axe above his scaly head. Suddenly, the Prince falls wounded—a black arrow in his side.\r\n"
-		+ "[Illustration VII]\r\n"
+String Text = "Ahead of you, you can see a fierce battle raging across a stone bridge. The clash of "
+		+ "steel and the cries of men and beasts echo through the forest. In the midst of the fighting, "
+		+ "you see Prince Pelathar, the King’s son. He is in combat with a large grey Gourgaz who is "
+		+ "wielding a black axe above his scaly head. Suddenly, the Prince falls wounded—a black arrow "
+		+ "in his side.\r\n"
 		+ "\r\n"
 		+ "If you wish to defend the fallen Prince, turn to 255.\r\n"
 		+ "\r\n"
@@ -1790,7 +1869,9 @@ return 97;
 
 public int Kapitel_98 ()
 {
-String Text = "The guards seem to believe your story and bow with respect to your rank of Kai Lord. One of them pulls a concealed bell-rope and the huge doors start to swing open. They usher you inside and you hear the doors close behind you.\r\n"
+String Text = "The guards seem to believe your story and bow with respect to your rank of Kai Lord. "
+		+ "One of them pulls a concealed bell-rope and the huge doors start to swing open. They usher "
+		+ "you inside and you hear the doors close behind you.\r\n"
 		+ "\r\n"
 		+ "Turn to 139.";
 return 98;
@@ -1798,7 +1879,9 @@ return 98;
 
 public int Kapitel_99 ()
 {
-String Text = "You dive into the undergrowth just as the beast screams past your head. You quickly look back to see the Kraan turning in the air in preparation for another dive. You scramble to your feet and run deeper into the safety of the forest.\r\n"
+String Text = "You dive into the undergrowth just as the beast screams past your head. You quickly "
+		+ "look back to see the Kraan turning in the air in preparation for another dive. You scramble "
+		+ "to your feet and run deeper into the safety of the forest.\r\n"
 		+ "\r\n"
 		+ "Turn to 222.";
 return 99;
@@ -1806,9 +1889,13 @@ return 99;
 
 public int Kapitel_100 ()
 {
-String Text = "The cold corridor suddenly makes an abrupt turning towards the east. You notice a greenish glow that lights the tunnel in the far distance. As you creep nearer you can see that the corridor opens out into a larger chamber.\r\n"
+String Text = "The cold corridor suddenly makes an abrupt turning towards the east. You notice a greenish "
+		+ "glow that lights the tunnel in the far distance. As you creep nearer you can see that the corridor "
+		+ "opens out into a larger chamber.\r\n"
 		+ "\r\n"
-		+ "The strange light seems to emanate from a large bowl resting upon the top of a granite throne. On a plinth in front of the throne stands a statue. It looks like a winged serpent curved in the shape of an ‘S’.\r\n"
+		+ "The strange light seems to emanate from a large bowl resting upon the top of a granite throne. "
+		+ "On a plinth in front of the throne stands a statue. It looks like a winged serpent curved in the "
+		+ "shape of an ‘S’.\r\n"
 		+ "\r\n"
 		+ "If you wish to sit on the throne, turn to 161.\r\n"
 		+ "\r\n"
@@ -1820,9 +1907,14 @@ return 100;
 
 public int Kapitel_101 ()
 {
-String Text = "The noise of battle soon fades behind you but the ensuing silence is broken by a voice in your head that accuses you of being a coward, and deserting a fellow human in danger. You try to rid yourself of your nagging conscience by telling yourself that your mission is far more important, and that not only is the life of the young magician in peril but the lives of all your countrymen depend on you reaching the capital alive.\r\n"
+String Text = "The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
+		+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
+		+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
+		+ "is far more important, and that not only is the life of the young magician in peril but the "
+		+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
 		+ "\r\n"
-		+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. But it is too late—they have spotted you and you must run as fast as you can.\r\n"
+		+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
+		+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
 		+ "\r\n"
 		+ "Turn to 281.";
 return 101;
@@ -1830,7 +1922,10 @@ return 101;
 
 public int Kapitel_102 ()
 {
-String Text = "As you descend the rocky slope towards the Graveyard of the Ancients, you are aware of a strange mist and cloud that swirls all around this grey and forbidding place, blocking the sun and covering the Graveyard in a perpetual gloom. A chill creeps forward to greet your approach.\r\n"
+String Text = "As you descend the rocky slope towards the Graveyard of the Ancients, you are aware of a "
+		+ "strange mist and cloud that swirls all around this grey and forbidding place, blocking the "
+		+ "sun and covering the Graveyard in a perpetual gloom. A chill creeps forward to greet your "
+		+ "approach.\r\n"
 		+ "\r\n"
 		+ "With a feeling of deep dread, you enter the eerie necropolis.\r\n"
 		+ "\r\n"
