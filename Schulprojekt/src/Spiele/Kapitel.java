@@ -1781,13 +1781,14 @@ String Text = "The small shop is dark and musty. Books and bottles of every size
 		+ "the many shelves. As you close the door, a small black dog begins to yap at you. A bald "
 		+ "man appears from behind a large screen and bids you welcome. He politely enquires as to "
 		+ "the nature of your visit and offers you a choice of his wares from the glass counter.\r\n"
-		+ "\r\n"
-		+ "If you have the Kai Discipline of Sixth Sense, turn to 198.\r\n"
-		+ "\r\n"
-		+ "If you wish to look at his wares, turn to 152.\r\n"
-		+ "\r\n"
-		+ "If you would rather decline his offer and return to the street, turn to 7.";
-return 91;
+		+ "\r\n";
+System.out.println(Text);
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
+	System.out.println( "If you have the Kai Discipline of Sixth Sense, turn to 198.\r\n");
+}
+System.out.println("If you wish to look at his wares, turn to 152.\r\n");
+System.out.println("If you would rather decline his offer and return to the street, turn to 7.");
+return spiele.EingabeInt(198,152,7);
 }
 
 public int Kapitel_92 ()
@@ -1801,7 +1802,9 @@ String Text = "You dive for cover not a moment too soon, for a hail of black arr
 		+ "taking care to keep watch for signs of the enemy.\r\n"
 		+ "\r\n"
 		+ "Turn to 13.";
-return 92;
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 13;
 }
 
 public int Kapitel_93 ()
@@ -1813,7 +1816,9 @@ String Text = "You turn and run for the stairs just as a large block falls with 
 		+ "headlong down the hill, cursing the delay but thankful for your Sixth Sense.\r\n"
 		+ "\r\n"
 		+ "Turn to 106.";
-return 93;
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 106;
 }
 
 public int Kapitel_94 ()
@@ -1826,17 +1831,20 @@ String Text = "The Sage, seeing that you have killed his son, turns and runs fro
 		+ "You shake your head and return to the main street.\r\n"
 		+ "\r\n"
 		+ "Turn to 7.";
-return 94;
+Spielefiguer.getBelt_Pouch().incrementAnzahl(12+4);
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 7;
 }
 
 public int Kapitel_95 ()
 {
 String Text = "You soon stumble upon a narrow forest track running from north to south.\r\n"
-		+ "\r\n"
-		+ "If you wish to set off along the track towards the north, turn to 240.\r\n"
-		+ "\r\n"
-		+ "If you wish to go south instead, turn to 5.";
-return 95;
+		+ "\r\n";
+System.out.println(Text);
+System.out.println("If you wish to set off along the track towards the north, turn to 240.\r\n");
+System.out.println("If you wish to go south instead, turn to 5.");
+return spiele.EingabeInt(240,5);
 }
 
 public int Kapitel_96 ()
@@ -1845,12 +1853,11 @@ String Text = "Holding your breath, you tighten your grip on your weapon and pre
 		+ "The tension is unbearable—the Giaks are so close that the foul stench of their unwashed "
 		+ "bodies fills your nostrils. You hear them curse in their strange alien tongue and then "
 		+ "leave the ledge and start to scramble towards the peak. When you are sure they have gone, "
-		+ "you finally exhale and wipe the sweat from your eyes.\r\n"
-		+ "\r\n"
-		+ "If you wish to explore the cave further, turn to 33.\r\n"
-		+ "\r\n"
-		+ "If you wish to leave the cave and descend the hill in case the Giaks return, turn to 248.";
-return 96;
+		+ "you finally exhale and wipe the sweat from your eyes.\r\n";
+System.out.println(Text);
+System.out.println("If you wish to explore the cave further, turn to 33.\r\n");
+System.out.println("If you wish to leave the cave and descend the hill in case the Giaks return, turn to 248.");
+return spiele.EingabeInt(33,248);
 }
 
 public int Kapitel_97 ()
@@ -1859,12 +1866,11 @@ String Text = "Ahead of you, you can see a fierce battle raging across a stone b
 		+ "steel and the cries of men and beasts echo through the forest. In the midst of the fighting, "
 		+ "you see Prince Pelathar, the King’s son. He is in combat with a large grey Gourgaz who is "
 		+ "wielding a black axe above his scaly head. Suddenly, the Prince falls wounded—a black arrow "
-		+ "in his side.\r\n"
-		+ "\r\n"
-		+ "If you wish to defend the fallen Prince, turn to 255.\r\n"
-		+ "\r\n"
-		+ "If you wish to run into the forest, turn to 306.";
-return 97;
+		+ "in his side.\r\n";
+System.out.println(Text);
+System.out.println("If you wish to defend the fallen Prince, turn to 255.\r\n");
+System.out.println("If you wish to run into the forest, turn to 306.");
+return spiele.EingabeInt(255,306);
 }
 
 public int Kapitel_98 ()
@@ -1874,7 +1880,9 @@ String Text = "The guards seem to believe your story and bow with respect to you
 		+ "you inside and you hear the doors close behind you.\r\n"
 		+ "\r\n"
 		+ "Turn to 139.";
-return 98;
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 139;
 }
 
 public int Kapitel_99 ()
@@ -1884,7 +1892,9 @@ String Text = "You dive into the undergrowth just as the beast screams past your
 		+ "to your feet and run deeper into the safety of the forest.\r\n"
 		+ "\r\n"
 		+ "Turn to 222.";
-return 99;
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 222;
 }
 
 public int Kapitel_100 ()
@@ -1895,14 +1905,12 @@ String Text = "The cold corridor suddenly makes an abrupt turning towards the ea
 		+ "\r\n"
 		+ "The strange light seems to emanate from a large bowl resting upon the top of a granite throne. "
 		+ "On a plinth in front of the throne stands a statue. It looks like a winged serpent curved in the "
-		+ "shape of an ‘S’.\r\n"
-		+ "\r\n"
-		+ "If you wish to sit on the throne, turn to 161.\r\n"
-		+ "\r\n"
-		+ "If you wish to examine the statue, turn to 133.\r\n"
-		+ "\r\n"
-		+ "If you wish to look for an exit from this chamber, turn to 257.";
-return 100;
+		+ "shape of an ‘S’.\r\n";
+System.out.println(Text);
+System.out.println("If you wish to sit on the throne, turn to 161.\r\n");
+System.out.println("If you wish to examine the statue, turn to 133.\r\n");
+System.out.println("If you wish to look for an exit from this chamber, turn to 257.");
+return spiele.EingabeInt(161,133,257);
 }
 
 public int Kapitel_101 ()
@@ -1917,7 +1925,9 @@ String Text = "The noise of battle soon fades behind you but the ensuing silence
 		+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
 		+ "\r\n"
 		+ "Turn to 281.";
-return 101;
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 281;
 }
 
 public int Kapitel_102 ()
@@ -1930,65 +1940,88 @@ String Text = "As you descend the rocky slope towards the Graveyard of the Ancie
 		+ "With a feeling of deep dread, you enter the eerie necropolis.\r\n"
 		+ "\r\n"
 		+ "Turn to 284.";
-return 102;
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 284;
 }
 
 public int Kapitel_103 ()
 {
 String Text = "The overgrown path leads to a junction where another track branches off towards the east.\r\n"
-		+ "\r\n"
-		+ "If you wish to take this path, turn to 13.\r\n"
-		+ "\r\n"
-		+ "If you would rather continue towards the northeast, turn to 287.";
-return 103;
+		+ "\r\n";
+System.out.println(Text);
+System.out.println("If you wish to take this path, turn to 13.\r\n");
+System.out.println("If you would rather continue towards the northeast, turn to 287.");
+return spiele.EingabeInt(13,287);
 }
 
 public int Kapitel_104 ()
 {
-String Text = "The walls are dank and slimy. The stale air chokes you and cobwebs brush across your face. You can feel panic grip your stomach, as the tunnel gets darker and darker.\r\n"
+String Text = "The walls are dank and slimy. The stale air chokes you and cobwebs brush across your face. "
+		+ "You can feel panic grip your stomach, as the tunnel gets darker and darker.\r\n"
 		+ "\r\n"
 		+ "You reach a junction where the tunnel meets a corridor leading from north to south.\r\n"
-		+ "\r\n"
-		+ "If you wish to turn north, go to 26.\r\n"
-		+ "\r\n"
-		+ "If you wish to go south, turn to 100.";
-return 104;
+		+ "\r\n";
+System.out.println(Text);
+System.out.println("If you wish to turn north, go to 26.\r\n");
+System.out.println("If you wish to go south, turn to 100.");
+return spiele.EingabeInt(13,287);
 }
 
 public int Kapitel_105 ()
 {
 String Text = "In the distance, perched on the branch of an old oak tree is a jet-black raven.\r\n"
-		+ "\r\n"
-		+ "If you have the Kai Discipline of Animal Kinship, you may call to this bird by turning to 298.\r\n"
-		+ "\r\n"
-		+ "If you do not possess this skill, or if you do not wish to use it, turn to 335.";
-return 105;
+		+ "\r\n";
+System.out.println(Text);
+if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Animal Kinship")) {
+	System.out.println( "If you have the Kai Discipline of Animal Kinship, you may call to this bird by turning to "
+			+ "298.\r\n");
+}
+System.out.println("If you do not possess Animal Kinship, or if you do not wish to use it, turn to 335.");
+return spiele.EingabeInt(298,335);
 }
 
 public int Kapitel_106 ()
 {
-String Text = "Eventually you come to the edge of a fast-flowing icy stream. The white water cascades over the mossy rocks and disappears towards the east.\r\n"
+String Text = "Eventually you come to the edge of a fast-flowing icy stream. The white water cascades over "
+		+ "the mossy rocks and disappears towards the east.\r\n"
 		+ "\r\n"
 		+ "If you wish to follow the stream to the east, turn to 263.\r\n"
 		+ "\r\n"
 		+ "If you would rather explore upstream, turn to 334.";
-return 106;
+System.out.println(Text);
+System.out.println( "If you wish to follow the stream to the east, turn to 263.\r\n");
+System.out.println( "If you would rather explore upstream, turn to 334.");
+return spiele.EingabeInt(263,334);
 }
 
 public int Kapitel_107 ()
 {
-String Text = "Running across the room, you lash out at the skulls, smashing them to fragments. You notice that inside each skull is a bubbling grey jelly that seems to writhe and change its shape, sprouting bat-like wings and suckers from its glistening form. In horror and loathing, you race for the exit corridor and escape just as a heavy portcullis falls with a crash, completely sealing off the chamber.\r\n"
+String Text = "Running across the room, you lash out at the skulls, smashing them to fragments. You "
+		+ "notice that inside each skull is a bubbling grey jelly that seems to writhe and change its "
+		+ "shape, sprouting bat-like wings and suckers from its glistening form. In horror and loathing, "
+		+ "you race for the exit corridor and escape just as a heavy portcullis falls with a crash, "
+		+ "completely sealing off the chamber.\r\n"
 		+ "\r\n"
 		+ "Turn to 23.";
-return 107;
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 284;
 }
 
 public int Kapitel_108 ()
 {
-String Text = "You fly in an arc through the air towards the opposite roof. Everything seems to be happening in slow motion. You see the teeming crowds below in the street, and a nest of callysparrows in the eaves of a roof to your right. You hear their startled cries as you land with a crash on the other side. But it is the last sound that you will ever hear. The tiles splinter and collapse and you fall through the four floors of the ‘Green Slipper Inn’ breaking your back in several places.\r\n"
+String Text = "You fly in an arc through the air towards the opposite roof. Everything seems to "
+		+ "be happening in slow motion. You see the teeming crowds below in the street, and a nest "
+		+ "of callysparrows in the eaves of a roof to your right. You hear their startled cries as "
+		+ "you land with a crash on the other side. But it is the last sound that you will ever hear. "
+		+ "The tiles splinter and collapse and you fall through the four floors of the ‘Green Slipper Inn’ "
+		+ "breaking your back in several places.\r\n"
 		+ "\r\n"
 		+ "Your mission and your life end here.";
-return 108;
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 284;
 }
 
 public int Kapitel_109 ()
@@ -1998,20 +2031,29 @@ String Text = "The only thing under the carpet is dirt!\r\n"
 		+ "You may take a closer look at the bottles by turning to 164.\r\n"
 		+ "\r\n"
 		+ "Or you can leave the room and investigate the stable by turning to 308.";
-return 109;
+System.out.println(Text);
+System.out.println( "You may take a closer look at the bottles by turning to 164.\r\n");
+System.out.println( "Or you can leave the room and investigate the stable by turning to 308.");
+return spiele.EingabeInt(164,308);
 }
 
 public int Kapitel_110 ()
 {
-String Text = "You quickly take aim and hurl the rock at the Giak’s head as hard as you can, but to your horror the creature ducks and the rock arcs harmlessly over its back. You must act immediately to save the wizard.\r\n"
+String Text = "You quickly take aim and hurl the rock at the Giak’s head as hard as you "
+		+ "can, but to your horror the creature ducks and the rock arcs harmlessly over its back. "
+		+ "You must act immediately to save the wizard.\r\n"
 		+ "\r\n"
 		+ "Turn to 55.";
-return 110;
+System.out.println(Text);
+spiele.warte_auf_eingabe();
+return 55;
 }
 
 public int Kapitel_111 ()
 {
-String Text = "Only a few minutes after leaving the junction, you see in the distance a small log cabin and stable. On arrival you check the interior through a side window. The cabin looks deserted.\r\n"
+String Text = "Only a few minutes after leaving the junction, you see in the distance a "
+		+ "small log cabin and stable. On arrival you check the interior through a side window. "
+		+ "The cabin looks deserted.\r\n"
 		+ "\r\n"
 		+ "If you wish to enter the cabin, turn to 57.\r\n"
 		+ "\r\n"
