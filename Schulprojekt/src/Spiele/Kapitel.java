@@ -3655,9 +3655,13 @@ return 259;
 
 public int Kapitel_260 ()
 {
-String Text = "Swimming towards the bank, you can see the ranger spread-eagled at the water’s edge. You reach him but only to find that he has broken his neck in the fall and is dead.\r\n"
+String Text = "Swimming towards the bank, you can see the ranger spread-eagled at the "
+		+ "water’s edge. You reach him but only to find that he has broken his neck in the "
+		+ "fall and is dead.\r\n"
 		+ "\r\n"
-		+ "Suddenly, two Giaks jump on you from above and you must fight them. You are unarmed and must fight the Giaks with your bare hands. Deduct 4 points from your COMBAT SKILL and fight them one at a time.\r\n"
+		+ "Suddenly, two Giaks jump on you from above and you must fight them. "
+		+ "You are unarmed and must fight the Giaks with your bare hands. Deduct 4 points "
+		+ "from your COMBAT SKILL and fight them one at a time.\r\n"
 		+ "\r\n"
 		+ "Giak 1: COMBAT SKILL 11   ENDURANCE 18\r\n"
 		+ "\r\n"
