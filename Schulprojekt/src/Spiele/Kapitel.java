@@ -2363,7 +2363,7 @@ public int Kapitel_132 ()
 
 public int Kapitel_133 ()
 {
-String Text = "As you approach the statue, several cracks appear in its stone surface. "
+	System.out.println("As you approach the statue, several cracks appear in its stone surface. "
 		+ "It suddenly explodes before you as a real Winged Serpent breaks free of its "
 		+ "stone mantle and attacks you.\r\n"
 		+ "\r\n"
@@ -2373,8 +2373,11 @@ String Text = "As you approach the statue, several cracks appear in its stone su
 		+ "\r\n"
 		+ "(This creature is immune to Mindblast.)\r\n"
 		+ "\r\n"
-		+ "If you win the fight, turn to 266.";
-return 133;
+		+ "If you win the fight, turn to 266.");
+if (combatRules.Combat(Spielefiguer,new Enemy("Winged Serpent", 16, 18, true, false), 0)==combatResult.Win) {
+	return 266;
+}
+return 351;
 
 }
 
@@ -2404,7 +2407,7 @@ return spiele.optionauswahl(Spielefiguer,
 
 public int Kapitel_136 ()
 {
-String Text = "The Giaks get nearer and then crouch down as if preparing themselves to "
+	System.out.println("The Giaks get nearer and then crouch down as if preparing themselves to "
 		+ "pounce. You can see the sharp serrated points of their spears and hear their "
 		+ "low guttural speech. The larger of the two creatures screams, ‘Orgadak taag! "
 		+ "Nogjat aga ok!’ and attacks you.\r\n"
@@ -2416,8 +2419,14 @@ String Text = "The Giaks get nearer and then crouch down as if preparing themsel
 		+ "\r\n"
 		+ "Giak 2: COMBAT SKILL 12   ENDURANCE 10\r\n"
 		+ "\r\n"
-		+ "If you win, turn to 313.";
-return 136;
+		+ "If you win, turn to 313.");
+	if (combatRules.Combat(Spielefiguer,new Enemy("Giak 1", 13, 10), 0)==combatResult.Lost) {
+	return 351;
+	}
+	if (combatRules.Combat(Spielefiguer,new Enemy("Giak 2", 12, 10), 0)==combatResult.Win) {
+	return 313;
+	}
+	return 351;
 
 }
 
@@ -2438,15 +2447,21 @@ return spiele.optionauswahl(Spielefiguer,
 
 public int Kapitel_138 ()
 {
-String Text = "You prepare your weapon and advance to meet the enemy. There are two "
+System.out.println("You prepare your weapon and advance to meet the enemy. There are two "
 		+ "Mountain Giaks and you must fight them one at a time.\r\n"
 		+ "\r\n"
 		+ "Giak 1: COMBAT SKILL 13   ENDURANCE 10\r\n"
 		+ "\r\n"
 		+ "Giak 2: COMBAT SKILL 12   ENDURANCE 10\r\n"
 		+ "\r\n"
-		+ "If you win, turn to 291.";
-return 138;
+		+ "If you win, turn to 291.");
+	if (combatRules.Combat(Spielefiguer,new Enemy("Giak 1", 13, 10), 0)==combatResult.Lost) {
+	return 351;
+	}
+	if (combatRules.Combat(Spielefiguer,new Enemy("Giak 2", 12, 10), 0)==combatResult.Win) {
+	return 291;
+	}
+	return 351;
 
 }
 
@@ -2657,86 +2672,59 @@ public int Kapitel_151 ()
 				+ "\r\n",
 		Option.CharakterZeigen(),
 		new Option("If you wish to use your Kai Discipline of Mind Over Matter to open "
-				+ "this lock and levitate the pin, turn to 87.\r\n","87",true),
+				+ "this lock and levitate the pin, turn to 87.\r\n","87",Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Mind Over Matter")),
 		new Option("If you wish to remove the pin, turn to 337.","337",true));
 }
 
 public int Kapitel_152 ()
 {
-String Text = "The herbalist offers you a selection of special potions. "
-		+ "Some increase your strength; some induce invisibility; some give "
-		+ "you great powers of stealth; and others give you the power of "
-		+ "turning yourself into a gaseous form. The man pulls open the "
-		+ "bottom drawer of the counter to reveal a magnificent wand. "
-		+ "He says that it is a powerful weapon against all evil creatures, "
-		+ "and that it will make you invulnerable in battle. He points to the "
-		+ "mystical inscriptions which cover the black staff.\r\n"
-		+ "\r\n"
-		+ "If you wish to lean over the counter and read the strange inscriptions, turn to 49.\r\n"
-		+ "\r\n"
-		+ "If you are more interested in the potions, turn to 231.";
-return 152;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"The herbalist offers you a selection of special potions. "
+				+ "Some increase your strength; some induce invisibility; some give "
+				+ "you great powers of stealth; and others give you the power of "
+				+ "turning yourself into a gaseous form. The man pulls open the "
+				+ "bottom drawer of the counter to reveal a magnificent wand. "
+				+ "He says that it is a powerful weapon against all evil creatures, "
+				+ "and that it will make you invulnerable in battle. He points to the "
+				+ "mystical inscriptions which cover the black staff.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to lean over the counter and read the strange inscriptions, turn to 49.\r\n","49",true),
+		new Option("If you are more interested in the potions, turn to 231.","231",true));
 }
 
 public int Kapitel_153 ()
 {
-String Text = "Before you are the tall grey-white walls and glimmering spires "
-		+ "of Holmgard, the city’s banners fluttering from the battlements "
-		+ "in the fresh morning breeze. Stretching out towards the west, "
-		+ "the River Eledil traces its course from the mountains of the "
-		+ "Durncrag Range to the Holmgulf. But below the mountain peaks you "
-		+ "can see a vast black army marching relentlessly on towards the capital.\r\n"
-		+ "\r\n"
-		+ "To your right you can see the highway heading off over the rolling "
-		+ "plain towards Holmgard. At a gallop you could make the outer fieldworks "
-		+ "of the city’s defences in less than an hour, but you would be in the open "
-		+ "for most of the time and vulnerable to attack by Kraan. Directly ahead of "
-		+ "you, a wide river drifts sluggishly towards the Eledil. If you abandoned your "
-		+ "horse, you could swim towards the outer defences under cover of the river banks. "
-		+ "Or there is a final alternative. To your left lies the Graveyard of the Ancients. "
-		+ "These tombs and crumbling monuments to a forgotten age would conceal your approach "
-		+ "but it is a forbidden area. Many are the unnamed horrors that lie there in restless "
-		+ "sleep, waiting to consume the unwary trespasser.\r\n"
-		+ "\r\n"
-		+ "If you will try your luck by the highway, turn to 202.\r\n"
-		+ "\r\n"
-		+ "If you feel that you stand a better chance of reaching the capital via the "
-		+ "river then turn to 135.\r\n"
-		+ "\r\n"
-		+ "Or if you are brave enough to risk the unknown perils of the Graveyard of "
-		+ "the Ancients, turn to 329.";
-return 153;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"Before you are the tall grey-white walls and glimmering spires "
+				+ "of Holmgard, the city’s banners fluttering from the battlements "
+				+ "in the fresh morning breeze. Stretching out towards the west, "
+				+ "the River Eledil traces its course from the mountains of the "
+				+ "Durncrag Range to the Holmgulf. But below the mountain peaks you "
+				+ "can see a vast black army marching relentlessly on towards the capital.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "To your right you can see the highway heading off over the rolling "
+				+ "plain towards Holmgard. At a gallop you could make the outer fieldworks "
+				+ "of the city’s defences in less than an hour, but you would be in the open "
+				+ "for most of the time and vulnerable to attack by Kraan. Directly ahead of "
+				+ "you, a wide river drifts sluggishly towards the Eledil. If you abandoned your "
+				+ "horse, you could swim towards the outer defences under cover of the river banks. "
+				+ "Or there is a final alternative. To your left lies the Graveyard of the Ancients. "
+				+ "These tombs and crumbling monuments to a forgotten age would conceal your approach "
+				+ "but it is a forbidden area. Many are the unnamed horrors that lie there in restless "
+				+ "sleep, waiting to consume the unwary trespasser.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you will try your luck by the highway, turn to 202.\r\n","202",true),
+		new Option("If you feel that you stand a better chance of reaching the capital via the "
+				+ "river then turn to 135.\r\n","135",true),
+		new Option("Or if you are brave enough to risk the unknown perils of the Graveyard of "
+				+ "the Ancients, turn to 329.","329",true));
 }
 
 public int Kapitel_154 ()
 {
-String Text = "You are dizzy from your wound and you stumble through the trees like a blind man.\r\n"
+	System.out.println("You are dizzy from your wound and you stumble through the trees like a blind man.\r\n"
 		+ "\r\n"
 		+ "Suddenly you fall forward as if the ground has been snatched from "
 		+ "beneath your feet. You have fallen head-first into a hunting pit. "
@@ -2744,104 +2732,56 @@ String Text = "You are dizzy from your wound and you stumble through the trees l
 		+ "you, evil sneers spreading simultaneously across their ugly faces.\r\n"
 		+ "\r\n"
 		+ "As the world darkens, the last thing you feel is the black shafts "
-		+ "of their arrows deep in your chest. You have failed in your mission.";
-return 154;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
-		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		+ "of their arrows deep in your chest. You have failed in your mission.");
+	spiele.warte_auf_eingabe();
+	return 154;
+
 }
 
 public int Kapitel_155 ()
 {
-String Text = "As you approach, the group of people stop talking. "
-		+ "You can see by their expressions that they recognize your "
-		+ "green Kai cloak. Slowly, one of the men extends his hand in "
-		+ "friendship and says, ‘My Lord, we had heard a rumour that the "
-		+ "Kai were destroyed. Heaven be praised that it is not so. We feared all was lost.’\r\n"
-		+ "\r\n"
-		+ "You do not tell them of the destruction of the monastery, for "
-		+ "they are refugees from Toran and have lost everything they owned. "
-		+ "Their only hope now is that the Kai Lords will lead an army to victory. "
-		+ "You learn that the northern port was attacked from both air and sea, and "
-		+ "that the forces of the Darklords far outnumbered the King’s brave garrison. "
-		+ "You reassure them that Sommerlund will not fall and wish them luck on their journey ahead.\r\n"
-		+ "\r\n"
-		+ "Turn to 70.";
-return 155;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"As you approach, the group of people stop talking. "
+				+ "You can see by their expressions that they recognize your "
+				+ "green Kai cloak. Slowly, one of the men extends his hand in "
+				+ "friendship and says, ‘My Lord, we had heard a rumour that the "
+				+ "Kai were destroyed. Heaven be praised that it is not so. We feared all was lost.’\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "You do not tell them of the destruction of the monastery, for "
+				+ "they are refugees from Toran and have lost everything they owned. "
+				+ "Their only hope now is that the Kai Lords will lead an army to victory. "
+				+ "You learn that the northern port was attacked from both air and sea, and "
+				+ "that the forces of the Darklords far outnumbered the King’s brave garrison. "
+				+ "You reassure them that Sommerlund will not fall and wish them luck on their journey ahead.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 70.","70",true));
 }
 
 public int Kapitel_156 ()
 {
-String Text = "Black arrows embed themselves in the mud all around you. "
-		+ "More Giaks have appeared on the steep slope of the river bank and are "
-		+ "firing at you. There is no cover on this side of the river.\r\n"
-		+ "\r\n"
-		+ "If you wish to dive into the water and swim with the current, turn to 294.\r\n"
-		+ "\r\n"
-		+ "If you wish to swim across to the cover of the trees on the other bank, turn to 245.";
-return 156;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"Black arrows embed themselves in the mud all around you. "
+				+ "More Giaks have appeared on the steep slope of the river bank and are "
+				+ "firing at you. There is no cover on this side of the river.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to dive into the water and swim with the current, turn to 294.\r\n","294",true),
+		new Option("If you wish to swim across to the cover of the trees on the other bank, turn to 245.","245",true));
 }
 
 public int Kapitel_157 ()
 {
-String Text = "The forest begins to thin out until finally you can "
-		+ "make out a road through the trees ahead. The highway is full of "
-		+ "people heading south. Many are wheeling their possessions along on handcarts.\r\n"
-		+ "\r\n"
-		+ "If you wish to join the refugees and perhaps learn more of what "
-		+ "has happened in the north, turn to 30.\r\n"
-		+ "\r\n"
-		+ "If you would prefer to continue to move south but under cover of the trees, turn to 167.";
-return 157;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"The forest begins to thin out until finally you can "
+				+ "make out a road through the trees ahead. The highway is full of "
+				+ "people heading south. Many are wheeling their possessions along on handcarts.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "If you wish to join the refugees and perhaps learn more of what ",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to join the refugees and perhaps learn more of what "
+				+ "has happened in the north, turn to 30.\r\n","30",true),
+		new Option("If you would prefer to continue to move south but under cover of the trees, turn to 167.","167",true));
 }
 
 public int Kapitel_158 ()
@@ -2863,19 +2803,12 @@ String Text = "The Key fits and the lock opens. You pull back the door to "
 		+ "\r\n"
 		+ "Turn to 106.";
 return 158;
+
 }
 
 public int Kapitel_159 ()
 {
-String Text = "Your ploy does not work, for the merchant will not "
-		+ "allow you to enter his caravan. Suddenly he clicks his "
-		+ "fingers and the bodyguard grasps the hilt of his scimitar.\r\n"
-		+ "\r\n"
-		+ "You must fight him by turning to 191.\r\n"
-		+ "\r\n"
-		+ "Or you must jump clear of the speeding caravan. Turn to 234.";
-return 159;
-return spiele.optionauswahl(Spielefiguer,
+	return spiele.optionauswahl(Spielefiguer,
 		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
 				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
 				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
@@ -2887,7 +2820,8 @@ return spiele.optionauswahl(Spielefiguer,
 				+ "\r\n"
 				+ "Turn to 281.",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("You must fight him by turning to 191.\r\n","191",true),
+		new Option("Or you must jump clear of the speeding caravan. Turn to 234.","234",true));
 }
 
 public int Kapitel_160 ()
@@ -2902,230 +2836,134 @@ return 160;
 
 public int Kapitel_161 ()
 {
-String Text = "As you sit down, the stone serpent slowly moves forward "
-		+ "on its plinth. You suddenly break out in a cold sweat and grasp your "
-		+ "weapon with trembling fingers in case it should attack. A red forked "
-		+ "tongue appears from the head of this strange statue and dips into the "
-		+ "bowl of green light above your head. Slowly the tongue re-emerges holding "
-		+ "a Golden Key which, to your surprise, it drops into your lap. A panel "
-		+ "in the east wall clicks open to reveal an exit.\r\n"
-		+ "\r\n"
-		+ "You take the Key and leave as quickly as possible.\r\n"
-		+ "\r\n"
-		+ "Turn to 209.";
-return 161;
 return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+		"As you sit down, the stone serpent slowly moves forward "
+				+ "on its plinth. You suddenly break out in a cold sweat and grasp your "
+				+ "weapon with trembling fingers in case it should attack. A red forked "
+				+ "tongue appears from the head of this strange statue and dips into the "
+				+ "bowl of green light above your head. Slowly the tongue re-emerges holding "
+				+ "a Golden Key which, to your surprise, it drops into your lap. A panel "
+				+ "in the east wall clicks open to reveal an exit.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "You take the Key and leave as quickly as possible.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 209.","209",true));
 }
 
 public int Kapitel_162 ()
 {
-String Text = "As you get nearer to the men, you call to them. As they turn to face "
-		+ "you, your skin turns cold and your heart pounds, for they are Drakkarim "
-		+ "in disguise. Suddenly they charge at you. Forced to the ground, you are "
-		+ "tied up with ropes and dragged behind them along a track. They take your "
-		+ "Backpack and Weapons, but do not search your cloak or find your Gold Crowns. "
-		+ "They cackle menacingly to themselves, and talk at great length of the tortures "
-		+ "that await you at their camp.\r\n"
-		+ "\r\n"
-		+ "If you have the Kai Discipline of Mind Over Matter, turn to 258.\r\n"
-		+ "\r\n"
-		+ "If you do not have this skill, turn to 127.";
-return 162;
 return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+		"As you get nearer to the men, you call to them. As they turn to face "
+				+ "you, your skin turns cold and your heart pounds, for they are Drakkarim "
+				+ "in disguise. Suddenly they charge at you. Forced to the ground, you are "
+				+ "tied up with ropes and dragged behind them along a track. They take your "
+				+ "Backpack and Weapons, but do not search your cloak or find your Gold Crowns. "
+				+ "They cackle menacingly to themselves, and talk at great length of the tortures "
+				+ "that await you at their camp.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you have the Kai Discipline of Mind Over Matter, turn to 258.\r\n"
+				+ "\r\n","258",Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Mind Over Matter")),
+		new Option("If you do not have this skill, turn to 127.","127",true));
 }
 
 public int Kapitel_163 ()
 {
-String Text = "After nearly half an hour you feel the current getting "
-		+ "stronger. Looking out across the surface you can see that "
-		+ "you are approaching a whirlpool in the middle of a large "
-		+ "river bend. You will surely drown if caught in its current, "
-		+ "so you quickly swim towards the right hand river bank and "
-		+ "continue your mission on foot, carrying all your equipment.\r\n"
-		+ "\r\n"
-		+ "Turn to 321.";
-return 163;
 return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+		"After nearly half an hour you feel the current getting "
+				+ "stronger. Looking out across the surface you can see that "
+				+ "you are approaching a whirlpool in the middle of a large "
+				+ "river bend. You will surely drown if caught in its current, "
+				+ "so you quickly swim towards the right hand river bank and "
+				+ "continue your mission on foot, carrying all your equipment.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 321.","321",true));
 }
 
 public int Kapitel_164 ()
 {
-String Text = "Carefully opening the seals on each of the bottles, you "
-		+ "sniff at the contents. They all seem to be different types of "
-		+ "wine. Suddenly a smaller bottle tucked behind the others catches "
-		+ "your eye. Pulling out the glass stopper, you recognize the smell "
-		+ "to be that of Alether, a Potion of Strength, which is orange in colour.\r\n"
-		+ "\r\n"
-		+ "You may keep this Potion and swallow it before you fight. It will "
-		+ "increase your COMBAT SKILL by 2 points for the duration of your "
-		+ "fight. Be sure to mark it down on your Action Chart and to strike "
-		+ "it off once you have used it.\r\n"
-		+ "\r\n"
-		+ "You now decide to investigate the stable by turning to 308.";
-return 164;
 return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+		"Carefully opening the seals on each of the bottles, you "
+				+ "sniff at the contents. They all seem to be different types of "
+				+ "wine. Suddenly a smaller bottle tucked behind the others catches "
+				+ "your eye. Pulling out the glass stopper, you recognize the smell "
+				+ "to be that of Alether, a Potion of Strength, which is orange in colour.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "You may keep this Potion and swallow it before you fight. It will "
+				+ "increase your COMBAT SKILL by 2 points for the duration of your "
+				+ "fight. Be sure to mark it down on your Action Chart and to strike "
+				+ "it off once you have used it.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("You now decide to investigate the stable by turning to 308.","308",true));
 }
 
 public int Kapitel_165 ()
 {
-String Text = "You awake in a fever. Images swim before your eyes and then "
-		+ "fade completely. The pain in your back is intense and you cry out "
-		+ "for relief. You feel a cool, damp cloth placed on your forehead and "
-		+ "glimpse the worried face of a young woman. An old man whispers in "
-		+ "her ear and then he disappears from view. The girl kneels at your "
-		+ "side and comforts you with words of kindness and reassurance, "
-		+ "but the light quickly fades and darkness engulfs you once more.\r\n"
-		+ "\r\n"
-		+ "Turn to 212.";
-return 165;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"You awake in a fever. Images swim before your eyes and then "
+				+ "fade completely. The pain in your back is intense and you cry out "
+				+ "for relief. You feel a cool, damp cloth placed on your forehead and "
+				+ "glimpse the worried face of a young woman. An old man whispers in "
+				+ "her ear and then he disappears from view. The girl kneels at your "
+				+ "side and comforts you with words of kindness and reassurance, "
+				+ "but the light quickly fades and darkness engulfs you once more.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 212.","212",true));
 }
 
 public int Kapitel_166 ()
 {
-String Text = "You are in the presence of a great evil. Your mind is "
-		+ "being probed by a powerful and timeless being and you must "
-		+ "shield yourself. The struggle has begun and your sanity is at "
-		+ "stake. It is a long and torturous ordeal, during which you "
-		+ "experience many fantastic and terrible apparitions that tempt "
-		+ "and appal you. After this you must lose 4 ENDURANCE points and "
-		+ "stagger towards the tunnel.\r\n"
-		+ "\r\n"
-		+ "Turn to 104.";
-return 166;
 return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+		"You are in the presence of a great evil. Your mind is "
+				+ "being probed by a powerful and timeless being and you must "
+				+ "shield yourself. The struggle has begun and your sanity is at "
+				+ "stake. It is a long and torturous ordeal, during which you "
+				+ "experience many fantastic and terrible apparitions that tempt "
+				+ "and appal you. After this you must lose 4 ENDURANCE points and "
+				+ "stagger towards the tunnel.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 104.","104",true));
 }
 
 public int Kapitel_167 ()
 {
-String Text = "You have been travelling for about a mile when you notice two "
-		+ "legs sticking out from behind a large boulder.\r\n"
-		+ "\r\n"
-		+ "If you possess and wish to use the Kai Discipline of Sixth Sense, turn to 178.\r\n"
-		+ "\r\n"
-		+ "If you wish to take a closer look, turn to 88.\r\n"
-		+ "\r\n"
-		+ "If you would rather avoid meeting their owner and press on into the forest, turn to 264.";
-return 167;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"You have been travelling for about a mile when you notice two "
+				+ "legs sticking out from behind a large boulder.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you possess and wish to use the Kai Discipline of Sixth Sense, turn to 178.\r\n","178",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")),
+		new Option("If you wish to take a closer look, turn to 88.\r\n","88",true),
+		new Option("If you would rather avoid meeting their owner and press on into the forest, turn to 264.","264",true)
+		);
 }
 
 public int Kapitel_168 ()
 {
-String Text = "You pull yourself to the top of the opulent caravan and "
-		+ "nestle among the travelling cases and bags. Night will soon "
-		+ "engulf the highway. A chill wind blows from the west and you "
-		+ "pull your cloak around yourself to keep warm. You listen to the "
-		+ "voices below and you can smell the mouthwatering aroma of spiced "
-		+ "meat. It reminds you that you are very hungry and must now take a Meal.\r\n"
-		+ "\r\n"
-		+ "The fatigue of your ordeal finally catches up with you and you drift "
-		+ "off into a restless sleep.\r\n"
-		+ "\r\n"
-		+ "Turn to 64.";
-return 168;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"You pull yourself to the top of the opulent caravan and "
+				+ "nestle among the travelling cases and bags. Night will soon "
+				+ "engulf the highway. A chill wind blows from the west and you "
+				+ "pull your cloak around yourself to keep warm. You listen to the "
+				+ "voices below and you can smell the mouthwatering aroma of spiced "
+				+ "meat. It reminds you that you are very hungry and must now take a Meal.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "The fatigue of your ordeal finally catches up with you and you drift "
+				+ "off into a restless sleep.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 64.","64",true));
 }
 
 public int Kapitel_169 ()
 {
-String Text = "As you pass each skull, it slowly turns, as if watching your "
+System.out.println("As you pass each skull, it slowly turns, as if watching your "
 		+ "every move. You are halfway across the room when you hear the sharp "
 		+ "crack of bone splitting. Suddenly you see hideous shapes hatching "
 		+ "inside the skulls, and stretching their wings.\r\n"
@@ -3134,28 +2972,23 @@ String Text = "As you pass each skull, it slowly turns, as if watching your "
 		+ "\r\n"
 		+ "Crypt Spawn: COMBAT SKILL 16   ENDURANCE 16\r\n"
 		+ "\r\n"
-		+ "You may evade more fighting after the first round of combat and run for the archway by turning to 23.\r\n"
+		+ "You may evade more fighting after the first round of combat and run for the archway "
+		+ "by turning to 23.\r\n"
 		+ "\r\n"
-		+ "If you win the combat, turn to 137.";
-return 169;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
-		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		+ "If you win the combat, turn to 137.");
+	combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Crypt Spawn", 16, 16), 0,1);
+	if (ergebnis==combatResult.Evade) {
+	return 23;
+	}
+	if (ergebnis==combatResult.Win) {
+	return 137;
+	}
+	return 351;
 }
 
 public int Kapitel_170 ()
 {
-String Text = "The tunnel is dark and the air is much cooler than outside. "
+System.out.println("The tunnel is dark and the air is much cooler than outside. "
 		+ "You carefully advance with one hand on the tunnel wall to aid your "
 		+ "sense of direction. You have been in total darkness for three minutes "
 		+ "when you detect the foul smell of decay ahead, similar to rotting meat. "
@@ -3171,263 +3004,144 @@ String Text = "The tunnel is dark and the air is much cooler than outside. "
 		+ "If you do not have a torch, deduct 3 points from your COMBAT SKILL "
 		+ "during this fight. The Burrowcrawler is immune to Mindblast and Animal Kinship.\r\n"
 		+ "\r\n"
-		+ "If you win, turn to 319.";
-return 170;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
-		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		+ "If you win, turn to 319.");
+	if (combatRules.Combat(Spielefiguer,new Enemy("Burrowcrawler", 13, 10,true,false), -3)==combatResult.Win) {
+	return 319;
+	}
+	return 351;
+
 }
 
 public int Kapitel_171 ()
 {
-String Text = "You are at the very edge of the wood when your "
-		+ "horse rears up in agony. The Kraan has sunk its claws deep "
-		+ "into the horse’s hind legs and is trying to knock you to the "
-		+ "ground with its wings. The ghoulish Giak rider squeals with "
-		+ "delight as he stabs at you with his spear. You jump to the ground "
-		+ "and dash for the trees, leaving the poor dying horse in the clutches of the Kraan.\r\n"
-		+ "\r\n"
-		+ "Turn to 303.";
-return 171;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"You are at the very edge of the wood when your "
+				+ "horse rears up in agony. The Kraan has sunk its claws deep "
+				+ "into the horse’s hind legs and is trying to knock you to the "
+				+ "ground with its wings. The ghoulish Giak rider squeals with "
+				+ "delight as he stabs at you with his spear. You jump to the ground "
+				+ "and dash for the trees, leaving the poor dying horse in the clutches of the Kraan.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 303.","303",true));
 }
 
 public int Kapitel_172 ()
 {
-String Text = "Night falls and you are soon engulfed in darkness. "
-		+ "To press on any further would be futile, for you would be "
-		+ "sure to lose your way. Tethering your horse to a tree, you "
-		+ "pull your green Kai cloak about you and fall into a restless sleep.\r\n"
-		+ "\r\n"
-		+ "You are awoken by the sound of troops in the distance. Across "
-		+ "the lake you see the black shapes of Drakkarim and a pack of "
-		+ "Doomwolves. A Kraan appears from above the trees and lands on "
-		+ "the roof of the small wooden shack. It is being ridden by a creature "
-		+ "dressed in red robes. The Kraan takes off and begins to fly across the "
-		+ "lake to where you are hidden.\r\n"
-		+ "\r\n"
-		+ "If you wish to use the Kai Discipline of Camouflage to hide yourself and your horse, turn to 114.\r\n"
-		+ "\r\n"
-		+ "If you wish to ride deeper into the forest to escape the Kraan, turn to 239.\r\n"
-		+ "\r\n"
-		+ "If you wish to prepare to fight the creature, turn to 29.";
-return 172;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"Night falls and you are soon engulfed in darkness. "
+				+ "To press on any further would be futile, for you would be "
+				+ "sure to lose your way. Tethering your horse to a tree, you "
+				+ "pull your green Kai cloak about you and fall into a restless sleep.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "You are awoken by the sound of troops in the distance. Across "
+				+ "the lake you see the black shapes of Drakkarim and a pack of "
+				+ "Doomwolves. A Kraan appears from above the trees and lands on "
+				+ "the roof of the small wooden shack. It is being ridden by a creature "
+				+ "dressed in red robes. The Kraan takes off and begins to fly across the "
+				+ "lake to where you are hidden.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to use the Kai Discipline of Camouflage to hide yourself and your horse, turn to 114.\r\n","281",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Camouflage")),
+		new Option("If you wish to ride deeper into the forest to escape the Kraan, turn to 239.\r\n","281",true),
+		new Option("If you wish to prepare to fight the creature, turn to 29.","281",true));
 }
 
 public int Kapitel_173 ()
 {
-String Text = "As you reach the door you hear the crash of a giant stone slab "
-		+ "as it falls from the ceiling. Turning around, you see that your exit is now blocked.\r\n"
-		+ "\r\n"
-		+ "If you have a Silver Key, you may try to open the door by turning to 158.\r\n"
-		+ "\r\n"
-		+ "If you do not possess a Silver Key, turn to 259.";
-return 173;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"As you reach the door you hear the crash of a giant stone slab "
+				+ "as it falls from the ceiling. Turning around, you see that your exit is now blocked.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you have a Silver Key, you may try to open the door by turning to 158.\r\n","158",
+				Spielefiguer.getSpecialItems().haveItems("Silver Key")),
+		new Option("If you do not possess a Silver Key, turn to 259.","259",
+				!Spielefiguer.getSpecialItems().haveItems("Silver Key")));
 }
 
 public int Kapitel_174 ()
 {
-String Text = "After nearly an hour of drifting downstream, the water current "
-		+ "becomes quite strong and you can see that you are being drawn towards "
-		+ "a whirlpool near the centre as the river curves round. You know that if "
-		+ "you are caught in the swirling water, you stand very little chance of "
-		+ "escaping a watery death. You dive into the muddy river and as you begin "
-		+ "to swim towards the shore you unfortunately lose your Backpack and Weapons. "
-		+ "Without your equipment, you reach the wooded bank.\r\n"
-		+ "\r\n"
-		+ "Turn to 190.";
-return 174;
 return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+		"After nearly an hour of drifting downstream, the water current "
+				+ "becomes quite strong and you can see that you are being drawn towards "
+				+ "a whirlpool near the centre as the river curves round. You know that if "
+				+ "you are caught in the swirling water, you stand very little chance of "
+				+ "escaping a watery death. You dive into the muddy river and as you begin "
+				+ "to swim towards the shore you unfortunately lose your Backpack and Weapons. "
+				+ "Without your equipment, you reach the wooded bank.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 190.","190",true));
 }
 
 public int Kapitel_175 ()
 {
-String Text = "Waving your arms at the approaching cavalry, you recognize them to "
-		+ "be Border Rangers of the King’s army, tough woodsmen who police the troubled "
-		+ "western frontier of the kingdom. Your relief at seeing them soon fades when you "
-		+ "realize that they are fleeing from a pack of Doomwolves with snarling Giak riders. "
-		+ "Black arrows are dropping all around the rangers, as the vicious Doomwolves get "
-		+ "nearer and nearer.\r\n"
-		+ "\r\n"
-		+ "If you possess the Kai Discipline of Camouflage, turn to 182.\r\n"
-		+ "\r\n"
-		+ "If you wish to take cover and hide, turn to 41.\r\n"
-		+ "\r\n"
-		+ "If you wish to make for the other bank, turn to 116.";
-return 175;
 return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+		"Waving your arms at the approaching cavalry, you recognize them to "
+				+ "be Border Rangers of the King’s army, tough woodsmen who police the troubled "
+				+ "western frontier of the kingdom. Your relief at seeing them soon fades when you "
+				+ "realize that they are fleeing from a pack of Doomwolves with snarling Giak riders. "
+				+ "Black arrows are dropping all around the rangers, as the vicious Doomwolves get "
+				+ "nearer and nearer.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you possess the Kai Discipline of Camouflage, turn to 182.\r\n","182",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Camouflage")),
+		new Option("If you wish to take cover and hide, turn to 41.\r\n","41",true),
+		new Option("If you wish to make for the other bank, turn to 116.","116",true));
 }
 
 public int Kapitel_176 ()
 {
-String Text = "You hide behind some thick bushes so that the Doomwolf and "
-		+ "its rider will not see your white horse. Luckily it works—the "
-		+ "beast lopes past and vanishes down the track that you have just come along.\r\n"
-		+ "\r\n"
-		+ "If you wish to attack the remaining Doomwolves and their riders, turn to 253.\r\n"
-		+ "\r\n"
-		+ "If you wish to press on deeper into the forest, turn to 126.";
-return 176;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"You hide behind some thick bushes so that the Doomwolf and "
+				+ "its rider will not see your white horse. Luckily it works—the "
+				+ "beast lopes past and vanishes down the track that you have just come along.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to attack the remaining Doomwolves and their riders, turn to 253.\r\n","253",true),
+		new Option("If you wish to press on deeper into the forest, turn to 126.","126",true));
 }
 
 public int Kapitel_177 ()
 {
-String Text = "You search all of the cupboards in the small cottage but do not find "
-		+ "anything of use or value. You decide that you have wasted enough time here "
-		+ "and must press on without further delay.\r\n"
-		+ "\r\n"
-		+ "Turn to 83.";
-return 177;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"You search all of the cupboards in the small cottage but do not find "
+				+ "anything of use or value. You decide that you have wasted enough time here "
+				+ "and must press on without further delay.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "Turn to 83.",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 83.","83",true));
 }
 
 public int Kapitel_178 ()
 {
-String Text = "Your skill enables you to recognize the boots and leggings of "
-		+ "a King’s soldier. You can sense that the man is wounded and in need of help.\r\n"
-		+ "\r\n"
-		+ "If you wish to aid him, turn to 88.\r\n"
-		+ "\r\n"
-		+ "If you would rather leave him here, turn to 264.";
-return 178;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"Your skill enables you to recognize the boots and leggings of "
+				+ "a King’s soldier. You can sense that the man is wounded and in need of help.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to aid him, turn to 88.\r\n","88",true),
+		new Option("If you would rather leave him here, turn to 264.","264",true));
 }
 
 public int Kapitel_179 ()
 {
-String Text = "You have been spotted by the guards who level their crossbows at you.\r\n"
-		+ "\r\n"
-		+ "If you wish to raise your hands above your head and walk slowly towards them, turn to 318.\r\n"
-		+ "\r\n"
-		+ "If you wish to run for cover in the trees, turn to 51.";
-return 179;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"You have been spotted by the guards who level their crossbows at you.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to raise your hands above your head and walk slowly towards them, turn to 318.\r\n","318",true),
+		new Option("If you wish to run for cover in the trees, turn to 51.","51",true));
 }
 
+@SuppressWarnings("unused")
 public int Kapitel_180 ()
 {
-String Text = "They see you raise your weapon, and they instantly attack you.\r\n"
+	System.out.println("They see you raise your weapon, and they instantly attack you.\r\n"
 		+ "\r\n"
 		+ "If you decide to fight them, you must fight them one at a time.\r\n"
 		+ "\r\n"
@@ -3439,136 +3153,99 @@ String Text = "They see you raise your weapon, and they instantly attack you.\r\
 		+ "\r\n"
 		+ "If you kill all three of them, turn to 62.\r\n"
 		+ "\r\n"
-		+ "If you wish to evade combat, turn to 22.";
-return 180;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
-		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		+ "If you wish to evade combat, turn to 22.");
+	combatResult ergebnis = combatResult.Win;
+	
+	for (int i = 1; i < 3; i++) {
+		switch (i) {
+		case 1:
+			ergebnis=combatRules.Combat(Spielefiguer,new Enemy("Giak 1", 13, 10), 0);
+			break;
+		case 2:
+			ergebnis=combatRules.Combat(Spielefiguer,new Enemy("Giak 1", 13, 10), 0);
+			break;
+		case 3:
+			ergebnis=combatRules.Combat(Spielefiguer,new Enemy("Giak 1", 13, 10), 0);
+			break;
+		}
+		
+		if (ergebnis==combatResult.Evade) {
+			return 22;
+		}
+		if (ergebnis==combatResult.Lost) {
+			return 351;
+		}
+		else {
+			return 62;
+		}
+	}
+	return 62;
 }
 
 public int Kapitel_181 ()
 {
-String Text = "Instinctively you duck, and dive to avoid the crossbow bolt. "
-		+ "The bandit fires and you feel the sleeve of your jacket tear as "
-		+ "the missile grazes past your left arm. You thank the gods for "
-		+ "your good fortune and sprint on.\r\n"
-		+ "\r\n"
-		+ "None of the other bandits have bows and they soon give up the chase. "
-		+ "As you sprint off into the distance, you leave them all far behind.\r\n"
-		+ "\r\n"
-		+ "You stop just long enough to strap up your wounded arm and then continue "
-		+ "along the road towards the outer defences of the capital.\r\n"
-		+ "\r\n"
-		+ "Turn to 288.";
-return 181;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"Instinctively you duck, and dive to avoid the crossbow bolt. "
+				+ "The bandit fires and you feel the sleeve of your jacket tear as "
+				+ "the missile grazes past your left arm. You thank the gods for "
+				+ "your good fortune and sprint on.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
+				+ "None of the other bandits have bows and they soon give up the chase. "
+				+ "As you sprint off into the distance, you leave them all far behind.\r\n"
 				+ "\r\n"
-				+ "Turn to 281.",
+				+ "You stop just long enough to strap up your wounded arm and then continue "
+				+ "along the road towards the outer defences of the capital.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 288.","288",true));
 }
 
 public int Kapitel_182 ()
 {
-String Text = "Three rangers gallop past the river bank, closely followed by the "
-		+ "Giaks on their snarling mounts—the Doomwolves. But your Camouflage skill "
-		+ "has saved you from being spotted. The pack of evil Giaks continue on their "
-		+ "chase without even glancing at the river.\r\n"
-		+ "\r\n"
-		+ "Turn to 174.";
-return 182;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"Three rangers gallop past the river bank, closely followed by the "
+				+ "Giaks on their snarling mounts—the Doomwolves. But your Camouflage skill "
+				+ "has saved you from being spotted. The pack of evil Giaks continue on their "
+				+ "chase without even glancing at the river.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 174.","174",true));
 }
 
 public int Kapitel_183 ()
 {
-String Text = "The officer orders his men to halt and asks you your business. "
-		+ "You tell him who you are, and how the monastery has been destroyed. "
-		+ "He is deeply saddened to hear your news. He offers you a horse and asks "
-		+ "you to accompany him to Prince Pelathar, the King’s son.\r\n"
-		+ "\r\n"
-		+ "If you accept, turn to 97.\r\n"
-		+ "\r\n"
-		+ "If you decide to decline his offer, turn to 200.";
-return 183;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"The officer orders his men to halt and asks you your business. "
+				+ "You tell him who you are, and how the monastery has been destroyed. "
+				+ "He is deeply saddened to hear your news. He offers you a horse and asks "
+				+ "you to accompany him to Prince Pelathar, the King’s son.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you accept, turn to 97.\r\n","97",true),
+		new Option("If you decide to decline his offer, turn to 200.","200",true));
 }
 
 public int Kapitel_184 ()
 {
-String Text = "The caravan is out of control and is bumping wildly through the "
-		+ "rough ground that borders the highway. With difficulty you eventually "
-		+ "steer the frightened horses back onto the road and halt the caravan.\r\n"
-		+ "\r\n"
-		+ "A quick search of the interior reveals 40 Gold Crowns, a Sword, and enough "
-		+ "Food for 4 Meals. If you wish to keep any of these items, mark them on your "
-		+ "Action Chart.\r\n"
-		+ "\r\n"
-		+ "The fatigue of your ordeal finally catches up with you. You must eat a "
-		+ "Meal after which you fall into a deep sleep.\r\n"
-		+ "\r\n"
-		+ "Turn to 64.";
-return 184;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"The caravan is out of control and is bumping wildly through the "
+				+ "rough ground that borders the highway. With difficulty you eventually "
+				+ "steer the frightened horses back onto the road and halt the caravan.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
+				+ "A quick search of the interior reveals 40 Gold Crowns, a Sword, and enough "
+				+ "Food for 4 Meals. If you wish to keep any of these items, mark them on your "
+				+ "Action Chart.\r\n"
 				+ "\r\n"
-				+ "Turn to 281.",
+				+ "The fatigue of your ordeal finally catches up with you. You must eat a "
+				+ "Meal after which you fall into a deep sleep.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 64.","64",true));
 }
 
 public int Kapitel_185 ()
 {
-String Text = "You narrow your eyes and scan the trees for some sign of the hidden archer. "
+	System.out.println("You narrow your eyes and scan the trees for some sign of the hidden archer. "
 		+ "Your wait is not a long one, for a moment later a sharp pain tears through your "
 		+ "chest and you are thrown back by the force of three arrows. Two of the black shafts "
 		+ "have sunk deep into your rib cage, and the third has pierced your thigh.\r\n"
@@ -3576,69 +3253,31 @@ String Text = "You narrow your eyes and scan the trees for some sign of the hidd
 		+ "The last thing that you see is the canopy of fern trees above and a large green "
 		+ "dragonfly as it settles on your belt buckle.\r\n"
 		+ "\r\n"
-		+ "Your life and your mission end here.";
-return 185;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
-		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		+ "Your life and your mission end here.");
+	return 351;
 }
 
 public int Kapitel_186 ()
 {
-String Text = "The Kakarmi disappear into the dense undergrowth and you soon find yourself lost. "
-		+ "After nearly two hours of walking you hear the sound of running water. You decide "
-		+ "to investigate a little closer.\r\n"
-		+ "\r\n"
-		+ "Turn to 106.";
-return 186;
 return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+		"The Kakarmi disappear into the dense undergrowth and you soon find yourself lost. "
+				+ "After nearly two hours of walking you hear the sound of running water. You decide "
+				+ "to investigate a little closer.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 106.","106",true));
 }
 
 public int Kapitel_187 ()
 {
-String Text = "Two furry faces appear over the top of the trunk. Both pairs of eyes stare at "
-		+ "your weapon and the two creatures let out a shriek of fright. Leaping from the trunk, "
-		+ "they disappear into the forest.\r\n"
-		+ "\r\n"
-		+ "If you wish to follow them, turn to 186.\r\n"
-		+ "\r\n"
-		+ "If you wish to let them go and continue, turn to 228.";
-return 187;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"Two furry faces appear over the top of the trunk. Both pairs of eyes stare at "
+				+ "your weapon and the two creatures let out a shriek of fright. Leaping from the trunk, "
+				+ "they disappear into the forest.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to follow them, turn to 186.\r\n","186",true),
+		new Option("If you wish to let them go and continue, turn to 228.","228",true));
 }
 
 public int Kapitel_188 ()
@@ -3656,326 +3295,171 @@ String Text = "You can see the shadow of the Kraan getting larger all around you
 		+ "\r\n"
 		+ "Now turn to 303.";
 return 188;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
-		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
 }
 
 public int Kapitel_189 ()
 {
-String Text = "You thank your Kai training and your quick thinking, for that "
-		+ "bog could have proved as deadly as any Drakkarim or Kraan.\r\n"
-		+ "\r\n"
-		+ "You are worried about losing time, and push on further into the trees "
-		+ "towards the south. Ahead of you, you see a wide path that also leads south.\r\n"
-		+ "\r\n"
-		+ "Turn to 118.";
-return 189;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"You thank your Kai training and your quick thinking, for that "
+				+ "bog could have proved as deadly as any Drakkarim or Kraan.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "You are worried about losing time, and push on further into the trees "
+				+ "towards the south. Ahead of you, you see a wide path that also leads south.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 118.","118",true));
 }
 
 public int Kapitel_190 ()
 {
-String Text = "You walk for three miles along the water’s edge until you chance "
-		+ "upon a wrecked river barge. It appears to have served as shelter for "
-		+ "someone, as you can see a bed and some cooking utensils through a hole in the deck.\r\n"
-		+ "\r\n"
-		+ "If you wish to search the barge, turn to 20.\r\n"
-		+ "\r\n"
-		+ "If you wish to press on, turn to 273.";
-return 190;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"You walk for three miles along the water’s edge until you chance "
+				+ "upon a wrecked river barge. It appears to have served as shelter for "
+				+ "someone, as you can see a bed and some cooking utensils through a hole in the deck.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to search the barge, turn to 20.\r\n","20",true),
+		new Option("If you wish to press on, turn to 273.","273",true));
 }
 
 public int Kapitel_191 ()
 {
-String Text = "The bodyguard unsheathes a large scimitar and strikes at your head.\r\n"
+System.out.println("The bodyguard unsheathes a large scimitar and strikes at your head.\r\n"
 		+ "\r\n"
 		+ "Bodyguard: COMBAT SKILL 11   ENDURANCE 21\r\n"
 		+ "\r\n"
 		+ "If you win, turn to 24.\r\n"
 		+ "\r\n"
 		+ "If you wish to evade more combat during the fight, you can jump from the "
-		+ "speeding caravan by turning to 234.";
-return 191;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
-		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		+ "speeding caravan by turning to 234.");
+
+combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Bodyguard", 11, 21), 0,0);
+	if (ergebnis==combatResult.Evade) {
+	return 234;
+	}
+	if (ergebnis==combatResult.Win) {
+	return 24;
+	}
+	return 351;
 }
 
 public int Kapitel_192 ()
 {
-String Text = "You see the razor-fanged mouth of a Doomwolf and hear the hideous "
-		+ "cries of the Giaks. Two of them are coming straight for you. You are "
-		+ "saved from certain death when your horse jumps at the approaching beasts, "
-		+ "knocking them both to the ground. You lash out at the Giak and open a large "
-		+ "wound in his head…and then suddenly, as if by a miracle, you’re through and "
-		+ "racing on down the highway, clear of the rest of the pack.\r\n"
-		+ "\r\n"
-		+ "But a shadow follows you. It is a Kraan and it has started to dive. Its target is you.\r\n"
-		+ "\r\n"
-		+ "If you veer off the highway towards the cover of the trees, turn to 171.\r\n"
-		+ "\r\n"
-		+ "If you press on regardless of the Kraan and gallop flat out down the highway, turn to 120.";
-return 192;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"You see the razor-fanged mouth of a Doomwolf and hear the hideous "
+				+ "cries of the Giaks. Two of them are coming straight for you. You are "
+				+ "saved from certain death when your horse jumps at the approaching beasts, "
+				+ "knocking them both to the ground. You lash out at the Giak and open a large "
+				+ "wound in his head…and then suddenly, as if by a miracle, you’re through and "
+				+ "racing on down the highway, clear of the rest of the pack.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "But a shadow follows you. It is a Kraan and it has started to dive. Its target is you.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you veer off the highway towards the cover of the trees, turn to 171.\r\n","171",true),
+		new Option("If you press on regardless of the Kraan and gallop flat out down the highway, turn to 120.","120",true));
 }
 
 public int Kapitel_193 ()
 {
-String Text = "The beast and its rider lie dead. You notice a Scroll tucked into the Giak’s "
-		+ "belt. You may take this if you wish, but remember to mark it on your Action Chart. "
-		+ "The other Doomwolves are charging along the path towards you.\r\n"
-		+ "\r\n"
-		+ "If you wish to fight them, turn to 253.\r\n"
-		+ "\r\n"
-		+ "If you wish to escape into the woods, turn to 126.";
-return 193;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"The beast and its rider lie dead. You notice a Scroll tucked into the Giak’s "
+				+ "belt. You may take this if you wish, but remember to mark it on your Action Chart. "
+				+ "The other Doomwolves are charging along the path towards you.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to fight them, turn to 253.\r\n","253",true),
+		new Option("If you wish to escape into the woods, turn to 126.","126",true));
 }
 
 public int Kapitel_194 ()
 {
-String Text = "You sprint towards the wagon. People are running everywhere in panic as the Kraan "
-		+ "make their attack, carrying their poor victims off into the darkening sky. A large Kraan "
-		+ "is hovering above the wagon and three snarling Giaks drop from its back onto the startled "
-		+ "horses. You must fight them or leave the wagon and run to the safety of a nearby farmhouse.\r\n"
-		+ "\r\n"
-		+ "If you wish to fight the Giaks, turn to 208.\r\n"
-		+ "\r\n"
-		+ "If you wish to run to the farmhouse, turn to 148.";
-return 194;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"You sprint towards the wagon. People are running everywhere in panic as the Kraan "
+				+ "make their attack, carrying their poor victims off into the darkening sky. A large Kraan "
+				+ "is hovering above the wagon and three snarling Giaks drop from its back onto the startled "
+				+ "horses. You must fight them or leave the wagon and run to the safety of a nearby farmhouse.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to fight the Giaks, turn to 208.\r\n","208",true),
+		new Option("If you wish to run to the farmhouse, turn to 148.","148",true));
 }
 
 public int Kapitel_195 ()
 {
-String Text = "Wiping the bear’s blood from your weapon, you notice the mouth of a cave hidden "
-		+ "behind the rock from which the bear attacked.\r\n"
-		+ "\r\n"
-		+ "If you wish to investigate this cave further, turn to 59.\r\n"
-		+ "\r\n"
-		+ "If you wish to press on, turn to 106.";
-return 195;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"Wiping the bear’s blood from your weapon, you notice the mouth of a cave hidden "
+				+ "behind the rock from which the bear attacked.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to investigate this cave further, turn to 59.\r\n","59",true),
+		new Option("If you wish to press on, turn to 106.","106",true));
 }
 
 public int Kapitel_196 ()
 {
-String Text = "You follow the man into a small library off the main hall. He pushes one of the "
-		+ "many books on the shelves which line all four walls, and you hear a metallic click. "
-		+ "One section of the bookcase slowly slides back to reveal a hidden passage.\r\n"
-		+ "\r\n"
-		+ "If you wish to follow the man into the passage, turn to 332.\r\n"
-		+ "\r\n"
-		+ "If you do not want to enter the dark corridor, leave the guildhall and return to the street. Turn to 144.";
-return 196;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"You follow the man into a small library off the main hall. He pushes one of the "
+				+ "many books on the shelves which line all four walls, and you hear a metallic click. "
+				+ "One section of the bookcase slowly slides back to reveal a hidden passage.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to follow the man into the passage, turn to 332.\r\n","332",true),
+		new Option("If you do not want to enter the dark corridor, leave the guildhall and return to the street. Turn to 144.","144",true));
 }
 
 public int Kapitel_197 ()
 {
-String Text = "The Drakkar lies dead at the bottom of the ferry. He has a Short Sword and "
-		+ "6 Gold Crowns which you may keep if you wish. You push the body into the water where "
-		+ "it floats for a few seconds before disappearing into the icy depths.\r\n"
-		+ "\r\n"
-		+ "Grabbing the pole, you steer to the other side of the lake and abandon the ferry.\r\n"
-		+ "\r\n"
-		+ "Turn to 172.";
-return 197;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	Spielefiguer.getBelt_Pouch().incrementAnzahl(6);
+	Spielefiguer.getWeapons().add(new Equipment("Short Sword", 1, null));
+	return spiele.optionauswahl(Spielefiguer,
+		"The Drakkar lies dead at the bottom of the ferry. He has a Short Sword and "
+				+ "6 Gold Crowns which you may keep if you wish. You push the body into the water where "
+				+ "it floats for a few seconds before disappearing into the icy depths.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "Grabbing the pole, you steer to the other side of the lake and abandon the ferry.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("Turn to 172.","172",true));
 }
 
 public int Kapitel_198 ()
 {
-String Text = "You can sense that there is someone else behind the screen. There is a lingering "
-		+ "aura of wickedness around this shop. Be on your guard—something is wrong here.\r\n"
-		+ "\r\n"
-		+ "If you wish to return to the street, turn to 7.\r\n"
-		+ "\r\n"
-		+ "If you wish to examine the goods in the glass counter, turn to 152.";
-return 198;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+	return spiele.optionauswahl(Spielefiguer,
+		"You can sense that there is someone else behind the screen. There is a lingering "
+				+ "aura of wickedness around this shop. Be on your guard—something is wrong here.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to return to the street, turn to 7.\r\n","7",true),
+		new Option("If you wish to examine the goods in the glass counter, turn to 152.","152",true));
 }
 
 public int Kapitel_199 ()
 {
-String Text = "Most of the cupboards and drawers are empty. Whoever lived here took nearly "
-		+ "everything they owned with them, but you do manage to scrape together enough fruit "
-		+ "in the cellar for one Meal. You may mark this on your Action Chart.\r\n"
-		+ "\r\n"
-		+ "Turn to 81.";
-return 199;
-return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
+	return spiele.optionauswahl(Spielefiguer,
+		"Most of the cupboards and drawers are empty. Whoever lived here took nearly "
+				+ "everything they owned with them, but you do manage to scrape together enough fruit "
+				+ "in the cellar for one Meal. You may mark this on your Action Chart.\r\n"
 				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+				+ "Turn to 81.",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option( "Turn to 81.","81",true));
 }
 
 public int Kapitel_200 ()
 {
-String Text = "Night is starting to close in. The shadows of the forest are growing "
-		+ "longer and darker. Just as you are about to stop and rest, you see through "
-		+ "the trees a line of people moving south along a wide highway. Moving closer, "
-		+ "you notice a large merchant’s caravan in the centre of the dusty turnpike. "
-		+ "It is drawn by six large horses and is moving much faster than any of the other "
-		+ "traffic. This could be your chance to reach the capital as quickly as possible.\r\n"
-		+ "\r\n"
-		+ "If you wish to use the Kai Discipline of Camouflage to hide in among the packing cases "
-		+ "strapped to the roof, turn to 168.\r\n"
-		+ "\r\n"
-		+ "If you wish to jump onto the caravan, turn to 78.";
-return 200;
 return spiele.optionauswahl(Spielefiguer,
-		"The noise of battle soon fades behind you but the ensuing silence is broken by a voice in "
-				+ "your head that accuses you of being a coward, and deserting a fellow human in danger. "
-				+ "You try to rid yourself of your nagging conscience by telling yourself that your mission "
-				+ "is far more important, and that not only is the life of the young magician in peril but the "
-				+ "lives of all your countrymen depend on you reaching the capital alive.\r\n"
-				+ "\r\n"
-				+ "Suddenly, the sight of a Giak war party in the distance makes you quickly take cover and hide. "
-				+ "But it is too late—they have spotted you and you must run as fast as you can.\r\n"
-				+ "\r\n"
-				+ "Turn to 281.",
+		"Night is starting to close in. The shadows of the forest are growing "
+				+ "longer and darker. Just as you are about to stop and rest, you see through "
+				+ "the trees a line of people moving south along a wide highway. Moving closer, "
+				+ "you notice a large merchant’s caravan in the centre of the dusty turnpike. "
+				+ "It is drawn by six large horses and is moving much faster than any of the other "
+				+ "traffic. This could be your chance to reach the capital as quickly as possible.\r\n"
+				+ "\r\n",
 		Option.CharakterZeigen(),
-		new Option("Turn to 281.","281",true));
+		new Option("If you wish to use the Kai Discipline of Camouflage to hide in among the packing cases "
+				+ "strapped to the roof, turn to 168.\r\n","168",Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Camouflage")),
+		new Option("If you wish to jump onto the caravan, turn to 78.","78",true));
 }
 
 public int Kapitel_201 ()
