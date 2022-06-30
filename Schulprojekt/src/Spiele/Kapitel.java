@@ -386,27 +386,22 @@ public void KapitelAuswahl(int start)
 }
 public int Kapitel_1 () 
 {
-
-
-System.out.println("You must make haste for you sense it is not safe to linger by the smoking remains of the "
-		+ "ruined monastery. The black-winged beasts could return at any moment. You must set out for the "
-		+ "Sommlending capital of Holmgard and tell the King the terrible news of the massacre: that the whole "
-		+ "élite of Kai warriors, save yourself, have been slaughtered. Without the Kai Lords to lead her armies, "
-		+ "Sommerlund will be at the mercy of their ancient enemy, the Darklords.\r\n"
-		+ "\r\n"
-		+ "Fighting back tears, you bid farewell to your dead kinsmen. Silently, you promise that their deaths "
-		+ "will be avenged. You turn away from the ruins and carefully descend the steep track.\r\n"
-		+ "\r\n"
-		+ "At the foot of the hill, the path splits into two directions, both leading into a large wood.");
-
-if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
-	System.out.println("If you wish to use your Kai Discipline of Sixth Sense, turn to 141.");
-}
-System.out.println("If you wish to take the right path into the wood, turn to 85.");
-System.out.println("If you wish to follow the left track, turn to 275.");
-
-return spiele.EingabeInt(141,85,275);
-
+	return spiele.optionauswahl(Spielefiguer,
+		"You must make haste for you sense it is not safe to linger by the smoking remains of the "
+				+ "ruined monastery. The black-winged beasts could return at any moment. You must set out for the "
+				+ "Sommlending capital of Holmgard and tell the King the terrible news of the massacre: that the whole "
+				+ "élite of Kai warriors, save yourself, have been slaughtered. Without the Kai Lords to lead her armies, "
+				+ "Sommerlund will be at the mercy of their ancient enemy, the Darklords.\r\n"
+				+ "\r\n"
+				+ "Fighting back tears, you bid farewell to your dead kinsmen. Silently, you promise that their deaths "
+				+ "will be avenged. You turn away from the ruins and carefully descend the steep track.\r\n"
+				+ "\r\n"
+				+ "At the foot of the hill, the path splits into two directions, both leading into a large wood.",
+		Option.CharakterZeigen(),
+		new Option("If you wish to use your Kai Discipline of Sixth Sense, turn to 141.","141",Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")),
+		new Option("If you wish to take the right path into the wood, turn to 85.","85",true),
+		new Option("If you wish to follow the left track, turn to 275.","275",true)
+		);
 }
 
 public int Kapitel_2()
@@ -429,54 +424,55 @@ else {
 
 public int Kapitel_3 ()
 {
-System.out.println("Staying close to the officer, you follow him through an arched portal and up a short flight of stairs to a long\r\n" + 
-		"hall. Soldiers run back and forth bearing orders on ornate scrolls to officers stationed around the city wall.\r\n" + 
-		"A haggard and scar-faced man dressed in the white and purple robes of the King’s court approaches you and\r\n" + 
-		"bids you follow him to the citadel.");
-
-System.out.println("If you wish to follow this man, turn to 196.");
-System.out.println("If you wish to decline his offer and return to the crowded streets, turn to 144.");
-
-return spiele.EingabeInt(196,144);
+	return spiele.optionauswahl(Spielefiguer,
+		"Staying close to the officer, you follow him through an arched portal and up a short flight of stairs to a long\r\n" + 
+				"hall. Soldiers run back and forth bearing orders on ornate scrolls to officers stationed around the city wall.\r\n" + 
+				"A haggard and scar-faced man dressed in the white and purple robes of the King’s court approaches you and\r\n" + 
+				"bids you follow him to the citadel.",
+		Option.CharakterZeigen(),
+		new Option("If you wish to follow this man, turn to 196.","196",true),
+		new Option("If you wish to decline his offer and return to the crowded streets, turn to 144.","144",true)
+		);
 }
 
 public int Kapitel_4 ()
 {
-System.out.println("It is a small one-man canoe in very poor condition. The wood has split and warped, and the craft appears to\r\n" + 
-		"be leaking in several places. You quickly patch up the worst of the holes with some clay and bail out the\r\n" + 
-		"water. This seems to stop the leaking for the moment. Stowing your equipment at the bow, you set off\r\n" + 
-		"downstream, using a piece of driftwood as a paddle.\r\n" + 
-		"After a short while, you hear the sound of horses galloping towards you along the left bank.");
-
-if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
-	System.out.println("If you wish to use the Kai Discipline of Sixth Sense, turn to 218.");
-}
-System.out.println("If you wish to hide in the bottom of the canoe, turn to 75.");
-System.out.println("If you wish to try to attract their attention, turn to 175.");
-
-return spiele.EingabeInt(218,75,175);
+	return spiele.optionauswahl(Spielefiguer,
+		"It is a small one-man canoe in very poor condition. The wood has split and warped, and the craft appears to\r\n" + 
+				"be leaking in several places. You quickly patch up the worst of the holes with some clay and bail out the\r\n" + 
+				"water. This seems to stop the leaking for the moment. Stowing your equipment at the bow, you set off\r\n" + 
+				"downstream, using a piece of driftwood as a paddle.\r\n" + 
+				"After a short while, you hear the sound of horses galloping towards you along the left bank.",
+		Option.CharakterZeigen(),
+		new Option("If you wish to use the Kai Discipline of Sixth Sense, turn to 218.","218",Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")),
+		new Option("If you wish to hide in the bottom of the canoe, turn to 75.","75",true),
+		new Option("If you wish to try to attract their attention, turn to 175.","175",true)
+		);
 }
 
 public int Kapitel_5 ()
 {
-System.out.println("After about an hour of walking, the track slowly bears round to the east. You reach a shallow ford where a\r\n" + 
-		"fast-flowing brook runs on a steep rocky course towards the south. Just beyond the ford is a junction where\r\n" + 
-		"the track meets a wider path running north to south. Realizing that the north path will take you away from the\r\n" + 
-		"capital, you turn right at the junction and head south.");
-spiele.warte_auf_eingabe();
-return 111;
+return spiele.optionauswahl(Spielefiguer,
+		"After about an hour of walking, the track slowly bears round to the east. You reach a shallow ford where a\r\n" + 
+				"fast-flowing brook runs on a steep rocky course towards the south. Just beyond the ford is a junction where\r\n" + 
+				"the track meets a wider path running north to south. Realizing that the north path will take you away from the\r\n" + 
+				"capital, you turn right at the junction and head south.",
+		Option.CharakterZeigen(),
+		new Option("Turn to 111.","111",true));
 }
 
 public int Kapitel_6 ()
 {
+	return spiele.optionauswahl(Spielefiguer,
+		"In the distance you can hear the sound of horses galloping nearer. "
+				+ "You crouch behind a tree and wait as the "
+				+ "riders come closer. They are the cavalry of the King’s Guard wearing the white "
+				+ "uniforms of His Majesty’s army.",
+		Option.CharakterZeigen(),
+		new Option("If you wish to call them, turn to 183.","183",true),
+		new Option("If you wish to let them pass and then continue on your way through the forest, "
+				+ "turn to 200.","200",true));
 
-System.out.println("In the distance you can hear the sound of horses galloping nearer. You crouch behind a tree and wait as the "
-		+ "riders come closer. They are the cavalry of the King’s Guard wearing the white uniforms of His Majesty’s army.");
-
-System.out.println("If you wish to call them, turn to 183.");
-System.out.println("If you wish to let them pass and then continue on your way through the forest, turn to 200.");
-
-return spiele.EingabeInt(183,200);
 }
 
 public int Kapitel_7 ()
@@ -507,61 +503,62 @@ else {
 
 public int Kapitel_8 ()
 {
-System.out.println("Your Kai Sixth Sense warns there is a fierce battle raging in the south. Your common sense tells you that the "
-		+ "south is also the quickest route to the capital.");
-return 70;
+return spiele.optionauswahl(Spielefiguer,
+		"Your Kai Sixth Sense warns there is a fierce battle raging in the south. Your common "
+		+ "sense tells you that the "
+				+ "south is also the quickest route to the capital.",
+		Option.CharakterZeigen(),
+		new Option("Turn to 70.","70",true));
 }
 
 public int Kapitel_9 ()
 {
-System.out.println("You cannot move: you are being held rigid by some powerful force. Your eyes are drawn towards the "
-		+ "mouth of the skeleton. From deep in the earth you hear a low humming, like the sound of millions of "
-		+ "angry bees. A dull red glow appears in the empty eye sockets of the dead King and the humming increases "
-		+ "until your ears are filled with the deafening roar. You are in the presence of an ancient evil, far older "
-		+ "and stronger than the Darklords themselves.");
-
-if (Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")) {
-	System.out.println("You are in possess of a Vordak Gem, turn to 236.");
-}
-else {
-	System.out.println("You are not in possess of a Vordak Gem, turn to 292.");
-}
-return spiele.EingabeInt(236,292);
+return spiele.optionauswahl(Spielefiguer,
+		"You cannot move: you are being held rigid by some powerful force. Your eyes are drawn towards the "
+				+ "mouth of the skeleton. From deep in the earth you hear a low humming, like the sound of millions of "
+				+ "angry bees. A dull red glow appears in the empty eye sockets of the dead King and the humming increases "
+				+ "until your ears are filled with the deafening roar. You are in the presence of an ancient evil, far older "
+				+ "and stronger than the Darklords themselves.",
+		Option.CharakterZeigen(),
+		new Option("You are in possess of a Vordak Gem, turn to 236.","236",Spielefiguer.getSpecialItems().haveItems("Vordak Gem")),
+		new Option("You are not in possess of a Vordak Gem, turn to 292.","292",!Spielefiguer.getSpecialItems().haveItems("Vordak Gem")));
 }
 
 public int Kapitel_10 ()
 {
-System.out.println("You are sweating and your legs ache. In the middle distance you can see a group of cottages.\r\n");
-System.out.println("If you wish to enter a cottage and rest for a while, turn to 115.\r\n");
-System.out.println("If you wish to press on, turn to 83.");
-return spiele.EingabeInt(115,83);
+return spiele.optionauswahl(Spielefiguer,
+		"You are sweating and your legs ache. In the middle distance you can see a "
+				+ "group of cottages.\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to enter a cottage and rest for a while, turn to 115.\r\n","115",true),
+		new Option("If you wish to press on, turn to 83.","83",true));
 }
 
 public int Kapitel_11 ()
 {
-System.out.println("You quickly dodge into the doorway of a stable and hide your surgeon’s cloak in the straw, for it "
-		+ "would be better to be seen as a Kai Lord than as a charlatan.\r\n"
-		+ "\r\n"
-		+ "Without wasting a second, you set off towards the Great Hall on the other side of the courtyard.");
-spiele.warte_auf_eingabe();
-return 139;
+return spiele.optionauswahl(Spielefiguer,
+		"You quickly dodge into the doorway of a stable and hide your surgeon’s cloak in the straw, for it "
+				+ "would be better to be seen as a Kai Lord than as a charlatan.\r\n"
+				+ "\r\n"
+				+ "Without wasting a second, you set off towards the Great Hall on the other side of the courtyard.",
+		Option.CharakterZeigen(),
+		new Option("Turn to 139.","139",true));
 }
 
 public int Kapitel_12 ()
 {
+String Text = "You have "+Spielefiguer.getBelt_Pouch().getAnzahl()+" "+ Spielefiguer.getBelt_Pouch().getName() 
+			+"You have 10 Gold Crowns and wish to pay him, turn to 262.";
 
-System.out.println("The bodyguard looks at you with great suspicion and then slams the door shut. You can hear the sound "
-		+ "of voices inside the caravan. Suddenly the door swings open and the face of a wealthy merchant appears.\r\n"
-		+ "\r\n"
-		+ "He demands 10 Gold Crowns as payment for the ride.");
-
-if (Spielefiguer.getBelt_Pouch().getAnzahl()>=10) {
-	System.out.println("You have "+Spielefiguer.getBelt_Pouch().getAnzahl()+" "+ Spielefiguer.getBelt_Pouch().getName());
-	System.out.println("You have 10 Gold Crowns and wish to pay him, turn to 262.");
-}
-System.out.println("If you do not have enough Gold Crowns or do not wish to pay him, turn to 247.");
-
-int speicher = spiele.EingabeInt(262,247);
+int speicher = spiele.optionauswahl(Spielefiguer,
+		"The bodyguard looks at you with great suspicion and then slams the door shut. You can hear the sound "
+				+ "of voices inside the caravan. Suddenly the door swings open and the face of a wealthy "
+				+ "merchant appears.\r\n"
+				+ "\r\n"
+				+ "He demands 10 Gold Crowns as payment for the ride.",
+		Option.CharakterZeigen(),
+		new Option(Text,"262",Spielefiguer.getBelt_Pouch().getAnzahl()>=10),
+		new Option("If you do not have enough Gold Crowns or do not wish to pay him, turn to 247.","247",true));
 if (speicher == 262) {
 	Spielefiguer.getBelt_Pouch().setAnzahl(Spielefiguer.getBelt_Pouch().getAnzahl()-10);
 }
@@ -570,54 +567,65 @@ return speicher;
 
 public int Kapitel_13 ()
 {
-
-System.out.println("The path soon ends at a large clearing. In the centre of the clearing is a tree much taller and wider than any others you have seen in the forest.\r\n"
-		+ "\r\n"
-		+ "Looking up through the massive branches you can see a large treehouse some twenty-five to thirty feet above the ground. There is no ladder, but the gnarled bark of the tree offers many footholds.\r\n"
-		+ "\r\n"
-		+ "If you wish to climb the tree and search the treehouse, turn to 307.\r\n"
-		+ "\r\n"
-		+ "If you would rather press on, turn to 213.");
-System.out.println("If you wish to enter a cottage and rest for a while, turn to 115.\r\n");
-System.out.println("If you wish to press on, turn to 83.");
-return spiele.EingabeInt(307,115);
+return spiele.optionauswahl(Spielefiguer,
+		"The path soon ends at a large clearing. In the centre of the clearing is a "
+				+ "tree much taller and wider than any others you have seen in the forest.\r\n"
+				+ "\r\n"
+				+ "Looking up through the massive branches you can see a large treehouse some "
+				+ "twenty-five to thirty feet above the ground. There is no ladder, but the gnarled "
+				+ "bark of the tree offers many footholds.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to climb the tree and search the treehouse, turn to 307.\r\n","307",true),
+		new Option("If you would rather press on, turn to 213.","213",true));
 }
 
 public int Kapitel_14 ()
 {
-System.out.println("You reach the top of a small wooded hill on which several large boulders form a rough circle. "
-		+ "Suddenly you hear a loud growl from behind a rock to your left.\r\n"
-		+ "\r\n"
-		+ "If you wish to draw your weapon and prepare to fight, turn to 43.\r\n"
-		+ "\r\n");
-System.out.println("If you wish to draw your weapon and prepare to fight, turn to 43.\r\n");
-System.out.println("If you would rather take evasive action by running as fast as you can over the hill, turn to 106.");
-return spiele.EingabeInt(106,115);
+return spiele.optionauswahl(Spielefiguer,
+		"You reach the top of a small wooded hill on which several large boulders form a rough circle. "
+				+ "Suddenly you hear a loud growl from behind a rock to your left.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to draw your weapon and prepare to fight, turn to 43.\r\n","43",true),
+		new Option("If you would rather take evasive action by running as fast as "
+				+ "you can over the hill, turn to 106.","106",true));
 }
 
 public int Kapitel_15 ()
 {
-System.out.println("You pass through a long, dark tunnel of overhanging branches that eventually opens out into a large clearing. On a stone plinth in the centre of the clearing is a Sword, sheathed in a black leather scabbard. A handwritten note has been tied to the hilt, but it is in a language which is foreign to you.\r\n"
-		+ "\r\n"
-		+ "You may take the Sword if you wish, and note it on your Action Chart.\r\n"
-		+ "\r\n"
-		+ "There are three exits from the clearing.\r\n"
-		+ "\r\n");
-System.out.println("If you decide to go east, turn to 207.\r\n");
-System.out.println("If you decide to go west, turn to 201.\r\n");
-System.out.println("If you decide to go south, turn to 35.");
-return spiele.EingabeInt(207,201,35);
+int speicher = spiele.optionauswahl(Spielefiguer,
+		"You pass through a long, dark tunnel of overhanging branches that eventually "
+				+ "opens out into a large clearing. On a stone plinth in the centre of the clearing is a Sword, "
+				+ "sheathed in a black leather scabbard. A handwritten note has been tied to the hilt, but it is "
+				+ "in a language which is foreign to you.\r\n"
+				+ "\r\n"
+				+ "You may take the Sword if you wish, and note it on your Action Chart.\r\n"
+				+ "\r\n"
+				+ "There are three exits from the clearing.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you decide to go east, turn to 207.\r\n","207",true),
+		new Option("If you decide to go west, turn to 201.\r\n","201",true),
+		new Option("If you decide to go south, turn to 35.","35",true));
+Spielefiguer.getWeapons().add(new Equipment("Sword", 1, null));
+return speicher;
 }
 
 public int Kapitel_16 ()
 {
-System.out.println("You manage to free a horse from the straps securing it to the caravan. It is frightened by the scent of the approaching Doomwolves, and the cries of their evil riders—the Giaks.\r\n"
-		+ "\r\n"
-		+ "Preparing your weapon, you spur your skittish horse towards the oncoming beasts. They are less than fifty yards away and they are lowering their lances at you as they get nearer and nearer.\r\n"
-		+ "\r\n"
-		+ "You are charging head-on towards each other. Turn to 192.");
-spiele.warte_auf_eingabe();
-return 192;
+return spiele.optionauswahl(Spielefiguer,
+		"You manage to free a horse from the straps securing it to the caravan. "
+				+ "It is frightened by the scent of the approaching Doomwolves, and the cries of "
+				+ "their evil riders—the Giaks.\r\n"
+				+ "\r\n"
+				+ "Preparing your weapon, you spur your skittish horse towards the oncoming beasts. "
+				+ "They are less than fifty yards away and they are lowering their lances at you as "
+				+ "they get nearer and nearer.\r\n"
+				+ "\r\n"
+				+ "You are charging head-on towards each other.",
+		Option.CharakterZeigen(),
+		new Option("Turn to 192.","192",true));
 }
 
 public int Kapitel_17 ()

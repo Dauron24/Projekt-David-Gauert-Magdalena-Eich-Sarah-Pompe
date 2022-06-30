@@ -1,4 +1,5 @@
 package Spiele;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class spiele {
@@ -173,6 +174,21 @@ public class spiele {
 			} while (true);
 	}
 	
+	public static String EingabeString(String ... Text) 
+	{
+		do {	
+			String inpute = eingabe.next();
+			
+			for (String j : Text) {
+					if (j.equals(inpute))
+						return inpute;						
+				}
+				System.out.println("You have use one of the Optione");
+			
+			} 
+		while (true);
+	}
+	
 	public static int EingabeIntMinMAx(int min, int max) 
 	{		
 		do {	
@@ -241,6 +257,41 @@ public class spiele {
 	        return false;
 	    }
 	    return true;
+	}
+	
+	public static int optionauswahl(Charakter Spielefigure, String text, Option ...options ) 
+	{
+		
+		if (Spielefigure.getKaiDisciplines().haveKaiDisciplines("Healing")) {
+			Spielefigure.incresENDURANCE(2);
+		}	
+		String[] speicher = new String[options.length];
+		
+		for (int i = 0; i < options.length; i++) {
+			speicher[i]=options[i].getAuswahl();
+		}
+		
+		do {
+		System.out.println(text);	
+		for (Option option : options) {
+			if (option.getMöglich()) {
+				System.out.println(option.getOptionText());
+			}			
+		}
+		
+		String auswahl = EingabeString(speicher);
+		
+		if (auswahl.equals("character")) {
+			System.out.println("Default charakter Ausgabe");
+			warte_auf_eingabe();
+			continue;
+		}
+		
+		if (isInteger(auswahl)) {
+			return Integer.parseInt(auswahl);
+		}
+			
+		} while (true);
 	}
 
 	

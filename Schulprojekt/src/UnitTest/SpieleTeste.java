@@ -117,5 +117,47 @@ public class SpieleTeste {
 		Enemy DebugeGener_true_true = new Enemy("Minster 1", 20, 30);			
 		combatRules.Combat(Debuge_true_true, DebugeGener_true_true,5,4);		
 	}
+	
+	@Test
+	public void Kapiteltest1() {
+		Charakter DebugeCharakter = new Charakter( true,true);	
+		DebugeCharakter.getKaiDisciplines().add(KaiDisciplines.Crate_Tracking());
+		
+		
+		System.out.println(spiele.optionauswahl(DebugeCharakter,
+				"The path opens out into a large clearing. You notice strange claw prints in the "
+						+ "earth. Kraan have landed here. By the number of prints and by the size of "
+						+ "the area "
+						+ "disturbed, you judge that at least five of the foul creatures landed here "
+						+ "in the last "
+						+ "twelve hours.\r\n"
+						+ "\r\n"
+						+ "You see two exits on the far side of the clearing. One leads west, the "
+						+ "other south.\r\n"
+						+ "\r\n",
+				Option.CharakterZeigen(),
+				new Option("If you have the Kai Discipline of Tracking, turn to 301.\r\n","301",false),
+				new Option("If you wish to take the south path, turn to 27.\r\n","27",true),
+				new Option("If you wish to take the west path, turn to 214.","214",true)
+				));
+	}
+	
+	@Test
+	public void Kapiteltest2() {
+		Charakter DebugeCharakter = new Charakter( true,true);	
+		DebugeCharakter.getKaiDisciplines().add(KaiDisciplines.Crate_Tracking());
+		
+		
+		System.out.println(spiele.optionauswahl(DebugeCharakter,
+				"Your Kai Discipline of Tracking reveals to you fresh paw prints "
+						+ "leading off along the south path.\r\n"
+						+ "\r\n"
+						+ "They are the prints of a black bear, an animal renowned for its ferocity. "
+						+ "You decide the east path would be a much safer route.\r\n"
+						+ "\r\n",
+				Option.CharakterZeigen(),
+				new Option("Turn to 252.","252",true)));
+	}
+
 
 }
