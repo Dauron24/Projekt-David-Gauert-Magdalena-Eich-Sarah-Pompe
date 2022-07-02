@@ -5,12 +5,14 @@ import java.util.Scanner;
 
 public class EquipmentList extends ArrayList<Equipment> {
 	
-	private String name;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int equipmentSitze;
 	
 	public EquipmentList(String name, int sitze) {
 		super();
-		this.name = name;
 		this.equipmentSitze = sitze;
 	}
 

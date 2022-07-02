@@ -271,8 +271,7 @@ public Kapitel() {
 		Kapittelliste.add(()->Kapitel_257());
 		Kapittelliste.add(()->Kapitel_258());
 		Kapittelliste.add(()->Kapitel_259());
-		Kapittelliste.add(()->Kapitel_260());
-		/*
+		Kapittelliste.add(()->Kapitel_260());		
 		Kapittelliste.add(()->Kapitel_261());
 		Kapittelliste.add(()->Kapitel_262());
 		Kapittelliste.add(()->Kapitel_263());
@@ -363,7 +362,7 @@ public Kapitel() {
 		Kapittelliste.add(()->Kapitel_348());
 		Kapittelliste.add(()->Kapitel_349());
 		Kapittelliste.add(()->Kapitel_350());
-		*/
+		
 		
 	}
 
@@ -2003,7 +2002,7 @@ System.out.println("You fly in an arc through the air towards the opposite roof.
 		+ "\r\n"
 		+ "Your mission and your life end here.");
 spiele.warte_auf_eingabe();
-return 284;
+return 351;
 }
 
 public int Kapitel_109 ()
@@ -2786,23 +2785,31 @@ public int Kapitel_157 ()
 
 public int Kapitel_158 ()
 {
-String Text = "The Key fits and the lock opens. You pull back the door to "
+	System.out.println("The Key fits and the lock opens. You pull back the door to "
 		+ "find yourself face to face with a strange old man. In his right hand is a "
 		+ "staff. Suddenly a bolt of lightning shoots from the staff and hits you square "
 		+ "in the chest. You lose 6 ENDURANCE points. Gasping with pain, you knock "
 		+ "the old man aside and run up the steep staircase towards daylight. "
 		+ "You are halfway up the stairs when he fires another bolt at you.\r\n"
 		+ "\r\n"
-		+ "Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If the number is 0–5, the bolt misses you and shatters part of the wall.\r\n"
-		+ "\r\n"
-		+ "If the number is 6–9, then you have been hit in the back and lose a further 4 ENDURANCE points.\r\n"
-		+ "\r\n"
-		+ "If you survive, you stagger out into the daylight and curse your bad luck. It was only by an unlucky chance you discovered the secret temple of a sect of evil druids. You are very lucky to have escaped with your life. You quickly rejoin the path which now disappears over the hill.\r\n"
-		+ "\r\n"
-		+ "Turn to 106.";
-return 158;
+		+ "Pick a number from the Random Number Table.\r\n");
+int speicher =zufalzahl.nextInt(10);
+if (speicher<=5) {
+	System.out.println("If the number is 0–5, the bolt misses you and shatters part of the wall.\r\n");
+	
+}
+else {
+	System.out.println("If the number is 6–9, then you have been hit in the back and lose a "
+			+ "further 4 ENDURANCE points.\r\n");
+	Spielefiguer.decresENDURANCE(4);
+}
+return spiele.optionauswahl(Spielefiguer,
+		"If you survive, you stagger out into the daylight and curse your bad luck. "
+		+ "It was only by an unlucky chance you discovered the secret temple of "
+		+ "a sect of evil druids. You are very lucky to have escaped with your life. "
+		+ "You quickly rejoin the path which now disappears over the hill.\r\n"
+		+ "\r\n", 
+		new Option("Turn to 106.","106",true));
 
 }
 
@@ -2826,12 +2833,22 @@ public int Kapitel_159 ()
 
 public int Kapitel_160 ()
 {
-String Text = "Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If it is 0–4, you have been seen. Turn to 286.\r\n"
-		+ "\r\n"
-		+ "If it is 5–9, they do not spot you and they slowly file away along the far side of the ridge. Turn to 10.";
-return 160;
+	System.out.println( "Pick a number from the Random Number Table.\r\n"
+		+ "\r\n");
+int speicher =zufalzahl.nextInt(10);
+if (speicher<=4) {
+	System.out.println("If it is 0–4, you have been seen. Turn to 286.\r\n"
+			+ "\r\n");
+	spiele.warte_auf_eingabe();
+	return 286;	
+}
+else {
+	System.out.println("If it is 5–9, they do not spot you and they slowly file away along the far "
+			+ "side of the ridge. Turn to 10.");
+	Spielefiguer.decresENDURANCE(4);
+	spiele.warte_auf_eingabe();
+	return 10;
+}
 }
 
 public int Kapitel_161 ()
@@ -3281,20 +3298,22 @@ public int Kapitel_187 ()
 }
 
 public int Kapitel_188 ()
-{
-String Text = "You can see the shadow of the Kraan getting larger all around you. It "
-		+ "suddenly strikes, pitching you forward onto your face with the power of its attack.\r\n"
-		+ "\r\n"
-		+ "Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If the number you have picked is 0–6, the Kraan has ripped away your Backpack. You have "
-		+ "lost the Pack and all the Equipment that was inside it.\r\n"
-		+ "\r\n"
-		+ "If the number picked is 7–9, your Backpack is intact but you have been wounded "
-		+ "in both arms. Lose 3 ENDURANCE points and run to the trees.\r\n"
-		+ "\r\n"
-		+ "Now turn to 303.";
-return 188;
+{	
+	int speicher =zufalzahl.nextInt(10);
+	if (speicher<=4) {	
+		System.out.println("If the number you have picked is 0–6, the Kraan has ripped away your "
+			+ "backpack. You have "
+			+ "lost the Pack and all the Equipment that was inside it.\r\n");
+		Spielefiguer.setBackpackItems(new EquipmentList("Text",8));
+		}
+	else {
+		System.out.println("If the number picked is 7–9, your Backpack is intact but you have been wounded "
+			+ "in both arms. Lose 3 ENDURANCE points and run to the trees.\r\n");
+		Spielefiguer.decresENDURANCE(3);
+		}
+	System.out.println("Now turn to 303.");
+	spiele.warte_auf_eingabe();
+	return 303;	
 }
 
 public int Kapitel_189 ()
@@ -3332,7 +3351,6 @@ System.out.println("The bodyguard unsheathes a large scimitar and strikes at you
 		+ "\r\n"
 		+ "If you wish to evade more combat during the fight, you can jump from the "
 		+ "speeding caravan by turning to 234.");
-
 combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Bodyguard", 11, 21), 0,0);
 	if (ergebnis==combatResult.Evade) {
 	return 234;
@@ -3464,305 +3482,423 @@ return spiele.optionauswahl(Spielefiguer,
 
 public int Kapitel_201 ()
 {
-String Text = "You follow the rough track for nearly an hour when you notice ahead of you another wider path branching off towards the south.\r\n"
-		+ "\r\n"
-		+ "If you wish to turn south along the new path, turn to 238.\r\n"
-		+ "\r\n"
-		+ "But if you wish to head east, turn to 15.\r\n"
-		+ "\r\n"
-		+ "Or if you wish to go west, turn to 130.";
-return 201;
+	return spiele.optionauswahl(Spielefiguer,
+		"You follow the rough track for nearly an hour when you notice ahead of you another wider "
+				+ "path branching off towards the south.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to turn south along the new path, turn to 238.\r\n","238",true),
+		new Option("But if you wish to head east, turn to 15.\r\n","15",true),
+		new Option("If you wish to jump onto the caravan, turn to 78.","78",true));
 }
 
 public int Kapitel_202 ()
 {
-String Text = "Urging your horse forward, you gallop down the long stretch of highway towards the capital. After only a few minutes your horse suddenly slows and finally limps to a halt. You dismount and examine its raised right foreleg. You curse your ill luck, for you see that it has thrown a shoe and injured its hoof quite badly. You will have to leave him here and proceed on foot as quickly as you can.\r\n"
-		+ "\r\n"
-		+ "Turn to 58.";
-return 202;
+	return spiele.optionauswahl(Spielefiguer,
+		"Urging your horse forward, you gallop down the long stretch of "
+				+ "highway towards the capital. After only a few minutes your horse suddenly "
+				+ "slows and finally limps to a halt. You dismount and examine its raised "
+				+ "right foreleg. You curse your ill luck, for you see that it has thrown a "
+				+ "shoe and injured its hoof quite badly. You will have to leave him here "
+				+ "and proceed on foot as quickly as you can.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 58.","58",true));
 }
 
 public int Kapitel_203 ()
 {
-String Text = "You suddenly feel a searing pain shoot through your chest as something explodes against you in a shower of red sparks.\r\n"
-		+ "\r\n"
-		+ "You lose 10 ENDURANCE points. Through the smoke, the Sage is preparing to throw more explosives at you.\r\n"
-		+ "\r\n"
-		+ "If you have 10 or more ENDURANCE points left, turn to 80.\r\n"
-		+ "\r\n"
-		+ "If you now have less than 10 ENDURANCE points, turn to 344.";
-return 203;
+	return spiele.optionauswahl(Spielefiguer,
+		"You suddenly feel a searing pain shoot through your chest as something explodes "
+				+ "against you in a shower of red sparks.\r\n"
+				+ "\r\n"
+				+ "You lose 10 ENDURANCE points. Through the smoke, the Sage is preparing to throw more "
+				+ "explosives at you.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you have 10 or more ENDURANCE points left, turn to 80.\r\n","80",Spielefiguer.getENDURANCE()>=10),
+		new Option("If you now have less than 10 ENDURANCE points, turn to 344.","344",Spielefiguer.getENDURANCE()<10));
 }
 
 public int Kapitel_204 ()
 {
-String Text = "After an hour of walking you arrive at a junction. The path continues south and another path joins it from the west. You realize that the west path will lead you back to the marsh, so you continue southwards.\r\n"
-		+ "\r\n"
-		+ "Turn to 111.";
-return 204;
+	return spiele.optionauswahl(Spielefiguer,
+		"After an hour of walking you arrive at a junction. The path continues south "
+				+ "and another path joins it from the west. You realize that the west path will lead "
+				+ "you back to the marsh, so you continue southwards.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 111.","111",true));
 }
 
 public int Kapitel_205 ()
 {
-String Text = "Their leader picks up your discarded Equipment and ushers you along the road ahead. (You must now erase all Weapons and Backpack Items from your Action Chart.) An evil grin spreads across the face of the other two men, and you suddenly realize that they are not soldiers after all. You make a break for it and run away from there, sprinting towards the distant capital.\r\n"
+	System.out.println( "Their leader picks up your discarded Equipment and ushers you along the road ahead. "
+		+ "(You must now erase all Weapons and Backpack Items from your Action Chart.) An evil grin "
+		+ "spreads across the face of the other two men, and you suddenly realize that they are not "
+		+ "soldiers after all. You make a break for it and run away from there, sprinting towards the "
+		+ "distant capital.\r\n"
 		+ "\r\n"
 		+ "Behind you, the ominous click of a crossbow being primed sends a shiver down your spine.\r\n"
 		+ "\r\n"
-		+ "Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If the number you have picked is 0–4, turn to 181.\r\n"
-		+ "\r\n"
-		+ "If the number is 5–9, turn to 145.";
-return 205;
+		+ "Pick a number from the Random Number Table.\r\n");
+	int speicher =zufalzahl.nextInt(10);
+	if (speicher<=4) {
+		System.out.println("If the number you have picked is 0–4, turn to 181.\r\n");
+		spiele.warte_auf_eingabe();
+		return 181;
+		}
+	else {
+		System.out.println("If the number is 5–9, turn to 145.");
+		spiele.warte_auf_eingabe();
+		return 145;
+	}
 }
 
 public int Kapitel_206 ()
 {
-String Text = "The path soon joins a highway where a signpost indicates Toran to the north and Holmgard to the south. You turn south towards the capital.\r\n"
-		+ "\r\n"
-		+ "Turn to 224.";
-return 206;
+	return spiele.optionauswahl(Spielefiguer,
+		"The path soon joins a highway where a signpost indicates Toran to the north and "
+				+ "Holmgard to the south. You turn south towards the capital.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 224.","224",true));
 }
 
 public int Kapitel_207 ()
 {
-String Text = "The track soon reaches a larger road which crosses the stream via a stone bridge. A signpost at the bridge points north to Toran and south to Holmgard. The road itself is jammed with people moving south, some pushing their possessions along on handcarts. You join the refugee column and head towards the capital.\r\n"
-		+ "\r\n"
-		+ "Turn to 30.";
-return 207;
+return spiele.optionauswahl(Spielefiguer,
+		"The track soon reaches a larger road which crosses the stream via a stone bridge. "
+				+ "A signpost at the bridge points north to Toran and south to Holmgard. The road itself "
+				+ "is jammed with people moving south, some pushing their possessions along on handcarts. "
+				+ "You join the refugee column and head towards the capital.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 30.","30",true));
 }
 
 public int Kapitel_208 ()
 {
-String Text = "The ghoulish creatures thrust their spears at you and attack. Fight these creatures as a single enemy.\r\n"
+System.out.println("The ghoulish creatures thrust their spears at you and attack. Fight these "
+		+ "creatures as a single enemy.\r\n"
 		+ "\r\n"
 		+ "Giaks: COMBAT SKILL 15   ENDURANCE 13\r\n"
 		+ "\r\n"
 		+ "If you win, you can run to the safety of the farmhouse by turning to 148.\r\n"
 		+ "\r\n"
-		+ "Or you can return to the woods by turning to 320.";
-return 208;
+		+ "Or you can return to the woods by turning to 320.");
+	combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Giaks", 15, 13), 0);	
+	if (ergebnis==combatResult.Win) {
+		return spiele.optionauswahl(Spielefiguer,"",
+				Option.CharakterZeigen(),
+				new Option("If you win, you can run to the safety of the farmhouse by turning to 148.\r\n","23",true),
+				new Option("Or you can return to the woods by turning to 320.","320",true));
+	}
+	return 351;
 }
 
 public int Kapitel_209 ()
 {
-String Text = "You see ahead a corridor sloping upwards, and as you reach the top of this slope, a stone portal slides across to reveal another passage ahead.\r\n"
-		+ "\r\n"
-		+ "You step through the opening which then quickly closes with a crunch.\r\n"
-		+ "\r\n"
-		+ "Turn to 23.";
-return 209;
+	return spiele.optionauswahl(Spielefiguer,
+		"You see ahead a corridor sloping upwards, and as you reach the top of "
+				+ "this slope, a stone portal slides across to reveal another passage ahead.\r\n"
+				+ "\r\n"
+				+ "You step through the opening which then quickly closes with a crunch.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 23.","23",true));
 }
 
 public int Kapitel_210 ()
 {
-String Text = "Just inside the door, you are stopped by a journeyman of the Guildhall and asked to explain your intrusion. You calmly inform him of your urgent message for the King, and he hurries you into the Guildmaster’s chambers.\r\n"
-		+ "\r\n"
-		+ "A distinguished old man in deep purple robes turns to greet you and listens to your story. Taking you by the arm, he leads you into an adjoining library and closes the door. Pressing one of the many thousands of books, he releases a secret panel in the wall and beckons you to follow him.\r\n"
-		+ "\r\n"
-		+ "If you wish to follow him into the dark passage, turn to 332.\r\n"
-		+ "\r\n"
-		+ "If you are not completely happy about this man and wish to leave the Guildhall, turn to 37.";
-return 210;
+	return spiele.optionauswahl(Spielefiguer,
+		"Just inside the door, you are stopped by a journeyman of the Guildhall and asked "
+				+ "to explain your intrusion. You calmly inform him of your urgent message for the King, "
+				+ "and he hurries you into the Guildmaster’s chambers.\r\n"
+				+ "\r\n"
+				+ "A distinguished old man in deep purple robes turns to greet you and listens to your story. "
+				+ "Taking you by the arm, he leads you into an adjoining library and closes the door. Pressing "
+				+ "one of the many thousands of books, he releases a secret panel in the wall and beckons you "
+				+ "to follow him.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to follow him into the dark passage, turn to 332.\r\n","168",true),
+		new Option("If you are not completely happy about this man and wish to leave the Guildhall, turn to 37.","37",true));
 }
 
 public int Kapitel_211 ()
 {
-String Text = "You walk along a dimly lit corridor which opens out into a large square room, with an oak door in the far wall.\r\n"
-		+ "\r\n"
-		+ "If you possess the Kai Discipline of Sixth Sense turn to 244.\r\n"
-		+ "\r\n"
-		+ "If you wish to walk across to the door, turn to 173.\r\n"
-		+ "\r\n"
-		+ "If you would prefer to return to the surface and continue your journey, turn to 106.";
-return 211;
+	return spiele.optionauswahl(Spielefiguer,
+		"You walk along a dimly lit corridor which opens out into a large square room, "
+				+ "with an oak door in the far wall.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you possess the Kai Discipline of Sixth Sense turn to 244.\r\n","244",Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")),
+		new Option("If you wish to walk across to the door, turn to 173.\r\n","173",true),
+		new Option("If you would prefer to return to the surface and continue your journey, turn to 106.","106",true));
 }
 
 public int Kapitel_212 ()
 {
-String Text = "When you awake, the pain is but a memory. Restore all lost ENDURANCE points to your original score. A tall man dressed in white robes stands before you, a bowl of herbs in his hands. Placing the leaves into a kettle of boiling water, he then turns to greet you.\r\n"
-		+ "[Illustration XIII]\r\n"
-		+ "\r\n"
-		+ "‘You have passed close to death and have seen his face, Kai Lord, but the Grey One has not claimed you for his flock. You are healed in body but I sense that you are wounded in spirit. What is it that troubles you so?’\r\n"
-		+ "\r\n"
-		+ "You recognize the man to be one of the King’s senior physicians, for the gold embroidered emblem of a dove upon his sleeve is the sign of his respected vocation. You tell the aged cleric of the events at the monastery and of your perilous journey to the King.\r\n"
-		+ "\r\n"
-		+ "Raising you gently from the bed by your arm, he bids you follow him. You notice that you are in a lavishly decorated room which leads out through a long corridor lined with tapestries. It slowly dawns on you just where you are.\r\n"
-		+ "\r\n"
-		+ "This is the citadel of Holmgard and you are about to meet the King.\r\n"
-		+ "\r\n"
-		+ "Turn to 350.";
-return 212;
+	return spiele.optionauswahl(Spielefiguer,
+		"When you awake, the pain is but a memory. Restore all lost ENDURANCE points "
+				+ "to your original score. A tall man dressed in white robes stands before you, "
+				+ "a bowl of herbs in his hands. Placing the leaves into a kettle of boiling water, "
+				+ "he then turns to greet you.\r\n"
+				+ "\r\n"
+				+ "‘You have passed close to death and have seen his face, Kai Lord, but the Grey One "
+				+ "has not claimed you for his flock. You are healed in body but I sense that you are wounded "
+				+ "in spirit. What is it that troubles you so?’\r\n"
+				+ "\r\n"
+				+ "You recognize the man to be one of the King’s senior physicians, for the gold embroidered "
+				+ "emblem of a dove upon his sleeve is the sign of his respected vocation. You tell the aged "
+				+ "cleric of the events at the monastery and of your perilous journey to the King.\r\n"
+				+ "\r\n"
+				+ "Raising you gently from the bed by your arm, he bids you follow him. You notice that you are "
+				+ "in a lavishly decorated room which leads out through a long corridor lined with tapestries. "
+				+ "It slowly dawns on you just where you are.\r\n"
+				+ "\r\n"
+				+ "This is the citadel of Holmgard and you are about to meet the King.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 350.","350",true));
 }
 
 public int Kapitel_213 ()
 {
-String Text = "You have been trudging through the forest for nearly two hours. The nagging fear that you are lost begins to seem a reality. Apart from the occasional cry of a Kraan in the far distance, you have seen or heard no evidence that the enemy is in this part of the forest. As you descend a rocky hillock, you see something unusual in the tangled woods ahead.\r\n"
-		+ "\r\n"
-		+ "Turn to 331.";
-return 213;
+	return spiele.optionauswahl(Spielefiguer,
+		"You have been trudging through the forest for nearly two hours. "
+				+ "The nagging fear that you are lost begins to seem a reality. Apart "
+				+ "from the occasional cry of a Kraan in the far distance, you have seen "
+				+ "or heard no evidence that the enemy is in this part of the forest. "
+				+ "As you descend a rocky hillock, you see something unusual in the tangled woods ahead.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 331.","331",true));
 }
 
 public int Kapitel_214 ()
 {
-String Text = "The path gradually narrows until it disappears completely into a mass of dense vegetation. You cannot go any further on this route and therefore you must return to the clearing.\r\n"
-		+ "\r\n"
-		+ "Turn to 125 and take the south path.";
-return 214;
+	return spiele.optionauswahl(Spielefiguer,
+		"The path gradually narrows until it disappears completely into "
+				+ "a mass of dense vegetation. You cannot go any further on this route and "
+				+ "therefore you must return to the clearing.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 125 and take the south path.","125",true));
 }
 
 public int Kapitel_215 ()
 {
-String Text = "You emerge into a small clearing. In the centre you see the skeletal remains of a large animal. To the south a narrow track leads off into the distance.\r\n"
-		+ "\r\n"
-		+ "If you wish to examine the skeleton, turn to 346.\r\n"
-		+ "\r\n"
-		+ "If you would rather press on, turn to 14.";
-return 215;
+	return spiele.optionauswahl(Spielefiguer,
+		"You emerge into a small clearing. In the centre you see the skeletal remains "
+				+ "of a large animal. To the south a narrow track leads off into the distance.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to examine the skeleton, turn to 346.\r\n","346",true),
+		new Option("If you would rather press on, turn to 14.","14",true));
 }
 
 public int Kapitel_216 ()
 {
-String Text = "Placing one hand on his forehead and the other on his wounded arm, you feel the warmth of your healing powers leave your body and give strength to the injured man.\r\n"
-		+ "\r\n"
-		+ "He tells you his name is Trimis and he is a soldier in Prince Pelathar’s army. The Prince and his troops are engaged in battle to the south, where a large force of the Darklords’ creatures are attacking the bridge of Alema. During the fight, he had been snatched into the air by a Kraan, and dropped into the forest.\r\n"
-		+ "\r\n"
-		+ "You make the soldier as comfortable as possible before continuing on your mission.\r\n"
-		+ "\r\n"
-		+ "Turn to 264.";
-return 216;
+	return spiele.optionauswahl(Spielefiguer,
+		"Placing one hand on his forehead and the other on his wounded arm, you "
+				+ "feel the warmth of your healing powers leave your body and give strength to the injured man.\r\n"
+				+ "\r\n"
+				+ "He tells you his name is Trimis and he is a soldier in Prince Pelathar’s "
+				+ "army. The Prince and his troops are engaged in battle to the south, where a large "
+				+ "force of the Darklords’ creatures are attacking the bridge of Alema. During the fight, "
+				+ "he had been snatched into the air by a Kraan, and dropped into the forest.\r\n"
+				+ "\r\n"
+				+ "You make the soldier as comfortable as possible before continuing on your mission.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 264.","264",true));
 }
 
 public int Kapitel_217 ()
 {
-String Text = "You quickly escape from the madman and dodge along a dark alleyway where the houses are small and cramped together. At the very end is a green door with a sign above it that says:\r\n"
-		+ "Kolanis—Sage & Herbalist\r\n"
-		+ "\r\n"
-		+ "If you wish to enter, turn to 91.\r\n"
-		+ "\r\n"
-		+ "If you wish to wait until you are sure the madman has disappeared and then return to the main street, turn to 7.";
-return 217;
+	return spiele.optionauswahl(Spielefiguer,
+		"You quickly escape from the madman and dodge along a dark alleyway where "
+				+ "the houses are small and cramped together. At the very end is a green door with "
+				+ "a sign above it that says:\r\n"
+				+ "Kolanis—Sage & Herbalist\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to enter, turn to 91.\r\n","91",true),
+		new Option("If you wish to wait until you are sure the madman has disappeared and then return "
+				+ "to the main street, turn to 7.","7",true));
 }
 
 public int Kapitel_218 ()
 {
-String Text = "Your senses reveal that more than just horses are heading towards you. You can just make out the very high shrieks of Giak war-cries in the distance. By the number of cries and curses you estimate that there are over a dozen Giaks, and probably Doomwolves as well. You decide that advertising your existence is perhaps not quite such a good idea after all!\r\n"
-		+ "\r\n"
-		+ "Turn to 75.";
-return 218;
+	return spiele.optionauswahl(Spielefiguer,
+		"Your senses reveal that more than just horses are heading towards you. "
+				+ "You can just make out the very high shrieks of Giak war-cries in the distance. "
+				+ "By the number of cries and curses you estimate that there are over a dozen Giaks, "
+				+ "and probably Doomwolves as well. You decide that advertising your existence "
+				+ "is perhaps not quite such a good idea after all!\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 75.","75",true));
 }
 
 public int Kapitel_219 ()
 {
-String Text = "All that remains of you now is embedded five feet into the stairs on which you were standing, beneath a vast granite block.\r\n"
+System.out.println("All that remains of you now is embedded five feet into the stairs "
+		+ "on which you were standing, beneath a vast granite block.\r\n"
 		+ "\r\n"
-		+ "Your mission and your life end here.";
-return 219;
+		+ "Your mission and your life end here.");
+spiele.warte_auf_eingabe();
+return 351;
 }
 
 public int Kapitel_220 ()
 {
-String Text = "The bodyguard unsheathes a scimitar and lunges for your head.\r\n"
+	System.out.println("The bodyguard unsheathes a scimitar and lunges for your head.\r\n"
 		+ "\r\n"
 		+ "Bodyguard: COMBAT SKILL 11   ENDURANCE 20\r\n"
 		+ "\r\n"
 		+ "If you win, turn to 24.\r\n"
 		+ "\r\n"
-		+ "If you wish to evade combat at any time during the fight, you can jump from the speeding caravan by turning to 234.";
-return 220;
+		+ "If you wish to evade combat at any time during the fight, you can jump "
+		+ "from the speeding caravan by turning to 234.");
+	combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Bodyguard", 11, 20), 0,0);
+	if (ergebnis==combatResult.Evade) {
+	return 234;
+	}
+	if (ergebnis==combatResult.Win) {
+	return 24;
+	}
+	return 351;
 }
 
 public int Kapitel_221 ()
 {
-String Text = "Cautiously, you approach the base of the log wall. The tree trunks are rough-hewn and afford plenty of footholds for your climb. As you reach the top of the wall, you come face to face with a crossbow. The soldier holding it in your face motions for you to descend a wooden ladder to the ground. You do not argue with him. Slowly you descend the ladder.\r\n"
-		+ "\r\n"
-		+ "Turn to 318.";
-return 221;
+return spiele.optionauswahl(Spielefiguer,
+		"Cautiously, you approach the base of the log wall. The tree trunks "
+				+ "are rough-hewn and afford plenty of footholds for your climb. As you reach "
+				+ "the top of the wall, you come face to face with a crossbow. The soldier "
+				+ "holding it in your face motions for you to descend a wooden ladder to the ground. "
+				+ "You do not argue with him. Slowly you descend the ladder.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 318.","318",true));
 }
 
 public int Kapitel_222 ()
 {
-String Text = "As you go on you discover a forest path that divides at the point you join it.\r\n"
-		+ "\r\n"
-		+ "If you wish to use your Kai Discipline of Tracking, turn to 67.\r\n"
-		+ "\r\n"
-		+ "If you wish to take the south fork, turn to 140.\r\n"
-		+ "\r\n"
-		+ "If you wish to take the east fork, turn to 252.";
-return 222;
+	return spiele.optionauswahl(Spielefiguer,
+		"As you go on you discover a forest path that divides at the point you join it.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to use your Kai Discipline of Tracking, turn to 67.\r\n","67",Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Tracking")),
+		new Option("If you wish to take the south fork, turn to 140.\r\n","140",true),
+		new Option("If you wish to take the east fork, turn to 252.","252",true));
 }
 
 public int Kapitel_223 ()
 {
-String Text = "After quite a struggle, you manage to free the heavy trunk from the river bank. Gathering your equipment in a bundle, you stow it on top of the log and then slowly wade out into the river. The current soon takes you and you drift slowly downstream.\r\n"
-		+ "\r\n"
-		+ "After twenty minutes you hear the sound of horses along the left bank.\r\n"
-		+ "\r\n"
-		+ "If you wish to hide behind the log, turn to 75.\r\n"
-		+ "\r\n"
-		+ "If you wish to climb onto the log and prepare to catch the riders’ attention, then turn to 175.";
-return 223;
+	return spiele.optionauswahl(Spielefiguer,
+		"After quite a struggle, you manage to free the heavy trunk from the river "
+				+ "bank. Gathering your equipment in a bundle, you stow it on top of the log and "
+				+ "then slowly wade out into the river. The current soon takes you and you drift "
+				+ "slowly downstream.\r\n"
+				+ "\r\n"
+				+ "After twenty minutes you hear the sound of horses along the left bank.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to hide behind the log, turn to 75.\r\n","75",true),
+		new Option("If you wish to climb onto the log and prepare to catch the riders’ attention, then turn to 175.","175",true));
 }
 
 public int Kapitel_224 ()
 {
-String Text = "You have ridden several miles and have seen no sign of refugees or of the enemy. You race on towards a high ridge in the middle distance. You should be able to see the capital from there.\r\n"
-		+ "\r\n"
-		+ "As you reach the peak, the sight that meets you on the far side is one of hope—but there is still one challenge you know you have to face.\r\n"
-		+ "\r\n"
-		+ "Turn to 153.";
-return 224;
+	return spiele.optionauswahl(Spielefiguer,
+		"You have ridden several miles and have seen no sign of refugees or of "
+				+ "the enemy. You race on towards a high ridge in the middle distance. "
+				+ "You should be able to see the capital from there.\r\n"
+				+ "\r\n"
+				+ "As you reach the peak, the sight that meets you on the far side is one of "
+				+ "hope—but there is still one challenge you know you have to face.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 153.","153",true));
 }
 
 public int Kapitel_225 ()
 {
-String Text = "You recognize the language to be that of the Kakarmi, an intelligent race of forest animals that live in, and care for the forests of Sommerlund. You have nothing to fear from these creatures as they are very timid and gentle in their behaviour. Using your skill of Animal Kinship, you call to them in their strange native tongue.\r\n"
-		+ "\r\n"
-		+ "If you say ‘Do not be afraid, I am a friend,’ turn to 187.\r\n"
-		+ "\r\n"
-		+ "If you say ‘I am a Kai Lord. I wish you no harm. I must talk with you,’ turn to 39.";
-return 225;
+	return spiele.optionauswahl(Spielefiguer,
+		"You recognize the language to be that of the Kakarmi, an "
+				+ "intelligent race of forest animals that live in, and care for the "
+				+ "forests of Sommerlund. You have nothing to fear from these creatures "
+				+ "as they are very timid and gentle in their behaviour. Using your "
+				+ "skill of Animal Kinship, you call to them in their strange native tongue.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you say ‘Do not be afraid, I am a friend,’ turn to 187.\r\n","187",true),
+		new Option("If you say ‘I am a Kai Lord. I wish you no harm. I must talk with you,’ turn to 39.","39",true));
 }
 
 public int Kapitel_226 ()
 {
-String Text = "At first the descent is quite easy, but you soon find it difficult to see clearly and your legs feel very weak. The ‘Sleeptooth’ scratches are affecting you, and suddenly you pitch forward and slip head-first into darkness.\r\n"
+	System.out.println( "At first the descent is quite easy, but you soon find it difficult "
+		+ "to see clearly and your legs feel very weak. The ‘Sleeptooth’ scratches "
+		+ "are affecting you, and suddenly you pitch forward and slip head-first into darkness.\r\n"
 		+ "\r\n"
-		+ "Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If the number you have picked is 0–4, turn to 277.\r\n"
-		+ "\r\n"
-		+ "If the number is 5–9, turn to 338.";
-return 226;
+		+ "Pick a number from the Random Number Table.\r\n");
+	int speicher =zufalzahl.nextInt(10);
+	if (speicher<=4) {
+		System.out.println( "If the number you have picked is 0–4, turn to 277.\r\n");
+		spiele.warte_auf_eingabe();
+		return 277;
+		}
+	else {
+		System.out.println("If the number is 5–9, turn to 338.");
+		spiele.warte_auf_eingabe();
+		return 338;
+	}
 }
 
 public int Kapitel_227 ()
 {
-String Text = "You are now up to your waist in slimy water. The air is thick with small insects that sting your face and clog your nose. Something wraps itself around your leg. It is a Marshviper and you must fight it.\r\n"
+	System.out.println("The bodyguard unsheathes a large scimitar and strikes at your head.\r\n"
 		+ "\r\n"
-		+ "Marshviper: COMBAT SKILL 16   ENDURANCE 6\r\n"
+		+ "Bodyguard: COMBAT SKILL 11   ENDURANCE 21\r\n"
 		+ "\r\n"
-		+ "If you lose any ENDURANCE points in the combat, turn to 271.\r\n"
+		+ "If you win, turn to 24.\r\n"
 		+ "\r\n"
-		+ "If you kill it without losing any ENDURANCE points, turn to 348.";
-return 227;
+		+ "If you wish to evade more combat during the fight, you can jump from the "
+		+ "speeding caravan by turning to 234.");
+	combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Bodyguard", 11, 21), 0,0);
+	if (ergebnis==combatResult.Evade) {
+	return 234;
+	}
+	if (ergebnis==combatResult.Win) {
+	return 24;
+	}
+	return 351;
 }
 
 public int Kapitel_228 ()
 {
-String Text = "The path continues eastwards but soon disappears into thick undergrowth.\r\n"
-		+ "\r\n"
-		+ "If you continue east, cutting through the vegetation with your weapon, turn to 140.\r\n"
-		+ "\r\n"
-		+ "If you head south to where the bushes are less dense and then press on through the forest, turn to 215.";
-return 228;
+	return spiele.optionauswahl(Spielefiguer,
+		"The path continues eastwards but soon disappears into thick undergrowth.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you continue east, cutting through the vegetation with your weapon, turn to 140.\r\n","140",true),
+		new Option("If you head south to where the bushes are less dense and then press on through the "
+				+ "forest, turn to 215.","215",true));
 }
 
 public int Kapitel_229 ()
 {
-String Text = "The Kraan hovers above you, raising dust with the beat of its huge black wings. The dust gets into your eyes and nose, and you start to cough. Now the beast attacks.\r\n"
+	System.out.println("The Kraan hovers above you, raising dust with the beat of its huge "
+		+ "black wings. The dust gets into your eyes and nose, and you start to cough. "
+		+ "Now the beast attacks.\r\n"
 		+ "\r\n"
-		+ "You must fight it to the death. Because of the dust, you must reduce your COMBAT SKILL by 1 point.\r\n"
+		+ "You must fight it to the death. Because of the dust, you must reduce your "
+		+ "COMBAT SKILL by 1 point.\r\n"
 		+ "\r\n"
 		+ "Kraan: COMBAT SKILL 16   ENDURANCE 25\r\n"
 		+ "\r\n"
@@ -3770,23 +3906,35 @@ String Text = "The Kraan hovers above you, raising dust with the beat of its hug
 		+ "\r\n"
 		+ "Will you search the body by turning to 267?\r\n"
 		+ "\r\n"
-		+ "Or will you continue along the east path by turning to 125?";
-return 229;
+		+ "Or will you continue along the east path by turning to 125?");
+	combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Kraan", 16, 25), 0);	
+	if (ergebnis==combatResult.Win) {
+		return spiele.optionauswahl(Spielefiguer,"",
+				Option.CharakterZeigen(),
+				new Option("Will you search the body by turning to 267?\r\n","267",true),
+				new Option("Or will you continue along the east path by turning to 125?","125",true));
+	}
+	return 351;
 }
 
 public int Kapitel_230 ()
 {
-String Text = "In the far distance, you can make out the silhouette of soldiers on barges that are strung out in a line across the river. You can hear the low growls of Doomwolves returning along the opposite bank.\r\n"
-		+ "\r\n"
-		+ "For once you throw caution to the wind and sprint along the river bank towards the barges in the distance.\r\n"
-		+ "\r\n"
-		+ "Turn to 179.";
-return 230;
+return spiele.optionauswahl(Spielefiguer,
+		"In the far distance, you can make out the silhouette of soldiers on barges that "
+				+ "are strung out in a line across the river. You can hear the low growls of Doomwolves "
+				+ "returning along the opposite bank.\r\n"
+				+ "\r\n"
+				+ "For once you throw caution to the wind and sprint along the river bank towards "
+				+ "the barges in the distance.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 179.","179",true));
 }
 
 public int Kapitel_231 ()
 {
-String Text = "You are about to ask the price of the potions when the bamboo screen crashes down and a young man leaps at you. He has a long curved dagger in his hand.\r\n"
+	System.out.println("You are about to ask the price of the potions when the bamboo screen "
+		+ "crashes down and a young man leaps at you. He has a long curved dagger in his hand.\r\n"
 		+ "\r\n"
 		+ "He is upon you and you must fight for your life.\r\n"
 		+ "\r\n"
@@ -3796,226 +3944,326 @@ String Text = "You are about to ask the price of the potions when the bamboo scr
 		+ "\r\n"
 		+ "If you are still fighting after 4 rounds of combat, turn to 203.\r\n"
 		+ "\r\n"
-		+ "You may evade more fighting after 2 rounds of combat by dashing through the front door. If you wish to do this, turn to 7.";
-return 231;
+		+ "You may evade more fighting after 2 rounds of combat by dashing through "
+		+ "the front door. If you wish to do this, turn to 7.");
+	combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Robber", 13, 20), 0);
+	if (ergebnis==combatResult.Win) {
+		return spiele.optionauswahl(Spielefiguer,"",
+				Option.CharakterZeigen(),
+				new Option("If you kill him within 4 rounds of combat, turn to 94.\r\n","94",true),
+				new Option("If you are still fighting after 4 rounds of combat, turn to 203.\r\n","203",true),
+				new Option("You may evade more fighting after 2 rounds of combat by dashing through "
+						+ "the front door. If you wish to do this, turn to 7.","7",true));
+	}
+	return 351;
 }
 
 public int Kapitel_232 ()
 {
-String Text = "The rough-looking leader approaches you and says, ‘Our needs are simple, kind sir. Your money or your life!’\r\n"
-		+ "\r\n"
-		+ "If you wish to fight them, turn to 180.\r\n"
-		+ "\r\n"
-		+ "If you wish to run, turn to 22.";
-return 232;
+	return spiele.optionauswahl(Spielefiguer,
+		"The rough-looking leader approaches you and says, ‘Our needs are simple, "
+				+ "kind sir. Your money or your life!’\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to fight them, turn to 180.\r\n","180",true),
+		new Option("If you wish to run, turn to 22.","22",true));
 }
 
 public int Kapitel_233 ()
 {
-String Text = "After nearly an hour, you catch up with the horse and succeed in calming him down. You are now north of the cabin, but you are confident of finding your way back.\r\n"
-		+ "\r\n"
-		+ "Mounting the horse, you ride back past the cabin, and press on towards the south once again.\r\n"
-		+ "\r\n"
-		+ "Turn to 206.";
-return 233;
+	return spiele.optionauswahl(Spielefiguer,
+		"After nearly an hour, you catch up with the horse and succeed in "
+				+ "calming him down. You are now north of the cabin, but you are "
+				+ "confident of finding your way back.\r\n"
+				+ "\r\n"
+				+ "Mounting the horse, you ride back past the cabin, and press on "
+				+ "towards the south once again.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 206.","206",true));
 }
 
 public int Kapitel_234 ()
 {
-String Text = "You jump clear of the speeding caravan but land very badly and break your ankle. The pain is terrible and you soon lose consciousness.\r\n"
+	System.out.println("You jump clear of the speeding caravan but land very badly and "
+		+ "break your ankle. The pain is terrible and you soon lose consciousness.\r\n"
 		+ "\r\n"
-		+ "Unfortunately you never wake up, but it may be of interest to you that your head is now adorning the saddle of a Kraan.\r\n"
+		+ "Unfortunately you never wake up, but it may be of interest to you "
+		+ "that your head is now adorning the saddle of a Kraan.\r\n"
 		+ "\r\n"
-		+ "Your life and your mission end here.";
-return 234;
+		+ "Your life and your mission end here.");
+ spiele.warte_auf_eingabe();
+ return 234;
 }
 
 public int Kapitel_235 ()
 {
-String Text = "The Prince’s horse is indeed a magnificent animal, fast and sure of foot. You gallop along the twisting track as if it were a straight highway, until the noise of battle has disappeared far behind you.\r\n"
-		+ "\r\n"
-		+ "You are hungry and must eat a Meal during your ride.\r\n"
-		+ "\r\n"
-		+ "After several miles, the path stops abruptly at a junction. There is a signpost, but it has been hacked down.\r\n"
-		+ "\r\n"
-		+ "If you wish to use your Kai Discipline of Tracking, turn to 254.\r\n"
-		+ "\r\n"
-		+ "If you wish to turn left, go to 32.\r\n"
-		+ "\r\n"
-		+ "If you wish to turn right, go to 146.";
-return 235;
+	return spiele.optionauswahl(Spielefiguer,
+		"The Prince’s horse is indeed a magnificent animal, fast and sure of "
+				+ "foot. You gallop along the twisting track as if it were a straight highway, "
+				+ "until the noise of battle has disappeared far behind you.\r\n"
+				+ "\r\n"
+				+ "You are hungry and must eat a Meal during your ride.\r\n"
+				+ "\r\n"
+				+ "After several miles, the path stops abruptly at a junction. There is "
+				+ "a signpost, but it has been hacked down.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to use your Kai Discipline of Tracking, turn to 254.\r\n","254",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Tracking")),
+		new Option("If you wish to turn left, go to 32.\r\n","32",true),
+		new Option("If you wish to turn right, go to 146.","146",true));
 }
 
 public int Kapitel_236 ()
 {
-String Text = "The Gem hovers above the mouth of the skeleton king, glowing a fierce red. Suddenly, an explosion of searing crimson flame lashes upwards from the sarcophagus, destroying the Gem completely. You are thrown against the far wall and knocked unconscious.\r\n"
-		+ "\r\n"
-		+ "When you awake, the chamber is completely empty. The skeleton king and the sarcophagus have vanished. You have lost 6 ENDURANCE points, and your initial COMBAT SKILL is reduced by 1 point for the rest of your life. (Remember to erase the Vordak Gem from your Action Chart. If you had two Gems, you need erase only one.)\r\n"
-		+ "\r\n"
-		+ "You carefully get to your feet and stagger towards the tunnel.\r\n"
-		+ "\r\n"
-		+ "Turn to 104.";
-return 236;
+	return spiele.optionauswahl(Spielefiguer,
+		"The Gem hovers above the mouth of the skeleton king, glowing a "
+				+ "fierce red. Suddenly, an explosion of searing crimson flame lashes "
+				+ "upwards from the sarcophagus, destroying the Gem completely. You are "
+				+ "thrown against the far wall and knocked unconscious.\r\n"
+				+ "\r\n"
+				+ "When you awake, the chamber is completely empty. The skeleton "
+				+ "king and the sarcophagus have vanished. You have lost 6 ENDURANCE points, "
+				+ "and your initial COMBAT SKILL is reduced by 1 point for the rest of your life. "
+				+ "(Remember to erase the Vordak Gem from your Action Chart. "
+				+ "If you had two Gems, you need erase only one.)\r\n"
+				+ "\r\n"
+				+ "You carefully get to your feet and stagger towards the tunnel.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 104.","104",true));
 }
 
 public int Kapitel_237 ()
 {
-String Text = "You make full use of your Kai Discipline and quickly burrow deep into the loose earth of the wooded hillside. Covering yourself with your cloak, you pull a loose branch across your hastily dug shelter.\r\n"
+	System.out.println( "You make full use of your Kai Discipline and quickly burrow deep "
+		+ "into the loose earth of the wooded hillside. Covering yourself with "
+		+ "your cloak, you pull a loose branch across your hastily dug shelter.\r\n"
 		+ "\r\n"
 		+ "Pick a number from the Random Number Table.\r\n"
-		+ "\r\n"
-		+ "If you have picked a number 0–4, then you have passed undetected. Turn to 265.\r\n"
-		+ "\r\n"
-		+ "If you have picked a number 5–9, then you are not so lucky! Turn to 72.";
-return 237;
+		+ "\r\n");
+	int speicher =zufalzahl.nextInt(10);
+	if (speicher<=4) {
+		System.out.println("If you have picked a number 0–4, then you have passed undetected. Turn to 265.\r\n");
+		spiele.warte_auf_eingabe();
+		return 265;
+		}
+	else {
+		System.out.println("If you have picked a number 5–9, then you are not so lucky! Turn to 72.");
+		Spielefiguer.decresENDURANCE(4);
+		return 72;
+		}
 }
 
 public int Kapitel_238 ()
 {
-String Text = "The path meanders between several small, wooded hills and eventually leads to a ruined log cabin. It seems that it had burnt down not so long ago, for the ashes are still warm and a haze of smoke still lingers. You sense possible danger here.\r\n"
-		+ "\r\n"
-		+ "You may leave by the south route by turning to 42.\r\n"
-		+ "\r\n"
-		+ "Or you may take the north track by turning to 68.";
-return 238;
+	return spiele.optionauswahl(Spielefiguer,
+		"The path meanders between several small, wooded hills and "
+				+ "eventually leads to a ruined log cabin. It seems that it had burnt "
+				+ "down not so long ago, for the ashes are still warm and a haze of smoke "
+				+ "still lingers. You sense possible danger here.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("You may leave by the south route by turning to 42.\r\n","42",true),
+		new Option("Or you may take the north track by turning to 68.","68",true));
 }
 
 public int Kapitel_239 ()
 {
-String Text = "As you push on into the forest, you hear the wings of the Kraan pass above the trees and disappear northwards. You ride on for nearly an hour until you come to a clearing. On the far side is a track that leads off to the south.\r\n"
-		+ "\r\n"
-		+ "If you wish to enter the clearing and take the south exit, turn to 34.\r\n"
-		+ "\r\n"
-		+ "If you would rather skirt the edge of the clearing and pick up the track further on, turn to 118.";
-return 239;
+	return spiele.optionauswahl(Spielefiguer,
+		"As you push on into the forest, you hear the wings of the Kraan "
+				+ "pass above the trees and disappear northwards. You ride on for nearly an "
+				+ "hour until you come to a clearing. On the far side is a track that leads "
+				+ "off to the south.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to enter the clearing and take the south exit, turn to 34.\r\n","34",true),
+		new Option("If you would rather skirt the edge of the clearing and pick up the track further on, turn to 118.","118",true));
 }
 
 public int Kapitel_240 ()
 {
-String Text = "The path leads along a ridge of wooded hillocks and changes direction towards the east.\r\n"
-		+ "\r\n"
-		+ "Turn to 79.";
-return 240;
+	return spiele.optionauswahl(Spielefiguer,
+		"The path leads along a ridge of wooded hillocks and changes "
+				+ "direction towards the east.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 79.","79",true));
+
 }
 
 public int Kapitel_241 ()
 {
-String Text = "The wizard heeds your cry and spins around just in time to loose a searing bolt of energy at the Giak. The creature’s head disintegrates in flames and its twitching body falls in a heap at the foot of the pillar. The Giak officer sees you and shouts, ‘Ogot…Ogot!’ to his cowering troops, who quickly run away from the ruins to the safety of the forest beyond.\r\n"
-		+ "\r\n"
-		+ "The young wizard wipes his brow, and walks towards you, his hand extended in gratitude and friendship.\r\n"
-		+ "\r\n"
-		+ "Turn to 349.";
-return 241;
+	return spiele.optionauswahl(Spielefiguer,
+		"The wizard heeds your cry and spins around just in time to "
+				+ "loose a searing bolt of energy at the Giak. The creature’s head "
+				+ "disintegrates in flames and its twitching body falls in a heap "
+				+ "at the foot of the pillar. The Giak officer sees you and shouts, "
+				+ "‘Ogot…Ogot!’ to his cowering troops, who quickly run away from the "
+				+ "ruins to the safety of the forest beyond.\r\n"
+				+ "\r\n"
+				+ "The young wizard wipes his brow, and walks towards you, his "
+				+ "hand extended in gratitude and friendship.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 349.","349",true));
 }
 
 public int Kapitel_242 ()
 {
-String Text = "The lid of the sarcophagus slips to the floor with a dull crunch. You are looking at the remains of an ancient king, who lies still surrounded by his treasure. An ornate crown is still in position on his skull. The jaw of the skeleton is wide open and the darkness of the mouth seems strangely bottomless. A distant rumbling can now be heard from deep in the earth.\r\n"
-		+ "\r\n"
-		+ "If you have the Kai Discipline of Mindshield, turn to 166.\r\n"
-		+ "\r\n"
-		+ "If you do not, turn to 9.";
-return 242;
+	return spiele.optionauswahl(Spielefiguer,
+		"The lid of the sarcophagus slips to the floor with a "
+				+ "dull crunch. You are looking at the remains of an ancient king, "
+				+ "who lies still surrounded by his treasure. An ornate crown is "
+				+ "still in position on his skull. The jaw of the skeleton is wide "
+				+ "open and the darkness of the mouth seems strangely bottomless. "
+				+ "A distant rumbling can now be heard from deep in the earth.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you have the Kai Discipline of Mindshield, turn to 166.\r\n","166",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Mindshield")),
+		new Option("If you do not, turn to 9.","9",true));
 }
 
 public int Kapitel_243 ()
 {
-String Text = "Hurrying through the forest, you stumble and fall down a steep slope which drops you in a heap on a hidden path below. On the path is a dead body. It is a Giak, a spiteful and ghoulish servant of the Darklords. Many centuries ago, their ancestors were used by the Darklords to build for them the infernal city of Helgedad, which lies in the volcanic wastelands beyond the Durncrag range of mountains. The construction of the city was a long and torturous nightmare, and only the strongest of the Giaks survived the heat and poisonous atmospheres of Helgedad. This creature that lies before you is a descendant of these Giak slaves. It has been killed by a sword blow to its head, and by its side lies a Mace. You may take this Weapon if you wish.\r\n"
-		+ "\r\n"
-		+ "Continue along the hidden path by turning to 97.";
-return 243;
+	return spiele.optionauswahl(Spielefiguer,
+		"Hurrying through the forest, you stumble and fall down "
+				+ "a steep slope which drops you in a heap on a hidden path below. "
+				+ "On the path is a dead body. It is a Giak, a spiteful and ghoulish "
+				+ "servant of the Darklords. Many centuries ago, their ancestors were "
+				+ "used by the Darklords to build for them the infernal city of "
+				+ "Helgedad, which lies in the volcanic wastelands beyond the Durncrag "
+				+ "range of mountains. The construction of the city was a long and "
+				+ "torturous nightmare, and only the strongest of the Giaks survived "
+				+ "the heat and poisonous atmospheres of Helgedad. This creature that "
+				+ "lies before you is a descendant of these Giak slaves. It has been "
+				+ "killed by a sword blow to its head, and by its side lies a Mace. "
+				+ "You may take this Weapon if you wish.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Continue along the hidden path by turning to 97.","97",true));
 }
 
 public int Kapitel_244 ()
 {
-String Text = "Your senses tell you that you are not alone. You are in very great danger. Return to the surface as quickly as you can.\r\n"
-		+ "\r\n"
-		+ "Turn to 93.";
-return 244;
+	return spiele.optionauswahl(Spielefiguer,
+		"Your senses tell you that you are not alone. You are in very "
+				+ "great danger. Return to the surface as quickly as you can.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 93.","93",true));
 }
 
 public int Kapitel_245 ()
 {
-String Text = "Arrows hit the water above you, and drop harmlessly past as you swim beneath the surface towards the opposite bank.\r\n"
-		+ "\r\n"
-		+ "Quickly you wade out of the river and dash for the trees. You are now out of range of the Giaks, who remount their Doomwolves and continue their chase.\r\n"
-		+ "\r\n"
-		+ "Turn to 190.";
-return 245;
+	return spiele.optionauswahl(Spielefiguer,
+		"Arrows hit the water above you, and drop harmlessly past as you swim "
+				+ "beneath the surface towards the opposite bank.\r\n"
+				+ "\r\n"
+				+ "Quickly you wade out of the river and dash for the trees. You are now out "
+				+ "of range of the Giaks, who remount their Doomwolves and continue their chase.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 190.","190",true));
 }
 
 public int Kapitel_246 ()
 {
-String Text = "When the ferry reaches the middle of the lake, the man stops rowing and stands up. He laughs menacingly and pulls back the hood of his cloak to reveal himself. He is a Drakkar and you must fight him.\r\n"
-		+ "[Illustration XIV]\r\n"
+	System.out.println("When the ferry reaches the middle of the lake, the man stops rowing "
+		+ "and stands up. He laughs menacingly and pulls back the hood of his cloak "
+		+ "to reveal himself. He is a Drakkar and you must fight him.\r\n"
 		+ "\r\n"
 		+ "Drakkar: COMBAT SKILL 15   ENDURANCE 23\r\n"
 		+ "\r\n"
-		+ "If you win, turn to 197.";
-return 246;
+		+ "If you win, turn to 197.");
+	combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Drakkar", 15, 23), 0);
+	if (ergebnis==combatResult.Win) {
+	return 197;
+	}
+	return 351;
+
 }
 
 public int Kapitel_247 ()
 {
-String Text = "The merchant looks angry. He calls to his bodyguard. You must think of something quickly.\r\n"
-		+ "\r\n"
-		+ "If you decide to offer him something of greater value that you have in your Backpack, turn to 159.\r\n"
-		+ "\r\n"
-		+ "If you prepare to fight the bodyguard, turn to 220.";
-return 247;
+	return spiele.optionauswahl(Spielefiguer,
+		"The merchant looks angry. He calls to his bodyguard. You must "
+				+ "think of something quickly.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you decide to offer him something of greater value that you have "
+				+ "in your Backpack, turn to 159.\r\n","159",true),
+		new Option("If you prepare to fight the bodyguard, turn to 220.","220",true));
 }
 
 public int Kapitel_248 ()
 {
-String Text = "You reach the base of the hill and hurry into the forest. After only a few minutes you discover an old forest track.\r\n"
-		+ "\r\n"
-		+ "If you wish to follow this track north, turn to 44.\r\n"
-		+ "\r\n"
-		+ "If you wish to follow this track east, turn to 300.";
-return 248;
+	return spiele.optionauswahl(Spielefiguer,
+		"You reach the base of the hill and hurry into the forest. "
+				+ "After only a few minutes you discover an old forest track.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to follow this track north, turn to 44.\r\n","44",true),
+		new Option("If you wish to follow this track east, turn to 300.","300",true));
 }
 
 public int Kapitel_249 ()
 {
-String Text = "You descend a flight of stone stairs that lead to a large chamber. A macabre sight awaits you. Directly opposite, across the large stone room, is an ornate archway with a corridor leading into the darkness beyond. The strange green light radiates from two lines of skulls each resting on a stone plinth. They face each other to form an eerie walkway across the room.\r\n"
-		+ "\r\n"
-		+ "If you wish to walk across the room to the archway, turn to 169.\r\n"
-		+ "\r\n"
-		+ "If you wish to attack the skulls, turn to 107.";
-return 249;
+	return spiele.optionauswahl(Spielefiguer,
+		"You descend a flight of stone stairs that lead to a large chamber. "
+				+ "A macabre sight awaits you. Directly opposite, across the large stone room, "
+				+ "is an ornate archway with a corridor leading into the darkness beyond. "
+				+ "The strange green light radiates from two lines of skulls each resting "
+				+ "on a stone plinth. They face each other to form an eerie walkway across the room.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to walk across the room to the archway, turn to 169.\r\n","169",true),
+		new Option("If you wish to attack the skulls, turn to 107.","107",true));
 }
 
 public int Kapitel_250 ()
 {
-String Text = "Leaping from the top of the trunk, you land in front of two small furry creatures. You recognize that they are Kakarmi, an intelligent race of animals that inhabit and tend the forests of Sommerlund. Before you can apologize for your dramatic entrance, the frightened little creatures scurry off into the forest.\r\n"
-		+ "\r\n"
-		+ "If you wish to follow them, turn to 186.\r\n"
-		+ "\r\n"
-		+ "If you wish to continue, turn to 228.";
-return 250;
+	return spiele.optionauswahl(Spielefiguer,
+		"Leaping from the top of the trunk, you land in front of two "
+				+ "small furry creatures. You recognize that they are Kakarmi, an "
+				+ "intelligent race of animals that inhabit and tend the forests "
+				+ "of Sommerlund. Before you can apologize for your dramatic entrance, "
+				+ "the frightened little creatures scurry off into the forest.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to follow them, turn to 186.\r\n","186",true),
+		new Option("If you wish to continue, turn to 228.","228",true));
 }
 
 public int Kapitel_251 ()
 {
-String Text = "You are lucky, they do not seem to have spotted you. They slowly move on and have soon disappeared along the far side of the ridge. You continue your run.\r\n"
-		+ "\r\n"
-		+ "Turn to 10.";
-return 251;
+	return spiele.optionauswahl(Spielefiguer,
+		"You are lucky, they do not seem to have spotted you. They "
+				+ "slowly move on and have soon disappeared along the far side of the "
+				+ "ridge. You continue your run.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 10.","10",true));
 }
 
 public int Kapitel_252 ()
 {
-String Text = "In the centre of a small clearing you see a group of humans talking excitedly and gesturing wildly with their hands. There are two children, three men, and a woman. Their belongings are wrapped in bundles which they carry slung over their shoulders. Their clothes look well made and expensive but they are dirty and torn.\r\n"
-		+ "\r\n"
-		+ "If you wish to approach them and ask who they are, turn to 155.\r\n"
-		+ "\r\n"
-		+ "If you wish to avoid them and continue onwards on your mission, turn to 70.";
-return 252;
+	return spiele.optionauswahl(Spielefiguer,
+		"In the centre of a small clearing you see a group of humans talking excitedly "
+				+ "and gesturing wildly with their hands. There are two children, three men, "
+				+ "and a woman. Their belongings are wrapped in bundles which they carry slung over "
+				+ "their shoulders. Their clothes look well made and expensive but they are dirty and torn.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to approach them and ask who they are, turn to 155.\r\n","155",true),
+		new Option("If you wish to avoid them and continue onwards on your mission, turn to 70.","70",true));
 }
 
 public int Kapitel_253 ()
 {
-String Text = "The Doomwolves are soon on you and you must fight them one at a time.\r\n"
+	System.out.println("The Doomwolves are soon on you and you must fight them one at a time.\r\n"
 		+ "\r\n"
 		+ "Doomwolf 1: COMBAT SKILL 13   ENDURANCE 24\r\n"
 		+ "\r\n"
@@ -4025,75 +4273,114 @@ String Text = "The Doomwolves are soon on you and you must fight them one at a t
 		+ "\r\n"
 		+ "Doomwolf 4: COMBAT SKILL 15   ENDURANCE 21\r\n"
 		+ "\r\n"
-		+ "If you kill them all in battle, turn to 278.";
-return 253;
+		+ "If you kill them all in battle, turn to 278.");
+	Enemy[] gegener = new Enemy[4];
+	gegener[0]= new Enemy("Doomwolf 1", 13, 24);
+	gegener[1]= new Enemy("Doomwolf 2", 14, 23);
+	gegener[2]= new Enemy("Doomwolf 3", 14, 22);
+	gegener[3]= new Enemy("Doomwolf 4", 15, 21);
+	combatResult Ergebnis = combatResult.ongoing;
+	for (Enemy enemy : gegener) {
+		Ergebnis = combatRules.Combat(Spielefiguer,enemy,0);
+		if (Ergebnis==combatResult.Lost)
+			return 351;
+		}
+	return 278;
 }
 
 public int Kapitel_254 ()
 {
-String Text = "Your Tracking ability tells you that several trails from the right path lead off in the direction of the left path. They have been made by large wolves. The Darklords use such beasts to scout for their armies. They are vicious creatures and are often ridden by Giaks. The left path leads towards Holmgard, and the right path leads off towards the Durncrag Mountains. The choice of route is yours.\r\n"
-		+ "\r\n"
-		+ "If you wish to turn left, go to 32.\r\n"
-		+ "\r\n"
-		+ "If you wish to turn right, go to 146.";
-return 254;
+	return spiele.optionauswahl(Spielefiguer,
+		"Your Tracking ability tells you that several trails from the "
+				+ "right path lead off in the direction of the left path. They have "
+				+ "been made by large wolves. The Darklords use such beasts to scout "
+				+ "for their armies. They are vicious creatures and are often ridden "
+				+ "by Giaks. The left path leads towards Holmgard, and the right path "
+				+ "leads off towards the Durncrag Mountains. The choice of route is yours.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to turn left, go to 32.\r\n","32",true),
+		new Option("If you wish to turn right, go to 146.","146",true));
 }
 
 public int Kapitel_255 ()
 {
-String Text = "The creature that you now face is a Gourgaz, one of a race of cold-blooded reptilian creatures that dwell deep in the treacherous Maakenmire swamps. Their favourite food is human flesh!\r\n"
+	System.out.println("The creature that you now face is a Gourgaz, one of a race of cold-blooded "
+		+ "reptilian creatures that dwell deep in the treacherous Maakenmire swamps. Their "
+		+ "favourite food is human flesh!\r\n"
 		+ "\r\n"
-		+ "The Prince’s Sword lies at your feet. You may pick up and use this weapon if you wish. The Gourgaz is about to strike at you—you must fight him to the death.\r\n"
+		+ "The Prince’s Sword lies at your feet. You may pick up and use this weapon if "
+		+ "you wish. The Gourgaz is about to strike at you—you must fight him to the death.\r\n"
 		+ "\r\n"
 		+ "Gourgaz: COMBAT SKILL 20   ENDURANCE 30\r\n"
 		+ "\r\n"
 		+ "This creature is immune to Mindblast.\r\n"
 		+ "\r\n"
-		+ "If you win, turn to 82.";
-return 255;
+		+ "If you win, turn to 82.");
+combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Gourgaz", 20, 30), 0);
+if (ergebnis==combatResult.Win) {
+	return 82;
+	}
+return 351;
 }
 
 public int Kapitel_256 ()
 {
-String Text = "You are awoken by the cries of Kraan high above you in the clear morning sky. Rubbing your eyes, you peer upwards through the canopy of branches to see three of the loathsome creatures fly off towards the north.\r\n"
-		+ "\r\n"
-		+ "You are sure you have not been spotted, but perhaps it would be best to leave now—just in case. You mount your horse and ride south along the highway.\r\n"
-		+ "\r\n"
-		+ "Turn to 224.";
-return 256;
+	return spiele.optionauswahl(Spielefiguer,
+		"You are awoken by the cries of Kraan high above you in the clear morning sky. "
+				+ "Rubbing your eyes, you peer upwards through the canopy of branches to see three "
+				+ "of the loathsome creatures fly off towards the north.\r\n"
+				+ "\r\n"
+				+ "You are sure you have not been spotted, but perhaps it would be best to "
+				+ "leave now—just in case. You mount your horse and ride south along the highway.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 224.","224",true));
 }
 
 public int Kapitel_257 ()
 {
-String Text = "You find a stone portal in the east wall, but there does not appear to be any way of opening it.\r\n"
-		+ "\r\n"
-		+ "If you wish to examine the statue, turn to 133.\r\n"
-		+ "\r\n"
-		+ "If you wish to sit on the seat, turn to 161.";
-return 257;
+	return spiele.optionauswahl(Spielefiguer,
+		"You find a stone portal in the east wall, but there does not appear to "
+				+ "be any way of opening it.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to examine the statue, turn to 133.\r\n","133",true),
+		new Option("If you wish to sit on the seat, turn to 161.","161",true));
 }
 
 public int Kapitel_258 ()
 {
-String Text = "Using your Kai Discipline of Mind Over Matter, you untie the ropes binding your hands. You wait for a chance to make a break for it and then sprint as fast as you can into the dense undergrowth. Black arrows whistle past you, but you are soon deep among the trees and safe again. You have lost your Backpack and Weapons but you have your life and limbs intact. You continue to push on into the forest.\r\n"
-		+ "\r\n"
-		+ "Turn to 50.";
-return 258;
+	return spiele.optionauswahl(Spielefiguer,
+		"Using your Kai Discipline of Mind Over Matter, you untie the ropes "
+				+ "binding your hands. You wait for a chance to make a break for it and then "
+				+ "sprint as fast as you can into the dense undergrowth. Black arrows whistle "
+				+ "past you, but you are soon deep among the trees and safe again. You have lost your "
+				+ "Backpack and Weapons but you have your life and limbs intact. You continue to push "
+				+ "on into the forest.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 50.","50",true));
 }
 
 public int Kapitel_259 ()
 {
-String Text = "The room is getting colder. You gradually notice the smell of sulphur in the air. You can hear chanting in the distance. It sounds as if it is somewhere in another part of this cave. A slit in the stone wall opens, and the end of a black staff begins to appear. Suddenly a bolt of blue lightning leaps from the staff and hits you in the chest.\r\n"
+	System.out.println("The room is getting colder. You gradually notice the smell of sulphur in the air. "
+		+ "You can hear chanting in the distance. It sounds as if it is somewhere in another part "
+		+ "of this cave. A slit in the stone wall opens, and the end of a black staff begins to "
+		+ "appear. Suddenly a bolt of blue lightning leaps from the staff and hits you in the chest.\r\n"
 		+ "\r\n"
-		+ "As your life slowly drains away, the last thing you see is an old man dressed in black robes raising a dagger above your throat.\r\n"
+		+ "As your life slowly drains away, the last thing you see is an old man dressed in black "
+		+ "robes raising a dagger above your throat.\r\n"
 		+ "\r\n"
-		+ "Your life and your mission end here";
-return 259;
+		+ "Your life and your mission end here");
+	spiele.warte_auf_eingabe();
+	return 351;
 }
 
 public int Kapitel_260 ()
 {
-String Text = "Swimming towards the bank, you can see the ranger spread-eagled at the "
+	System.out.println("Swimming towards the bank, you can see the ranger spread-eagled at the "
 		+ "water’s edge. You reach him but only to find that he has broken his neck in the "
 		+ "fall and is dead.\r\n"
 		+ "\r\n"
@@ -4105,7 +4392,1467 @@ String Text = "Swimming towards the bank, you can see the ranger spread-eagled a
 		+ "\r\n"
 		+ "Giak 2: COMBAT SKILL 12   ENDURANCE 17\r\n"
 		+ "\r\n"
-		+ "If you win, turn to 156.";
-return 260;
+		+ "If you win, turn to 156.");
+combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Giak 1", 11, 18),-4);
+	if (ergebnis==combatResult.Win) {
+		ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Giak 2", 12, 17),-4);
+		if (ergebnis==combatResult.Win) {
+		return 156;
+		}
+	}
+	return 351;
+}
+
+public int Kapitel_261 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Sweating, and out of breath, you part the dense undergrowth to see a Kraan hovering "
+				+ "over the wagon. Three ghoulish Giaks drop from its back, startling the horses. They advance "
+				+ "upon the helpless children with their spears.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to run back to the wagon and defend the children, turn to 208.\r\n","208",true),
+		new Option("If you want to run deeper into the forest, turn to 264.","264",true));
+}
+
+public int Kapitel_262 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The merchant takes your Gold and clicks his fingers. His bodyguard "
+				+ "attacks you with his scimitar.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to fight, turn to 191.\r\n","191",true),
+		new Option("If you wish to evade combat, jump clear of the speeding caravan by turning to 234.","234",true));
+}
+
+public int Kapitel_263 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Carefully, you follow the stream as it makes its way towards the east. "
+				+ "Suddenly you notice something in the distance that brings you to a halt.\r\n"
+				+ "\r\n"
+				+ "Lying in the rushing water like a great black dam is a dead Kraan. You creep "
+				+ "nearer, under cover of the foliage, until you see three arrows deep in the beast’s "
+				+ "chest. Trapped beneath the beast is the body of its rider. It is a Giak, a spiteful "
+				+ "and malicious servant of the Darklords. Many centuries ago, their ancestors were used "
+				+ "by the Darklords to build the infernal city of Helgedad, which lies in the volcanic "
+				+ "wastelands beyond the Durncrag range of mountains. The construction of the city was "
+				+ "a long and torturous nightmare, and only the strongest Giaks survived the heat and "
+				+ "poisonous atmospheres of Helgedad. This creature is a descendant of these Giak slaves. "
+				+ "It seems that this one must have drowned. The Giak’s pouch contains 3 Gold Crowns. "
+				+ "(You may take these if you wish.)\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("You may continue downstream, by turning to 70.\r\n","70",true),
+		new Option("Or you may leave the stream and make your way on foot through the wooded "
+				+ "hills to the south by turning to 157.","157",true));
+}
+
+public int Kapitel_264 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You have not gone far when you hear the sound of battle to the west.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to follow the sound, turn to 97.\r\n","97",true),
+		new Option("If you would rather continue south, turn to 6.","6",true));
+}
+
+public int Kapitel_265 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You quickly move off into the forest before more Doomwolves or Kraan appear.\r\n"
+				+ "\r\n"
+				+ "You have walked for more than an hour when you reach the top of a rocky hill. "
+				+ "The sight that befalls you on the other side is one of hope. But there is also a "
+				+ "daunting challenge to be faced.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 142.","142",true));
+}
+
+public int Kapitel_266 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"As the beast writhes in its final death agony on the black stone floor, "
+				+ "the portal in the east wall clicks open to reveal a corridor beyond. "
+				+ "You quickly dash through the secret door just as it crashes shut.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 209.","209",true));
+}
+
+public int Kapitel_267 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Covering your nose with your cloak, you cautiously approach the dead "
+				+ "beast. The sharp smell of its fetid black blood makes your stomach churn, "
+				+ "but you are determined to press on. Then you notice a large "
+				+ "saddlebag strapped to its chest. Opening the bag, you find a "
+				+ "Message written on an animal skin.\r\n"
+				+ "\r\n"
+				+ "    ‘Orgadak shada taag okak—orgadak ok—nara ek ash jek eg Helgedad.’\r\n"
+				+ "\r\n"
+				+ "Deeper in the bag is a Dagger. You may keep both the Message and the Dagger if you wish.\r\n"
+				+ "\r\n"
+				+ "You leave the body and continue eastwards along the path.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 125.","125",true));
+}
+
+public int Kapitel_268 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You black out for only a few minutes before you are revived "
+				+ "with a measure of strong spirit. Feeling weary but thankful to be "
+				+ "alive, you lean on the shoulders of the King’s men and you stagger "
+				+ "towards the outer defences.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 288.","288",true));
+}
+
+public int Kapitel_269 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The madman lies dead at your feet. Two soldiers soon appear at the doorway "
+				+ "and immediately congratulate you. They tell you that he was an escaped lunatic "
+				+ "whom they had been tracking for the last two days. One of the soldiers gives "
+				+ "you 10 Gold Crowns reward money and offers to escort you to the citadel.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you accept his offer, turn to 314.\r\n","314",true),
+		new Option("If you would prefer to trust your own sense of direction, turn to 7.","7",true));
+}
+
+public int Kapitel_270 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You hear the angry cries of the enemy drift across the lake. You must "
+				+ "leave here before more Kraan appear. You mount your steed and push on further "
+				+ "into the forest.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 21","21",true));
+}
+
+public int Kapitel_271 ()
+{
+System.out.println("You feel very weak. The poison of the snake has entered your bloodstream "
+		+ "and you can feel the muscles of your body involuntarily tightening and relaxing. "
+		+ "Your legs suddenly collapse beneath you and you feel the slimy water of the marsh "
+		+ "close over your head.\r\n"
+		+ "\r\n"
+		+ "Your life ends here.");
+spiele.warte_auf_eingabe();
+return 351;
+}
+
+public int Kapitel_272 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Keeping a watchful eye on the sky above, you move quickly along the track. "
+				+ "You recall that this route leads to Fogwood, a small cluster of huts that have been "
+				+ "used by a family of charcoal burners for nearly fifty years. After twenty "
+				+ "minutes you reach the edge of a clearing where the huts are grouped in a "
+				+ "small circle. There is no sign of the usual mist of wood smoke which gives "
+				+ "Fogwood its apt name, and the huts are unusually quiet.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you have the Kai Discipline of Tracking, you may turn to 134.\r\n","134",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Tracking")),
+		new Option("If you do not possess this skill, you prepare your weapon and stealthily approach "
+				+ "the huts. Turn to 305.","305",true));
+}
+
+public int Kapitel_273 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The outer fieldworks of the city can now be seen. Drawn across the river "
+				+ "is a line of barges chained together to form a floating barricade. You can also see "
+				+ "soldiers running along the log walls of the fieldworks, and you can hear the "
+				+ "faint noise of battle drifting from the west.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to approach the barges, turn to 179.\r\n","179",true),
+		new Option("If you wish to take cover in the trees, turn to 51.","51",true));
+}
+
+public int Kapitel_274 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"In your haste to avoid the enemy, you catch your foot in a tree root and "
+				+ "you are pitched head over heels in a tumble of dust and leaves. You quickly "
+				+ "get to your feet and, crashing through the undergrowth at the base of the "
+				+ "hill, you run into the forest. You have been running for nearly ten minutes "
+				+ "when you discover that you have lost your Weapon(s). Well, at least you still "
+				+ "have your life and your Backpack. Wiping the grime from your face, you push on "
+				+ "through the trees ahead.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 331.","331",true));
+}
+
+public int Kapitel_275 ()
+{
+	System.out.println( "You have followed this twisting track for about twenty minutes when you hear "
+		+ "the beating of wings high above the trees. Looking up you see a large Kraan "
+		+ "approaching from the north, its huge black wings casting a gigantic shadow on "
+		+ "the trees below.\r\n"
+		+ "\r\n"
+		+ "On its back are two creatures armed with long spears. They are Mountain "
+		+ "Giaks—small ugly creatures full of hatred and malice. Many centuries ago, "
+		+ "their ancestors were used by the Darklords to build the infernal city of "
+		+ "Helgedad, which lies in the volcanic wastelands beyond the Durncrag mountain "
+		+ "range. The construction of the city was long and torturous, and only the "
+		+ "strongest of the creatures survived the heat and poisonous atmosphere of Helgedad.\r\n"
+		+ "\r\n"
+		+ "Quickly you dive for the shelter of a large fern tree as the Kraan passes "
+		+ "overhead. With heart pounding, you pray that your quick reactions have saved "
+		+ "you from being spotted.\r\n"
+		+ "\r\n"
+		+ "Pick a number from the Random Number Table.\r\n"
+		+ "\r\n");
+	int speicher =zufalzahl.nextInt(10);
+	if (speicher<=4) {
+		System.out.println("If the number you have picked is 0–4, turn to 345.\r\n");
+		spiele.warte_auf_eingabe();
+		return 345;
+		}
+	else {
+		System.out.println("If the number is 5–9, turn to 74.");
+		spiele.warte_auf_eingabe();
+		return 74;
+		}
+	}
+
+public int Kapitel_276 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Reaching for your weapon you manage to hack your way through the tangle of "
+				+ "wood and twisted branches to the clearer forest beyond. Your cloak is torn in several "
+				+ "places and your right leg is badly bruised above the knee.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Lose 1 ENDURANCE point and turn to 213","213",true));
+}
+
+public int Kapitel_277 ()
+{
+return spiele.optionauswahl(Spielefiguer,
+		"When you awake, you find yourself lying at the foot of a steep slope "
+				+ "in a tangle of tall grasses. Your Backpack and Weapon are missing and your "
+				+ "head aches. You cannot tell how long you have been unconscious, but you realize "
+				+ "that you must not delay in pressing on with your mission.\r\n"
+				+ "\r\n"
+				+ "Standing up, you see your Backpack is intact but the Weapon is broken "
+				+ "in two and is now useless. Remember to cross it off your Action Chart. "
+				+ "(If you have more than one weapon, only one of them is broken—you may "
+				+ "choose which one it is.) You quickly pick up your Backpack and move "
+				+ "off into the trees ahead.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 113.","113",true));
+}
+
+public int Kapitel_278 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You quickly leave the path and gallop off along the track heading "
+				+ "towards the capital. When you reach the point where the Doomwolves stopped, "
+				+ "you can see just beyond a meadow the main highway which runs from the northern "
+				+ "port of Toran to Holmgard. You should reach the capital by morning.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 149.","149",true));
+}
+
+public int Kapitel_279 ()
+{
+	System.out.println( "You clamber over the loose rocks and into the mouth of the cave, and then "
+		+ "quickly turn to push a large rock over the entrance.\r\n"
+		+ "\r\n"
+		+ "After a few minutes you see the Giaks on the rocky ledge outside, their evil "
+		+ "yellow eyes furtively searching every crevice of the hillside. They are so "
+		+ "close that you feel sure that they must spot you any second now.\r\n"
+		+ "\r\n"
+		+"\r\n"
+		+ "Pick a number from the Random Number Table.\r\n");
+	int speicher =zufalzahl.nextInt(10);
+	if (speicher<=4) {
+		System.out.println("If the number you have picked is 0–6, turn to 112.\r\n");
+		spiele.warte_auf_eingabe();
+		return 112;
+		}
+	else {
+		System.out.println("If the number is 7–9, turn to 96.");
+		spiele.warte_auf_eingabe();
+		return 96;
+	}
+}
+
+public int Kapitel_280 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"As you begin your climb, you hear the beat of wings approaching from the "
+				+ "west. Kraan! By the noise they are making you estimate there are at least ten, "
+				+ "perhaps more. You curse your bad luck, for the hillside offers no cover from "
+				+ "the sky. If you are attacked during this difficult climb, you will find it "
+				+ "nearly impossible to fight back and remain upright at the same time.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you decide to draw your weapon and remain completely still, in the hope "
+				+ "that the Kraan will not spot you, turn to 327.\r\n","327",true),
+		new Option("If you decide to quickly descend the hillside and take cover in "
+				+ "the tunnel, turn to 170.","170",true));
+}
+
+public int Kapitel_281 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"As you race through the trees you can hear the horrible cackle of "
+				+ "the Giaks close behind you. Soon the trees start to thin out and directly "
+				+ "ahead you can see a rocky hillside.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you break cover and climb up the hill, turn to 311.\r\n","311",true),
+		new Option("If you change direction and continue your run through the forest, turn to 77.","77",true));
+}
+
+public int Kapitel_282 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Looking above the heads of the crowd, you notice that one of the "
+				+ "shops opposite the main gate is the timbered surgery of a city physician. "
+				+ "Suddenly, a bold plan springs to mind. Bracing yourself against the tide "
+				+ "of bodies, you struggle across to the other side of the street. You quickly "
+				+ "enter to find that there is no sign of life, apart from a brightly coloured "
+				+ "parrot in its cage by the window.\r\n"
+				+ "\r\n"
+				+ "Taking a selection of small bottles you slip on a white surgeon’s cloak, "
+				+ "and fight your way back to the main gate. ‘An emergency!’ you bluff, as "
+				+ "guards stop and question you. ‘It’s the royal cook’s wife…she’s having a baby.’\r\n"
+				+ "\r\n"
+				+ "The guards hesitate for a moment, but you assure them that the matter "
+				+ "is most urgent and they decide to let you in. One of the great doors "
+				+ "swings open about two feet, and you are roughly pushed through the "
+				+ "narrow gap into the courtyard beyond.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 11.","11",true));
+}
+
+public int Kapitel_283 ()
+{
+	System.out.println("You are only ten feet or so away from the robed stranger when the raven "
+		+ "squawks a warning to its master who instantly spins around. You are frozen in "
+		+ "your tracks by the hideous apparition of a Vordak, a lieutenant of the Darklords "
+		+ "and one of the undead. You must fight him.\r\n"
+		+ "\r\n"
+		+ "Due to the surprise of your attack, you may add 2 points to your COMBAT SKILL "
+		+ "for the first round of combat only.\r\n"
+		+ "\r\n"
+		+ "Unless you have the Kai Discipline of Mindshield, deduct 2 points from your "
+		+ "COMBAT SKILL for the second and subsequent rounds of fighting, for the creature "
+		+ "is attacking you with the power of its Mindforce as well as with a large black mace!\r\n"
+		+ "\r\n"
+		+ "Vordak: COMBAT SKILL 17   ENDURANCE 25\r\n"
+		+ "\r\n"
+		+ "If you win, turn to 123.");
+	combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Vordak", 17, 25), 0);
+	if (ergebnis==combatResult.Win) {
+	return 123;
+	}
+	return 351;
+}
+
+public int Kapitel_284 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Your passage through the Graveyard will not be easy, for the "
+				+ "ground is broken and covered with a thorny graveweed. This wicked briar "
+				+ "tears your cloak and cuts your legs. The air hangs heavy and still. Foul "
+				+ "gases seep from open crypts and the haunting murmur of distant whispering fills your ears.\r\n"
+				+ "\r\n"
+				+ "Carefully, you approach a gap between two ancient pillars, and part the graveweed with your "
+				+ "cloaked hand. Suddenly, the ground collapses beneath you and you fall in a tumble of "
+				+ "earth and stone.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 71.","71",true));
+}
+
+public int Kapitel_285 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"With a sickening thud, the chunk of marble cracks open the back of the Giak’s head. "
+				+ "The creature drops to its knees and slowly falls forward, down to the ruins below. "
+				+ "Elated by your skill, you race forward to aid the young wizard.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 325.","325",true));
+}
+
+public int Kapitel_286 ()
+{
+	System.out.println("Messengers of death—and ones eager to deliver their news—the Doomwolves "
+		+ "surround and then attack you. Valiantly you fight, but it is to no avail for "
+		+ "there are too many of them.\r\n"
+		+ "\r\n"
+		+ "As your life’s blood seeps away and eternal dark approaches, the last sight you "
+		+ "remember is the glint of sunlight on the spires of Holmgard.\r\n"
+		+ "\r\n"
+		+ "You have failed in your mission.");
+spiele.warte_auf_eingabe();
+return 351;
+}
+
+public int Kapitel_287 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The track soon disappears completely into a tangle of thorny brambles "
+				+ "and low-branched fir trees.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you decide to return to the junction and head east, turn to 13.\r\n","13",true),
+		new Option("If you decide to hack your way slowly through the undergrowth in this present direction, "
+				+ "turn to 330.","330",true));
+}
+
+public int Kapitel_288 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"As you reach the walls of the fieldworks, the large oak gates open and "
+				+ "you are quickly hurried inside. A sergeant, bloodstained and battle-weary, "
+				+ "calls to an officer who turns and recognizes your cloak.\r\n"
+				+ "\r\n"
+				+ "‘My Lord,’ he says. ‘Where are the other Kai Masters? We are in desperate need "
+				+ "of their wisdom. The Darklords press us most cruelly and casualties are high.’\r\n"
+				+ "\r\n"
+				+ "You inform the brave officer of the terrible fate of your kinsmen, and the "
+				+ "urgency of your mission to seek the King’s council. Without saying a word, "
+				+ "he motions to a soldier to bring forward two horses. You both mount and gallop "
+				+ "off towards the high city wall of Holmgard.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 129.","129",true));
+}
+
+public int Kapitel_289 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The two guards look tired and anxious. They nervously hold their royal halberds "
+				+ "in front of themselves, using the weapons to push away anyone who comes too close "
+				+ "to the gates. An angry woman attacks one of them, pounding his chest with her clenched "
+				+ "fists making him fall against the other guard. All three collapse in a struggling heap "
+				+ "of flailing arms and legs. Seeing your chance, you dash forward and pull the large lever "
+				+ "which opens the great doors.\r\n"
+				+ "\r\n"
+				+ "You slip inside and the doors close without either of the guards seeing you enter.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 139.","139",true));
+}
+
+public int Kapitel_290 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Inside the long box is a Quarterstaff wrapped in leather. "
+				+ "You may take this Weapon if you wish. You close the box and descend the "
+				+ "ladder to the clearing below, taking care to use only the sound rungs.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 140.","140",true));
+}
+
+public int Kapitel_291 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The two Giaks lie at your feet, their bodies twisted and lifeless. "
+				+ "A quick search reveals 6 Gold Crowns, 2 Spears, and a Dagger.\r\n"
+				+ "\r\n"
+				+ "You may keep the Gold and take either the Dagger or a Spear. Remember to "
+				+ "mark this on your Action Chart.\r\n"
+				+ "\r\n"
+				+ "The Kraan flew off during your battle, and the track is now deserted. "
+				+ "You adjust your Backpack and continue your mission.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 272.","272",true));
+}
+
+public int Kapitel_292 ()
+{
+	System.out.println("The last thing that you experience of this life is the feeling of being "
+		+ "sucked into the void of darkness. No trace of you remains in this world, for "
+		+ "you have passed into a realm of timeless existence. You have become a slave of "
+		+ "an ancient evil.\r\n"
+		+ "\r\n"
+		+ "Your adventure ends here.");
+spiele.warte_auf_eingabe();
+return 351;
+}
+
+public int Kapitel_293 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"With a wave of his hand, Banedon leaves the ruins and you continue your "
+				+ "mission, pushing on through the thick woods ahead. You have not gone far "
+				+ "when you realize several pairs of yellow eyes are watching you from the undergrowth "
+				+ "to your left. Suddenly, a black arrow skims the top of your head. It is a Giak ambush "
+				+ "and you must run as fast as you can to escape it.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 281.","281",true));
+}
+
+public int Kapitel_294 ()
+{
+	System.out.println("Staying underwater for as long as you can, you finally surface to see the Giaks "
+		+ "far behind you. You have lost your Weapon(s) and Backpack but at least you are still alive.\r\n"
+		+ "\r\n"
+		+ "You wade out of the muddy water and continue your journey under cover of the trees "
+		+ "that line the right-hand bank.\r\n"
+		+ "\r\n"
+		+ "Pick a number from the Random Number Table.\r\n"
+		+ "\r\n"
+		+ "If the number you pick is 0–2, turn to 230.\r\n"
+		+ "\r\n"
+		+ "If the number is 3–6, turn to 190.\r\n"
+		+ "\r\n"
+		+ "If the number is 7–9, turn to 321.");
+int speicher =zufalzahl.nextInt(10);
+if (speicher<=2) {
+	System.out.println("If the number you pick is 0–2, turn to 230.\r\n");
+	spiele.warte_auf_eingabe();
+	return 230;
+	}
+else if (speicher<=6) {
+	System.out.println("If the number is 3–6, turn to 190.\r\n");
+	spiele.warte_auf_eingabe();
+	return 190;
+	}
+else {
+	System.out.println("If the number is 7–9, turn to 321.");
+	spiele.warte_auf_eingabe();
+	return 321;
+	}
+}
+
+public int Kapitel_295 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You have continued your journey for about fifteen minutes when suddenly a "
+				+ "black arrow whistles past your head and embeds itself in a tree. Instinctively "
+				+ "you duck and draw your weapon.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to remain where you are in order to try to spot the hidden archer, turn to 185.\r\n","185",true),
+		new Option("If you wish to run for the cover of denser undergrowth, turn to 92.","92",true));
+}
+
+public int Kapitel_296 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You sense something is wrong. With fighting all around and the forces of the "
+				+ "Darklords so near, why has this man stayed in the forest? You feel a strange aura "
+				+ "of evil about him and decline his offer.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 90.","90",true));
+}
+
+public int Kapitel_297 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Using the skills taught to you by your masters in the art of Hunting, you "
+				+ "inch your way through the foliage undetected. In less than a minute you are "
+				+ "directly behind, and only a few feet from, the stake to which the ranger is tied. "
+				+ "The wood is alight and great clouds of smoke are engulfing the poor victim. You "
+				+ "take your weapon and run forward, hidden by the smoke. One blow of your weapon is "
+				+ "all that is needed to sever his bonds, and you pull him free and back into the "
+				+ "safety of the forest. As you press on into the forest, you hear the shrieks of the "
+				+ "Giaks as they discover that their prisoner has literally disappeared in a cloud of smoke!\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 117.","117",true));
+}
+
+public int Kapitel_298 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The head of the bird slowly turns and it curses you. An instant later, "
+				+ "it flies off above the trees and has soon disappeared. Shocked by what you have "
+				+ "heard you are now sure that the fledgling was a scout of the Darklords and is now "
+				+ "probably on its way to inform them of your whereabouts.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to continue your journey along the track, turn to 121.\r\n","121",true),
+		new Option("If you wish to leave the track and continue through the forest instead, turn to 38","38",true));
+}
+
+public int Kapitel_299 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You soon realize that you are walking deeper into a wooded marsh. To continue "
+				+ "in this direction will be slow and hazardous.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to continue, turn to 227.\r\n","227",true),
+		new Option("If you wish to change direction and head towards firmer ground, turn to 95.","95",true));
+}
+
+public int Kapitel_300 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You walk for over an hour, during which time you keep a constant vigil "
+				+ "for any sign of Kraan in the sky above. You have twice spotted their tell-tale "
+				+ "shadows in the sky and on both occasions your quick wits have saved you from capture. "
+				+ "You are now very hungry and must eat a Meal.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("You may now continue on your journey by turning to 13","13",true));
+	}
+
+public int Kapitel_301 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Your Kai Discipline reveals that the west path is a dead end.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("You choose the south path and turn to 27.","27",true));
+	}
+
+public int Kapitel_302 ()
+{
+	System.out.println( "Pick a number from the Random Number Table.\r\n"
+		+ "\r\n");
+	int speicher =zufalzahl.nextInt(10);
+	if (speicher<=4) {
+		System.out.println("If the number you have picked is 0–2, turn to 110.\r\n");
+		spiele.warte_auf_eingabe();
+		return 110;
+		}
+	else {
+		System.out.println("If the number is 3–9, turn to 285.");
+		spiele.warte_auf_eingabe();
+		return 285;
+		}
+	}
+
+public int Kapitel_303 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The forest here is sparse and hilly. It does not give much cover from an "
+				+ "attack from the air. You move as quickly as you can from tree to tree, to avoid "
+				+ "the Kraan but you can hear the sound of Doomwolves close behind.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you have the Kai Discipline of Camouflage, turn to 237.\r\n","237",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Camouflage")),
+		new Option("If you do not, turn to 72.","72",true));
+}
+
+public int Kapitel_304 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The Gem feels incredibly hot and burns your hand. Lose 2 ENDURANCE points.\r\n"
+				+ "\r\n"
+				+ "You quickly pick it up with the edge of your Kai cloak and slip this Vordak Gem "
+				+ "into your Backpack. A Gem that size must be worth hundreds of Crowns. But the Giaks "
+				+ "are very close and their arrows whistle past your head as you turn and run for the "
+				+ "safety of the forest.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 2.","2",true));
+}
+
+public int Kapitel_305 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Through the open doorway of the first hut, you can see the body of a "
+				+ "charcoal burner lying face down on the rough stone floor. He has been murdered, "
+				+ "stabbed in the back by a spear. All his furniture and belongings have been smashed "
+				+ "and broken and not one piece remains intact.\r\n"
+				+ "\r\n"
+				+ "This is the evil handiwork of Giaks without any doubt, for they delight in the "
+				+ "destruction of all things. A quick check of the other huts reveals a similar story "
+				+ "of murder and wreckage. In the last hut that you search, you discover a Giak Spear—proof "
+				+ "of your suspicions. You may keep this Weapon if you wish.\r\n"
+				+ "\r\n"
+				+ "More determined than ever now to succeed in your mission, you continue along the track.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 105.","105",true));
+}
+
+public int Kapitel_306 ()
+{
+	System.out.println("The sound of battle gradually fades behind you. Suddenly, you are pulled to "
+		+ "the ground. Three Drakkarim have dropped from a tree above. You struggle but it "
+		+ "is useless for there are too many of them for you and they are very strong.\r\n"
+		+ "\r\n"
+		+ "The last thing that you hear is the vicious snarls of Drakkarim as they "
+		+ "raise their spears.\r\n"
+		+ "\r\n"
+		+ "Your life and your mission end here.");
+spiele.warte_auf_eingabe();
+return 351;
+}
+
+public int Kapitel_307 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Your climb is swift and easy. It reminds you of the many trees that you climbed "
+				+ "and explored near Toran as a child, when you wanted to pick fruit or to look "
+				+ "out over the beautiful countryside of Sommerlund.\r\n"
+				+ "\r\n"
+				+ "Pushing open the treehouse door, you see an old hermit huddled in the corner "
+				+ "of the small cabin. A look of great relief spreads across his face as he recognizes "
+				+ "your green Kai cloak. He tells you that this area is full of Giaks, and that "
+				+ "he has counted over forty Kraan flying over his home in the last three hours. "
+				+ "They were heading east.\r\n"
+				+ "\r\n"
+				+ "He scurries over to a cupboard and returns with a plate of fresh fruit. You thank "
+				+ "him and place the fruit in your Backpack. There is enough for one Meal. The hermit "
+				+ "also produces a fine Warhammer and lays it upon a table by the door. ‘Your need "
+				+ "is greater than mine, Kai Lord,’ he says. ‘Please take this trusty Warhammer "
+				+ "if you so wish.’\r\n"
+				+ "\r\n"
+				+ "You may take this Weapon only if you exchange it for another Weapon already in "
+				+ "your possession, for it is the only defence that the hermit has against the enemy.\r\n"
+				+ "\r\n"
+				+ "Thanking the old man, you carefully descend the tree and continue on your mission.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 213.","213",true));
+}
+
+public int Kapitel_308 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The stable door is open and you can hear the breathing of a horse from "
+				+ "inside the darkened interior. Suddenly, the horse senses your presence and "
+				+ "rushes past, knocking you to the ground. You lose 1 ENDURANCE point.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to use the Kai Discipline of Animal Kinship, turn to 122.\r\n","122",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Animal Kinship")),
+		new Option("If you wish to chase after the runaway horse, turn to 233.","233",true));
+}
+
+public int Kapitel_309 ()
+{
+	System.out.println("You have taken less than ten paces when the raven squawks a warning to the "
+		+ "stranger. Turning to face you, the robed creature utters a piercing screech that "
+		+ "freezes your blood and grips your stomach with fear and panic. It is a Vordak, a "
+		+ "lieutenant of the Darklords and one of the undead. Within seconds, a host of "
+		+ "Giaks appear at its side and attack you. You fight bravely but you are greatly "
+		+ "outnumbered.\r\n"
+		+ "\r\n"
+		+ "The last thing you remember is the icy grasp of the Vordak’s skeletal fingers as "
+		+ "they close around your throat.\r\n"
+		+ "\r\n"
+		+ "Your life and your mission end here.");
+spiele.warte_auf_eingabe();
+return 351;
+}
+
+public int Kapitel_310 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You notice a small faded sign on the wall of a building opposite.\r\n"
+				+ "\r\n"
+				+ "You remember that the royal court sessions are held within the citadel and you are "
+				+ "sure that the west road must lead there.\r\n"
+				+ "Royal Court—1 Mile\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 37.","37",true));
+}
+
+public int Kapitel_311 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The hillside is steep and the earth is loose and slippery. You chance a "
+				+ "swift glance over your shoulder and see the two Giaks emerge from the woods. "
+				+ "They start to climb after you. About halfway from the peak of the hill, you "
+				+ "spot a cave to your right, almost totally hidden by a landslide.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you have the Kai Discipline of Camouflage, turn to 324.\r\n","324",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Camouflage")),
+		new Option("If you wish to hide in the cave, turn to 279.\r\n","279",true),
+		new Option("If you wish to avoid the cave and continue your climb to the peak, turn to 47.","47",true));
+}
+
+public int Kapitel_312 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You curse your ill luck. It seems that nature and the Darklords have conspired "
+				+ "against you, but it does not shake your determination to reach the King.\r\n"
+				+ "\r\n"
+				+ "Wiping the sticky mud from your clothes, you turn and press on into the forest.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 299","299",true));}
+
+public int Kapitel_313 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Wiping the foul Giak blood from your weapon, you quickly descend the hillside "
+				+ "before the Kraan spots its dead riders. Many times you lose your footing on the "
+				+ "loose rocks, falling several feet.\r\n"
+				+ "\r\n"
+				+ "Deduct 1 ENDURANCE point for cuts and bruises to your legs.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 248.","248",true));
+}
+
+public int Kapitel_314 ()
+{
+	System.out.println("It takes you nearly an hour to reach the citadel. When you arrive you find "
+		+ "that the citizens of Holmgard are in panic and confusion. Your escort "
+		+ "approaches the armoured guards at the main entrance and tells them of your "
+		+ "urgent message for the King.\r\n"
+		+ "\r\n"
+		+ "Pick a number from the Random Number Table.\r\n"
+		+ "\r\n");
+	int speicher =zufalzahl.nextInt(10);
+	if (speicher<=6) {
+		System.out.println("If you have picked a number that is 0–6, turn to 341.\r\n");
+		spiele.warte_auf_eingabe();
+		return 341;
+		}
+	else {
+		System.out.println("If the number is 7–9, turn to 98.");
+		spiele.warte_auf_eingabe();
+		return 98;
+	}
+
+}
+
+public int Kapitel_315 ()
+{
+return spiele.optionauswahl(Spielefiguer,
+		"Wrapped in a bundle of women’s clothing is a small velvet purse containing "
+				+ "6 Gold Crowns and a Tablet of Perfumed Soap. You may take these items and "
+				+ "continue your journey.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 213.","213",true));
+}
+
+public int Kapitel_316 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"In your haste to avoid the enemy, you catch your foot in a tree root and "
+				+ "you are pitched head over heels in a tumble of dust and leaves. Crashing through "
+				+ "the undergrowth at the base of the hill, you quickly pick up your weapon and run "
+				+ "into the thick forest. The Kraan is no longer circling above, but you can make "
+				+ "out the silhouette of two Giaks on the peak of the hill behind.\r\n"
+				+ "\r\n"
+				+ "Wiping the grime from your eyes, you wince as you discover a large bruise on "
+				+ "your forehead. Without delay, you run deeper into the safety of the forest.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 331.","331",true));
+}
+
+public int Kapitel_317 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Instinctively you dive away from the stairs, and land on the stone floor. Your "
+				+ "quick reactions have saved your life, for a vast granite block has fallen from the "
+				+ "ceiling and crushed the steps, just in front of the lockplate!\r\n"
+				+ "\r\n"
+				+ "Shaken but still in one piece, you get to your feet. A shaft of dull grey light is "
+				+ "seeping into the chamber from above, where the stone block was. Through a hole in "
+				+ "the ceiling you can see a tangle of graveweed and the cloudy sky above. You clamber "
+				+ "out of the tomb and head for the arched south gate of the necropolis as fast as "
+				+ "possible. The pointed log walls of the city’s outer defence works are now visible.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 61.","61",true));
+}
+
+public int Kapitel_318 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Two soldiers and a sergeant run towards you, their crossbows aimed at your "
+				+ "head. As they get nearer, they recognize your Kai cloak and a look of relief spreads "
+				+ "across their faces.\r\n"
+				+ "\r\n"
+				+ "‘My Lord,’ says the sergeant, ‘where are the other Kai Masters? We are in desperate "
+				+ "need of their wisdom. The Darklords press us most cruelly and our casualties are high.’\r\n"
+				+ "\r\n"
+				+ "You inform the brave soldier of the fate of your kinsmen, and the urgency of your "
+				+ "mission to see the King. He takes you back to the barges where an officer accompanies "
+				+ "you on horseback towards the high walls and the main gate of Holmgard.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 129.","129",true));
+}
+
+public int Kapitel_319 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The slimy creature lets out a long, ghastly death-cry and collapses. You are near "
+				+ "to panic and scramble to your feet, grabbing what you think to be your belt from the "
+				+ "jaws of the dead beast. You can see light in the far distance, and you sprint for it "
+				+ "as fast as you can. When you finally emerge into the daylight, you fall onto the "
+				+ "leafy ground and fight for breath in painful gasps.\r\n"
+				+ "\r\n"
+				+ "Slowly sitting upright, you notice that you are still wearing your belt—you had "
+				+ "not lost it after all. What you grabbed from the jaw of the Burrowcrawler was a "
+				+ "leather strap with a small pouch and a sheathed Dagger halfway along it. "
+				+ "You break open the clasp to find it contains 20 Gold Crowns. You may take "
+				+ "both the Dagger and the Crowns if you are able to.\r\n"
+				+ "\r\n"
+				+ "Feeling a little better now, you gather your Equipment together and push on "
+				+ "eastwards into the forest.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 157.","157",true));
+}
+
+public int Kapitel_320 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"As you race across the open field towards the wood, a Kraan dives at you and "
+				+ "claws your arm. Before you can fight back, it has flown off again, shrieking with "
+				+ "cold malice.\r\n"
+				+ "\r\n"
+				+ "You enter the wood, but you have lost 2 ENDURANCE points.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 264.","264",true));
+}
+
+public int Kapitel_321 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You walk for nearly an hour along the twisting river’s edge. Beyond the next "
+				+ "turn you can hear the faint noise of battle. You carefully climb a steep hillock "
+				+ "to get a better view of the area.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 273.","273",true));
+}
+
+public int Kapitel_322 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"After what seems an eternity of struggling, you reach the peak of the steep hill. "
+				+ "Behind you, above the canopy of trees, you can see the still smouldering remains of "
+				+ "the monastery. To the north, a column of jet-black smoke rises high into the sky. "
+				+ "Small orange tongues of flame flicker at its base. Your heart sinks as you realize "
+				+ "that the port of Toran is ablaze.\r\n"
+				+ "\r\n"
+				+ "Suddenly, a piercing cry above warns you that a Kraan is about to attack. It is "
+				+ "about thirty yards away and diving for the kill.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you are going to stand and fight it as it swoops down, turn to 17.\r\n","17",true),
+		new Option("If you are going to evade its attack and slide down the other side of the hill, away "
+				+ "from the Kraan, turn to 89.","89",true));
+}
+
+public int Kapitel_323 ()
+{return spiele.optionauswahl(Spielefiguer,
+		"From the top of the tower you can see above the trees in all directions. "
+				+ "Far to the north, a column of jet-black smoke rises high into the sky. Small "
+				+ "orange tongues of flame flicker at its base. Your heart sinks as you realize "
+				+ "that the port of Toran is ablaze. From the southwest, the wind carries the "
+				+ "noise of battle. It is close; no more than five miles at most.\r\n"
+				+ "\r\n"
+				+ "On the floor of the watchtower is a large oblong box.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to open this box, turn to 290.\r\n","290",true),
+		new Option("If you would prefer to descend the ladder and leave the tower, taking care "
+				+ "to use only the good rungs, turn to 140.","140",true));
+}
+
+public int Kapitel_324 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You pull up your hood and drop down behind the rocks that litter "
+				+ "the mouth of the cave. Holding your breath, you curl up into a tight ball, "
+				+ "and completely cover yourself with your green cloak. Only a few minutes "
+				+ "later the Giaks clamber over the rocky ledge outside, their evil yellow eyes "
+				+ "furtively searching every crevice of the hillside.\r\n"
+				+ "\r\n"
+				+ "Then cursing in their strange tongue, they leave the ledge and start to "
+				+ "climb towards the peak. You silently thank your old Masters for teaching "
+				+ "you the Kai Discipline of Camouflage—it has probably saved your "
+				+ "life on this occasion.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to explore the cave, turn to 33.\r\n","33",true),
+		new Option("If you wish to leave and descend the hill in case the Giaks return, turn to 248.","248",true));
+}
+
+public int Kapitel_325 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Upon seeing you emerge from the woods, the Giak officer shouts "
+				+ "‘Ogot! Ogot!’ to his cowering troops, who flee the ruins and run to "
+				+ "the safety of the forest.\r\n"
+				+ "\r\n"
+				+ "Shaking his mailed fist at you, the black-clad Giak screams, "
+				+ "‘RANEG ROGAG OK—ORGADAKA OKAK ROGAG GAJ!’ before leaving. Surveying "
+				+ "the scene of battle, you count over fifteen Giak dead lying among the "
+				+ "broken pillars of Raumas.\r\n"
+				+ "\r\n"
+				+ "The young wizard wipes his brow and walks towards you, his hand extended "
+				+ "in friendship.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 349.","349",true));
+}
+
+public int Kapitel_326 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You carefully insert the Key and turn it clockwise. You hear a dull "
+				+ "click—the Key works. You lift out the pin, and the large granite door slowly "
+				+ "swings towards you on hidden hinges. The grey half-light of the Graveyard floods "
+				+ "into the tomb. The exit is overgrown with graveweed and you suffer many cuts to "
+				+ "your face and arms as you fight your way through to the surface.\r\n"
+				+ "\r\n"
+				+ "Looking back, you see the tomb door slowly close and a cruel inhuman laugh seems "
+				+ "to rise out of the very ground on which you stand. In blind panic, you race through "
+				+ "the eerie necropolis towards the south gate.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 61.","61",true));
+}
+
+public int Kapitel_327 ()
+{
+	System.out.println("Within a few minutes, you can see the Kraan hovering over a hilltop behind you. "
+		+ "At a quick count you can make out at least sixteen of these horrible creatures, "
+		+ "each of which has at least two Giaks riding upon its back. They are armed with "
+		+ "long spears and wear tall pointed helmets of dull bronze. You hear the excited "
+		+ "grunts of the Giaks. They have spotted you.\r\n"
+		+ "\r\n"
+		+ "You jump for the entrance of the tunnel some twenty-five feet below, but your boot "
+		+ "gets caught in a thorny briar and you hang helplessly upside down—weaponless and "
+		+ "vulnerable. Fortunately for you the end is swift: As the first Giak lance pierces "
+		+ "your heart, death is instantaneous.\r\n"
+		+ "\r\n"
+		+ "Your life and your mission end here.");
+spiele.warte_auf_eingabe();
+return 351;
+}
+
+public int Kapitel_328 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"As the creature dies, its body slowly dissolves into a vile green liquid. "
+				+ "You notice that the grass and plants beneath the smoking fluid are beginning to "
+				+ "shrivel and die. But a large valuable looking Gem lies on the ground near to "
+				+ "the decaying body.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to take the Gem, turn to 76.\r\n","76",true),
+		new Option("If you would rather leave as quickly as possible, turn to 118.","118",true));
+}
+
+public int Kapitel_329 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"As you descend the ridge towards the Graveyard of the Ancients, you are aware of "
+				+ "a strange mist and cloud that swirls all around this grey and forbidding place, "
+				+ "blocking the sun and keeping the Graveyard in perpetual gloom.\r\n"
+				+ "\r\n"
+				+ "A creeping chill seems to penetrate your very bones. Your horse becomes "
+				+ "startled and no matter how you urge him on, he refuses to go any nearer "
+				+ "to this dreadful place. So you must leave your horse and press on by foot.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 284.","284",true));
+}
+
+public int Kapitel_330 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Fatigued by your exertions, you stop to rest for a few minutes at a fallen "
+				+ "tree. You notice a large bundle, beneath the trunk.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to examine the contents of the bundle, turn to 315.\r\n","315",true));
+}
+
+public int Kapitel_331 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Surrounded by thorny briars and closely packed roots, you see the entrance "
+				+ "of a tunnel disappearing into the hillside beyond. It is approximately seven feet "
+				+ "in height and just over ten feet wide. As you get closer, you can feel a slight breeze "
+				+ "coming from the inky blackness. If the other end of this tunnel emerges on the far side "
+				+ "of the hill, it could save you many hours of difficult climbing. But it could also harbour "
+				+ "unknown danger.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to enter the tunnel, turn to 170.\r\n","170",true),
+		new Option("If you would prefer to climb the hillside, turn to 280.","280",true));
+}
+
+public int Kapitel_332 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You walk for nearly ten minutes along a dark and winding corridor, and then start "
+				+ "to climb a steep staircase to a small wooden door. The man presses a secret catch and "
+				+ "the door opens. You enter a large, plushly decorated bedroom with a huge marble bath "
+				+ "that takes up one corner of the room. The man suggests that you refresh yourself here "
+				+ "whilst he seeks an audience with the King.\r\n"
+				+ "\r\n"
+				+ "You quickly bathe and change into some white robes that have been left out on a large "
+				+ "marble table. Shortly, the man returns and leads you through a long corridor lined "
+				+ "with exquisite tapestries. You finally arrive at a large door guarded by two soldiers "
+				+ "wearing silver armour.\r\n"
+				+ "\r\n"
+				+ "You are about to meet the King.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 350.","350",true));
+}
+
+public int Kapitel_333 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You have cut your way through the thick undergrowth for nearly half an hour when "
+				+ "you hear the beat of wings high above the trees. Looking up you can just make out the "
+				+ "shape of a Kraan approaching from the north. It is one of the monsters that attacked "
+				+ "the monastery and on its back are two grey-skinned creatures armed with long spears.\r\n"
+				+ "\r\n"
+				+ "These are Mountain Giaks—evil servants of the Darklords, full of hatred and malice. "
+				+ "Many centuries ago, their ancestors were used by the Darklords to build the infernal "
+				+ "city of Helgedad, which lies in the volcanic wastelands beyond the Durncrag range of "
+				+ "mountains. The construction of the city was long and torturous and only the strongest "
+				+ "of the Giaks survived the heat and poisonous atmosphere of Helgedad.\r\n"
+				+ "\r\n"
+				+ "Hidden by the trees, you freeze, keeping absolutely still as the Kraan passes overhead "
+				+ "and disappears towards the south. When you are sure that it has gone, you move "
+				+ "off once again into the forest.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 131.","131",true));
+}
+
+public int Kapitel_334 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"As the stream vanishes up into the rocky hillside, you can see on the track "
+				+ "above four soldiers and their officer. They wear the uniform of the King’s army.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to use the Kai Discipline of Sixth Sense, turn to 48.\r\n","48",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Sixth Sense")),
+		new Option("If you wish to use the Kai Discipline of Camouflage and wait for them to pass, turn to 73.\r\n","73",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Camouflage")),
+		new Option("If you wish to approach them, turn to 162.","162",true));
+}
+
+public int Kapitel_335 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"As you approach, the black bird flies off above the trees and soon disappears "
+				+ "from view. You search the tree on which it was perched but find nothing unusual. "
+				+ "Rather than waste any more precious time, you continue off along the track.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 121.","121",true));
+}
+
+public int Kapitel_336 ()
+{
+	System.out.println("You gallop forward to meet the oncoming Doomwolf and rider, your Weapon raised "
+		+ "to strike. The Giak sees you and unsheathes his scimitar. You must fight both Giak "
+		+ "and Doomwolf as one enemy.\r\n"
+		+ "\r\n"
+		+ "Giak + Doomwolf: COMBAT SKILL 14   ENDURANCE 24\r\n"
+		+ "\r\n"
+		+ "If you win the fight, turn to 193.");
+combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Giak 1", 14, 11), 0);
+if (ergebnis==combatResult.Win) {
+	ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Giak 2", 13, 11), 0);
+	if (ergebnis==combatResult.Win) {
+		return 193;
+		}
+	}
+return 351;
+}
+
+public int Kapitel_337 ()
+{
+	System.out.println("Just as you remove the ornate pin, a loud crack deafens you.\r\n"
+		+ "\r\n"
+		+ "Pick a number from the Random Number Table.\r\n"
+		+ "\r\n");
+	int speicher =zufalzahl.nextInt(10);
+	if (speicher<=4) {
+		System.out.println("If the number picked is 0–4, turn to 219.\r\n");
+		spiele.warte_auf_eingabe();
+		return 219;
+		}
+	else {
+		System.out.println("If the number is 5–9, turn to 317.");
+		spiele.warte_auf_eingabe();
+		return 317;
+		}
+	}
+
+public int Kapitel_338 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"When you awake, you find yourself lying at the foot of a steep slope in a "
+				+ "tangle of long grasses. Your Backpack and Weapons are missing and your head aches "
+				+ "violently. You cannot tell how long you have been unconscious, but you realize that "
+				+ "time is running out and you must press on. Standing up, you notice your Backpack and "
+				+ "Weapon on the slope above. They must have broken free when you fell. You quickly "
+				+ "retrieve them and move off into the trees ahead.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 113.","113",true));
+}
+
+public int Kapitel_339 ()
+{
+	System.out.println("You quickly sidestep just as a long dagger shatters the glass top of the counter. "
+		+ "A swarthy youth is attacking you and you must fight him.\r\n"
+		+ "\r\n"
+		+ "Robber: COMBAT SKILL 13   ENDURANCE 20\r\n"
+		+ "\r\n"
+		+ "If you kill him within 4 rounds of Combat, turn to 94.\r\n"
+		+ "\r\n"
+		+ "If you are still fighting after 4 rounds of Combat, turn to 203.\r\n"
+		+ "\r\n"
+		+ "You may evade combat by escaping through the front door at any stage of the fight, by "
+		+ "turning to 7.");
+	combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Robber", 13, 20), 0);
+	if (ergebnis==combatResult.Win) {
+		return spiele.optionauswahl(Spielefiguer,"",
+				Option.CharakterZeigen(),
+				new Option("If you kill him within 4 rounds of combat, turn to 94.\r\n","94",true),
+				new Option("If you are still fighting after 4 rounds of combat, turn to 203.\r\n","203",true),
+				new Option("You may evade more fighting after 2 rounds of combat by dashing through "
+						+ "the front door. If you wish to do this, turn to 7.","7",true));
+	}
+	return 351;
+}
+
+public int Kapitel_340 ()
+{
+System.out.println("You gallop forward to meet the oncoming Doomwolf and rider, your Weapon raised "
+		+ "to strike. The Giak sees you and unsheathes his scimitar. You must fight both Giak "
+		+ "and Doomwolf as one enemy.\r\n"
+		+ "\r\n"
+		+ "Giak + Doomwolf: COMBAT SKILL 14   ENDURANCE 24\r\n"
+		+ "\r\n"
+		+ "If you win the fight, turn to 193.");
+combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Giak + Doomwolf", 14, 24), 0);
+if (ergebnis==combatResult.Win) {
+	return 193;
+	}
+return 351;
+}
+
+public int Kapitel_341 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The guards do not believe your story and refuse to let you enter. Your escort "
+				+ "disappears into the crowd and you are left alone to find your way in this confused city.\r\n"
+				+ "\r\n"
+				+ "Shocked, and then dejected by such a rebuff, you are carried along by the crowds until "
+				+ "you find yourself at the entrance to the Guildhall. It stands at one side of the Guild "
+				+ "Bridge which crosses the River Eledil near where it joins the Holmgulf.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("If you wish to use the Kai Discipline of Tracking, turn to 310.\r\n","310",
+				Spielefiguer.getKaiDisciplines().haveKaiDisciplines("Tracking")),
+		new Option("If you wish to enter the Guildhall, turn to 210.\r\n","210",true),
+		new Option("If you wish to search for another route into the citadel, turn to 37.","37",true));
+}
+
+public int Kapitel_342 ()
+{
+System.out.println("As your voice echoes through the trees, the stranger slowly turns to face you. Your "
+		+ "heart pounds and your blood freezes as you realize that the stranger is not human. "
+		+ "It is a Vordak, a hideous lieutenant of the Darklords and one of the undead. "
+		+ "A piercing scream fills your ears, and the creature raises a huge black mace "
+		+ "above its head and charges at you. Frozen with horror, you can also feel the Vordak "
+		+ "attacking you with the force of its mind.\r\n"
+		+ "\r\n"
+		+ "Deduct 2 points from your COMBAT SKILL unless you have the Kai Discipline of Mindshield. "
+		+ "You must fight this creature. It is immune to Mindblast.\r\n"
+		+ "\r\n"
+		+ "Vordak: COMBAT SKILL 18   ENDURANCE 26\r\n"
+		+ "\r\n"
+		+ "If you win, turn to 123.");
+combatResult ergebnis = combatRules.Combat(Spielefiguer,new Enemy("Vordak", 18, 26), 0);
+if (ergebnis==combatResult.Win) {
+	return 123;
+	}
+return 351;
+}
+
+public int Kapitel_343 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You are held by the mass of tangled branches and roots. Eventually you free "
+				+ "your right hand, grab your weapon, and hack your way slowly through the foliage "
+				+ "to the clearer forest beyond. Your cloak is torn in several places and your left "
+				+ "arm is cut and badly bruised above the elbow.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Lose 2 ENDURANCE points and turn to 213.","213",true));
+}
+
+public int Kapitel_344 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You are weak and dizzy. You can no longer feel your legs and they refuse to "
+				+ "bear your weight. You try to crawl for the door but the robber jumps on you and pins "
+				+ "you to the ground.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 60.","60",true));
+}
+
+public int Kapitel_345 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"You pull up the hood of your green Kai cloak and hold your breath as the Kraan "
+				+ "circles above. After a few minutes, you hear the frantic curses of the Giaks. "
+				+ "The beating of Kraan wings fades, as they disappear towards the west. Your quick "
+				+ "reactions have saved you from capture and likely death.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("You can now return to the track, by turning to 272.\r\n","272",true),
+		new Option("Or push on under cover of the trees. Turn to 19.","19",true));
+}
+
+public int Kapitel_346 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Lodged deep in the rib cage of the skeleton is a Spear. It is in good condition and "
+				+ "you may take it if you wish and are able to.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("To leave the clearing, turn to 14.","14",true));
+}
+
+public int Kapitel_347 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"The trees start to thin out, and just ahead you can make out the silhouette of an "
+				+ "old log cabin beneath an oak tree. This hut seems to have been abandoned and there is "
+				+ "little of apparent value left behind. Opening a small chest near the main door, you "
+				+ "discover bunches of twigs that have been tied together with strong twine. One end "
+				+ "of each bundle has been coated with pitch. They are Torches. Next to the chest are "
+				+ "a Short Sword and a Tinderbox. You may take them and a Torch if you wish but make "
+				+ "sure that you mark them on your Action Chart.3\r\n"
+				+ "\r\n"
+				+ "Closing the door of the cabin, you head off along an overgrown path towards the "
+				+ "northeast.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 103.","103",true));
+}
+
+public int Kapitel_348 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"Raising your boot to kick away the dead snake, your heart skips a beat as you realize "
+				+ "that it was a Red Marshviper. There is no known cure for its venomous bite! You decide "
+				+ "that to go any further in this direction would be suicide. Carefully retracing your "
+				+ "steps, you eventually reach firm ground and continue on your mission.\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 95.","95",true));
+}
+
+public int Kapitel_349 ()
+{
+	return spiele.optionauswahl(Spielefiguer,
+		"He is a young blond-haired youth with deep brooding eyes. His face is lined with "
+				+ "exhaustion and the grime of battle, and his long sky-blue robes bear evidence of living "
+				+ "rough in the wilds. He shakes your hand and bows. ‘My eternal thanks, Kai Lord. My powers "
+				+ "are nearly drained. Had you not come to my aid, I fear I would have ended my days atop a "
+				+ "Giak lance.’\r\n"
+				+ "\r\n"
+				+ "He is weak and unsteady on his feet. You take his arm and sit him down upon a fallen pillar "
+				+ "where you listen intently to what he has to say.\r\n"
+				+ "\r\n"
+				+ "‘My name is Banedon. I am journeyman to the Brotherhood of the Crystal Star, which is the "
+				+ "Magicians’ Guild of Toran. My Guildmaster has sent me to your monastery with this urgent "
+				+ "message.’ He removes a vellum envelope from inside his robes and hands it to you.\r\n"
+				+ "\r\n"
+				+ "‘As you see, I have opened the letter and read its contents. When the war started, I was "
+				+ "on the highway with two travelling companions. The Kraan attacked us and we lost each other "
+				+ "in the forest during our escape.’\r\n"
+				+ "\r\n"
+				+ "The letter is a warning to the Kai Lords that the Darklords have mustered a vast army "
+				+ "beyond the Durncrag Range. The Guildmaster urges the Kai to cancel the celebrations of "
+				+ "Fehmarn and prepare for war.\r\n"
+				+ "\r\n"
+				+ "‘I fear we were betrayed,’ says Banedon, his head bowed in sorrow.\r\n"
+				+ "\r\n"
+				+ "‘One of my order, a brother called Vonotar, had explored the forbidden mysteries of "
+				+ "the Black Art. Ten days ago he denounced the Brotherhood and killed one of our Elders. "
+				+ "He has since disappeared. It is rumoured that he now aids the Darklords.’\r\n"
+				+ "\r\n"
+				+ "You tell Banedon what has happened at the monastery, and of your mission to warn the "
+				+ "King. Silently, he removes a gold chain from around his neck and hands it to you. On the "
+				+ "chain is a small Crystal Star Pendant. ‘It is the symbol of my Brotherhood, and we are both "
+				+ "truly brothers in this hour of darkness. It is a talisman of good fortune—may it protect you "
+				+ "on your road ahead.’\r\n"
+				+ "\r\n"
+				+ "You thank him, place the chain around your neck, and slip the Crystal Star4 inside "
+				+ "our shirt. (Remember to mark this on your Action Chart.)\r\n"
+				+ "\r\n"
+				+ "Banedon bids you farewell. ‘We must leave this place lest the Giaks return with more "
+				+ "of their loathsome kind to put an end to us. I must return to my Guild. "
+				+ "I bid you farewell, my brother. May the luck of the gods go with you.’\r\n"
+				+ "\r\n",
+		Option.CharakterZeigen(),
+		new Option("Turn to 293.","293",true));
+}
+
+public int Kapitel_350 ()
+{
+	System.out.println("You enter the Chamber of State, a magnificent hall decorated lavishly in white and "
+		+ "gold. The King and his closest advisers are studying a large map spread upon a marble "
+		+ "plinth in the centre of the chamber. Their faces are lined with worry and concentration. "
+		+ "A silence fills the hall as you tell of the death of your kinsmen and of your perilous "
+		+ "journey to the citadel. As you finish your story, the King approaches and takes your "
+		+ "right hand in his.\r\n"
+		+ "[Illustration XX]\r\n"
+		+ "\r\n"
+		+ "‘Lone Wolf, you have selfless courage: the quality of a true Kai Lord. Your journey "
+		+ "here has been one of great peril and although your news comes as a grievous blow, the "
+		+ "spirit of your determination is like a beacon of hope to us all in this dark hour. You "
+		+ "have brought great honour to the memory of your Masters, and for that we praise you.’\r\n"
+		+ "\r\n"
+		+ "You receive the praise and heartfelt thanks of the entire hall—an honour that brings a "
+		+ "certain redness to your young face. The King raises his hand and all the voices cease.\r\n"
+		+ "\r\n"
+		+ "‘You have done all that Sommerlund could have asked of a loyal son, but she is greatly "
+		+ "in need of you still. The Darklords are powerful once more and their ambition knows no "
+		+ "bounds. Our only hope lies within Durenor with the power that once defeated the Darklords "
+		+ "an age ago. Lone Wolf, you are the last of the Kai—you have the skills. Will you journey "
+		+ "to Durenor and return with the Sommerswerd, the sword of the sun? Only with that gift of "
+		+ "the gods may we crush this evil and save our land.’\r\n"
+		+ "\r\n"
+		+ "If you wish to accept the quest of the Sommerswerd, begin your adventure with Book 2 "
+		+ "of the Lone Wolf adventures:");
+	spiele.warte_auf_eingabe();
+	return 351;
 }
 }

@@ -2,8 +2,6 @@ package Spiele;
 
 import java.util.Random;
 
-import javax.management.loading.PrivateClassLoader;
-
 public class combatRules {
 	
 	private static Random zufallzahl = new Random();

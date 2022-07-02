@@ -1,5 +1,4 @@
 package Spiele;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class spiele {
@@ -31,18 +30,8 @@ public class spiele {
 					speilen_zeit = true;
 					ClearConsole();
 					break;
-				//			Lade eine Alten Charakter
-				case 2:
-					ClearConsole();
-					Spielfigur = Charakter.Charakter_Laden();
-					Kapitel_Spiel = new Kapitel();
-					Kapitel_Spiel.Get_Spielfiguer(Spielfigur);
-					Kapitel_Spiel.KapitelAuswahl(Spielfigur.getCapitel());					
-					speilen_zeit = true;
-					ClearConsole();
-					break;
 				//			Zeige die Dankasagung an
-				case 3:
+				case 2:
 					ClearConsole();
 					Danksagung();
 					speilen_zeit = true;
@@ -50,7 +39,7 @@ public class spiele {
 					
 					break;
 				//			Bende das Spiele  break befehele
-				case 4:
+				case 3:
 					speilen_zeit = false;
 					break;
 				}
@@ -65,9 +54,8 @@ public class spiele {
 		System.out.println("");
 		System.out.println("Welcome to the Flight from the Dark adventure.");
 		System.out.println("Neues Spiel : 1.");
-		System.out.println("Spiel Laden : 2.");
-		System.out.println("Danksagung  : 3.");
-		System.out.println("Spiel Benden  : 4.");
+		System.out.println("Danksagung  : 2.");
+		System.out.println("Spiel Benden  : 3.");
 		return EingabeIntMinMAx(1,4);
 				
 	}
@@ -250,7 +238,8 @@ public class spiele {
 	{
 	    try
 	    {
-	       int i = Integer.parseInt(input);
+	       @SuppressWarnings("unused")
+		int i = Integer.parseInt(input);
 	    }
 	    catch (NumberFormatException e)
 	    {

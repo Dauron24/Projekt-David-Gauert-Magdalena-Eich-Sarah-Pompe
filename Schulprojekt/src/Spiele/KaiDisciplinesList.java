@@ -7,6 +7,11 @@ import java.util.Scanner;
 public class KaiDisciplinesList extends ArrayList<KaiDisciplines> {
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public KaiDisciplinesList(KaiDisciplines ... Kai1){
 		super();
 		for (KaiDisciplines kaiDisciplines : Kai1) {
