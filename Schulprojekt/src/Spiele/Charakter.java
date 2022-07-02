@@ -108,6 +108,40 @@ public class Charakter {
 	    	this.Meals = new Equipment("Meals", 1, name);
 	    	this.belt_Pouch = new Equipment("weapons", zufallzahl.nextInt(9), "belt_Pouch");
 	    	this.specialItems.add(new Equipment("Map of Sommerlund", 1, "specialItems"));
+	    	
+	    	zufallzahl.nextInt();
+	    	switch (zufallzahl.nextInt(10)) {
+			case 1 :
+				this.weapons.add(new Equipment("Sword", 1,"name"));
+				break;
+			case 2:
+				this.specialItems.add(new Equipment("Helmet", 1,"name"));
+				break;
+			case 3:
+				this.Meals.incrementAnzahl(2);
+				break;
+			case 4:
+				this.specialItems.add(new Equipment("Chainmail Waistcoat", 1,"name"));
+				break;
+			case 5 :
+				this.weapons.add(new Equipment("Mace", 1,"name"));
+				break;
+			case 6 :
+				this.backpackItems.add(new Equipment("Healing Potion", 1,"name"));
+				break;
+			case 7 :
+				this.weapons.add(new Equipment("Quarterstaff", 1,"name"));
+				break;
+			case 8 :
+				this.weapons.add(new Equipment("Spear", 1,"name"));
+				break;
+			case 9 :
+				this.weapons.add(new Equipment("Broadswordr", 1,"name"));
+				break;
+			case 0:
+				this.belt_Pouch.incrementAnzahl(12);
+				break;
+			}
 	    		    	
 	    	
 		}
