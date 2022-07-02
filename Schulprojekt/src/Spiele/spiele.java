@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class spiele {
 
-	private static Scanner eingabe = new Scanner(System.in);
+	//private static Scanner eingabe = new Scanner(System.in);
 	private static Charakter Spielfigur;
 	private static Kapitel Kapitel_Spiel;
 	
@@ -123,15 +123,17 @@ public class spiele {
         }
     }
 	public static void warte_auf_eingabe() {
+		Scanner eingabe = new Scanner(System.in);
 		System.out.println("Presse a Key and Enter to continue.");
-		eingabe.next();
+		eingabe.nextLine();
 	}
 	
 	public static int EingabeInt() 
 	{
 		do {	
 			int i=0;
-			String inpute = eingabe.next();
+			Scanner eingabe = new Scanner(System.in);
+			String inpute = eingabe.nextLine();
 			if (isInteger(inpute)) {
 				i = Integer.parseInt(inpute);
 				return i;
@@ -144,9 +146,11 @@ public class spiele {
 	
 	public static int EingabeInt(int ... num) 
 	{
+		
 		do {	
 			int i=0;
-			String inpute = eingabe.next();
+			Scanner eingabe = new Scanner(System.in);
+			String inpute = eingabe.nextLine();
 			if (isInteger(inpute)) {
 				i = Integer.parseInt(inpute);	
 				
@@ -164,8 +168,9 @@ public class spiele {
 	
 	public static String EingabeString(String ... Text) 
 	{
+		Scanner eingabe = new Scanner(System.in);
 		do {	
-			String inpute = eingabe.next();
+			String inpute = eingabe.nextLine();
 			
 			for (String j : Text) {
 					if (j.equals(inpute))
@@ -181,7 +186,8 @@ public class spiele {
 	{		
 		do {	
 		int i=0;
-		String inpute = eingabe.next();
+		Scanner eingabe = new Scanner(System.in);
+		String inpute = eingabe.nextLine();
 		if (isInteger(inpute)) {
 			i = Integer.parseInt(inpute);
 			if (i>=min&&i<=max)
@@ -196,9 +202,10 @@ public class spiele {
 	
 	public static String EingabeString() 
 	{
+		Scanner eingabe = new Scanner(System.in);
 		do {	
 			String s="";
-			String inpute = eingabe.next();
+			String inpute = eingabe.nextLine();
 			if (isInteger(inpute)) {
 				System.out.println("You have do inpute a String");				
 			}			
@@ -211,11 +218,12 @@ public class spiele {
 	public static boolean bestädigen_Entscheidung() 
 	{
 		String auswahl ="";
+		Scanner eingabe = new Scanner(System.in);
 		do {			
 		
 		System.out.println("Sind sie sich sicher j/n");
 		try {
-			auswahl=eingabe.next();
+			auswahl=eingabe.nextLine();
 			
 		} catch (Exception e) {
 			// TODO: handle exception

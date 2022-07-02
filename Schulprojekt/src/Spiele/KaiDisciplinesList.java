@@ -112,7 +112,6 @@ public class KaiDisciplinesList extends ArrayList<KaiDisciplines> {
 			}
     		
     	} while (i<=5);
-    	eingabe.close();
 	}
 	
 	public boolean haveKaiDisciplines(String Name) {
