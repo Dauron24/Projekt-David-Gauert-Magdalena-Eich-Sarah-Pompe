@@ -382,7 +382,8 @@ public void KapitelAuswahl(int start)
 		System.out.println("Das Spiel ist vorbei");
 		spiele.warte_auf_eingabe();
 		return;
-		}		
+		}
+		spiele.ClearConsole();
 		Kapitel=Kapittelliste.get(Kapitel-1).get();	
 	
 	} while (true);
